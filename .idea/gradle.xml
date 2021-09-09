@@ -10,7 +10,13 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/feeling" />
+            <option value="$PROJECT_DIR$/framework" />
+            <option value="$PROJECT_DIR$/framework/application" />
+            <option value="$PROJECT_DIR$/framework/network" />
+            <option value="$PROJECT_DIR$/framework/ui" />
+            <option value="$PROJECT_DIR$/framework/ui/base-page" />
+            <option value="$PROJECT_DIR$/framework/ui/tabFragment" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

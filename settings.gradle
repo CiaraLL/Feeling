@@ -1,3 +1,9 @@
+include ':framework:ui:base-page'
+include ':framework:ui:tabFragment'
+include 'feeling'
+include ':framework:application'
+include ':framework:network'
+include ':framework:ui'
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
@@ -7,4 +13,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Feelling"
-include ':app'
+
