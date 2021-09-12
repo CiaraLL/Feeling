@@ -1,6 +1,7 @@
+include ':feeling:welcome'
+include ':feeling:login'
 include ':framework:ui:base-page'
 include ':framework:ui:tabFragment'
-include 'feeling'
 include ':framework:application'
 include ':framework:network'
 include ':framework:ui'
