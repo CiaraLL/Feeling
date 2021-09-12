@@ -1,4 +1,4 @@
-package com.lwh.network;
+package com.li.framework.ui.utility;
 
 import android.content.Context;
 import androidx.test.platform.app.InstrumentationRegistry;
@@ -20,6 +20,6 @@ public class ExampleInstrumentedTest {
   public void useAppContext() {
     // Context of the app under test.
     Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-    assertEquals("com.lwh.network.test", appContext.getPackageName());
+    assertEquals("com.li.framework.ui.utility.test", appContext.getPackageName());
   }
 }
