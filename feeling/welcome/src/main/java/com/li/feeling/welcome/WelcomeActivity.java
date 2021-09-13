@@ -24,6 +24,7 @@ public class WelcomeActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome_layout);
         mTimerView = findViewById(R.id.welcome_textview);
+
     }
 
 

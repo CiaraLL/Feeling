@@ -1,3 +1,4 @@
+include ':resources:color-library'
 include ':framework:ui:utility'
 include ':feeling:welcome'
 include ':feeling:login'
