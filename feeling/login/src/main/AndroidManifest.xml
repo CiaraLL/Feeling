@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.lwh.login"
-  xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.li.feeling">
 
   <application>
-    <activity android:name="com.li.feeling.login.LoginActivity"></activity>
+    <activity android:name="com.li.feeling.login.LoginActivity"/>
+    <activity android:name="com.li.feeling.register.RegisterActivity"/>
   </application>
 
 </manifest>

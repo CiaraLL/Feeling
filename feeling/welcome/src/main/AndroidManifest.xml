@@ -6,7 +6,6 @@
     <application
         android:icon="@mipmap/app">
         <activity android:name="com.li.feeling.welcome.WelcomeActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
             android:label="@string/app_name"
             tools:ignore="IntentFilterExportedReceiver">
             <intent-filter >

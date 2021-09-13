@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/code/android/Feeling/feeling/login/src/main/res/layout/fragment_login_layout.xml" value="0.1" />
+        <entry key="..\:/code/android/Feeling/feeling/login/src/main/res/layout/fragment_login_layout.xml" value="0.2" />
+        <entry key="..\:/code/android/Feeling/feeling/login/src/main/res/layout/fragment_register_layout.xml" value="0.20199275362318841" />
         <entry key="..\:/code/android/Feeling/feeling/welcome/src/main/res/layout/activity_welcome_layout.xml" value="0.109375" />
+        <entry key="..\:/code/android/Feeling/framework/ui/tabFragment/src/main/res/layout/activity_tab_fragment.xml" value="0.20199275362318841" />
       </map>
     </option>
   </component>

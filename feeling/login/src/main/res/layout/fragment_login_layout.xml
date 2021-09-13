@@ -7,58 +7,113 @@
   android:layout_height="match_parent"
   tools:context="com.li.feeling.login.LoginActivity">
 
-  <EditText
-    android:id="@+id/login_page_phone_view"
-    android:layout_width="match_parent"
-    android:layout_height="78dp"
-    app:layout_constraintTop_toTopOf="parent"
-    android:layout_marginTop="100dp"
-    android:layout_marginStart="50dp"
-    android:layout_marginEnd="50dp"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp"
-    android:hint="请输入手机号"
-    android:background="@color/color_base_black_4">
-  </EditText>
+  <TextView
+      android:id="@+id/fragment_login_page_title"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      android:layout_marginTop="50dp"
+      android:text="登录"
+      android:textSize="25sp">
+  </TextView>
 
-  <EditText
-    android:id="@+id/login_page_password_view"
-    android:layout_width="match_parent"
-    android:layout_height="78dp"
-    app:layout_constraintTop_toBottomOf="@+id/login_page_phone_view"
-    android:layout_marginTop="50dp"
-    android:layout_marginStart="50dp"
-    android:layout_marginEnd="50dp"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp"
-    android:hint="请输入密码"
-    android:background="@color/color_base_black_4">
-  </EditText>
+  <LinearLayout
+      app:layout_constraintTop_toBottomOf="@+id/fragment_login_page_title"
+      android:id="@+id/account_container"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      android:layout_marginTop="100dp"
+      android:orientation="horizontal">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="账号："
+        android:textSize="20sp">
+    </TextView>
+    <EditText
+        android:id="@+id/fragment_login_page_phone_editText"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content">
+    </EditText>
+  </LinearLayout>
+
+  <LinearLayout
+      android:id="@+id/password_container"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="60dp"
+      android:orientation="horizontal"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/account_container">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="密码："
+        android:textSize="20sp">
+    </TextView>
+    <EditText
+        android:id="@+id/fragment_login_page_password_editView"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:password="true">
+    </EditText>
+  </LinearLayout>
+
+  <LinearLayout
+      android:id="@+id/choice_container"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      app:layout_constraintTop_toBottomOf="@+id/fragment_login_pager_login_button"
+      android:layout_marginTop="20dp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.18"
+      android:orientation="horizontal">
+
+    <CheckBox
+        android:id="@+id/remember_pwd"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="记住密码"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/fragment_login_register_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="68dp"
+        android:text="去注册"
+        android:textSize="13sp">
+    </TextView>
+
+  </LinearLayout>
 
   <Button
-    android:id="@+id/login_page_login_button"
-    android:layout_width="match_parent"
-    android:layout_height="78dp"
-    app:layout_constraintTop_toBottomOf="@+id/login_page_password_view"
-    android:layout_marginTop="100dp"
-    android:layout_marginStart="50dp"
-    android:layout_marginEnd="50dp"
-    android:background="@color/color_base_red_live_3"
-    android:text="登陆"
-    android:textSize="26sp"
-    android:textColor="@color/color_base_white">
+      android:id="@+id/fragment_login_pager_login_button"
+      android:layout_width="match_parent"
+      android:layout_height="70dp"
+      app:layout_constraintTop_toBottomOf="@+id/password_container"
+      android:layout_marginStart="50dp"
+      android:layout_marginTop="120dp"
+      android:layout_marginEnd="50dp"
+      android:text="登录"
+      android:textSize="25sp">
   </Button>
 
-  <TextView
-    android:id="@+id/login_page_register_view"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    app:layout_constraintEnd_toEndOf="@id/login_page_login_button"
-    app:layout_constraintTop_toBottomOf="@+id/login_page_login_button"
-    android:layout_marginTop="50dp"
-    android:text="注册"
-    android:textColor="@color/color_base_violet_5"
-    android:textSize="20sp">
-  </TextView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
