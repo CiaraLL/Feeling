@@ -4,7 +4,7 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 
 import com.li.fragment.base_page.activity.BaseActivity;
-import com.lwh.welcome.R;
+
 
 /**
  * description: 欢迎页面

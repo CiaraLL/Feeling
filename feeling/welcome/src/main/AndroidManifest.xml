@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.lwh.welcome"
+<manifest xmlns:tools="http://schemas.android.com/tools"
+    package="com.li.feeling.welcome"
   xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <application>
+    <application
+        android:icon="@mipmap/app">
         <activity android:name="com.li.feeling.welcome.WelcomeActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:label="@string/app_name"
+            tools:ignore="IntentFilterExportedReceiver">
             <intent-filter >
                 <action android:name="android.intent.action.MAIN"></action>
                 <category android:name="android.intent.category.LAUNCHER"></category>
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>
