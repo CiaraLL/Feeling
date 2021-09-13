@@ -36,7 +36,7 @@ public class LoginFragment extends BaseFragment {
       @NonNull LayoutInflater inflater,
       @Nullable ViewGroup container,
       @Nullable Bundle savedInstanceState) {
-    return inflater.inflate(R.layout.fragment_login_layout, container);
+    return inflater.inflate(R.layout.fragment_login_layout, container, false);
   }
 
   @Override
@@ -72,7 +72,7 @@ public class LoginFragment extends BaseFragment {
 
   private void jumpToRegisterPager() {
     Activity activity = getActivity();
-    if (activity == null){
+    if (activity == null) {
       return;
     }
     RegisterActivity.start(activity);

@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.li.feeling">
+<manifest package="com.li.feeling"
+  xmlns:android="http://schemas.android.com/apk/res/android">
 
   <application>
-    <activity android:name="com.li.feeling.login.LoginActivity"/>
-    <activity android:name="com.li.feeling.register.RegisterActivity"/>
+    <activity
+      android:name="com.li.feeling.login.LoginActivity"
+      android:theme="@style/Theme.AppCompat.NoActionBar" />
+    <activity
+      android:name="com.li.feeling.register.RegisterActivity"
+      android:theme="@style/Theme.AppCompat.NoActionBar" />
   </application>
 
 </manifest>
