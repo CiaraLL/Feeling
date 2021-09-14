@@ -18,3 +18,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Feelling"
 
+include ':resources:sharepreferences'

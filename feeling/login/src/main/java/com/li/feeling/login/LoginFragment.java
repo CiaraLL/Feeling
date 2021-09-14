@@ -74,7 +74,7 @@ public class LoginFragment extends BaseFragment {
 
   private void doLogin() {
    RetrofitManager.getInstance().create(LoginApiService.class)
-       .login(mPhoneView.getText().toString(), "bbb")
+       .login(mPhoneView.getText().toString() , "bbb")
    .enqueue(new Callback<User>() {
      @Override
      public void onResponse(Call<User> call, Response<User> response) {
