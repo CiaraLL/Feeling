@@ -1,4 +1,4 @@
-package com.example.sharepreferences;
+package com.example.li.framework.sharepreferences;
 
 import org.junit.Test;
 

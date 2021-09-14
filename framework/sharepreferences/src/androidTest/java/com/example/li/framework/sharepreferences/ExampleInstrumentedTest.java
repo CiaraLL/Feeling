@@ -1,4 +1,4 @@
-package com.example.sharepreferences;
+package com.example.li.framework.sharepreferences;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.example.sharepreferences.test", appContext.getPackageName());
+        assertEquals("com.example.li.framework.sharepreferences.test", appContext.getPackageName());
     }
 }

@@ -7,6 +7,7 @@ include ':framework:ui:base-page'
 include ':framework:ui:tabFragment'
 include ':framework:application'
 include ':framework:network'
+include ':framework:sharepreferences'
 
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
@@ -18,4 +19,3 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Feelling"
 
-include ':resources:sharepreferences'
