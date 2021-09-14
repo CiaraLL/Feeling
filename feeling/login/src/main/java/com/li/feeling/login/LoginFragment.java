@@ -11,9 +11,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.li.feeling.R;
+import com.li.feeling.login.api.LoginApiService;
 import com.li.feeling.register.RegisterActivity;
 import com.li.fragment.base_page.fragment.BaseFragment;
+import com.li.framework.retrofit_utility.RetrofitManager;
 import com.li.framework.ui.utility.DuplicatedClickFilter;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 /**
@@ -67,6 +73,19 @@ public class LoginFragment extends BaseFragment {
   }
 
   private void doLogin() {
+   RetrofitManager.getInstance().create(LoginApiService.class)
+       .login(mPhoneView.getText().toString(), "bbb")
+   .enqueue(new Callback<User>() {
+     @Override
+     public void onResponse(Call<User> call, Response<User> response) {
+       System.out.println("");
+     }
+
+     @Override
+     public void onFailure(Call<User> call, Throwable t) {
+       System.out.println("");
+     }
+   });
 
   }
 
@@ -77,4 +96,13 @@ public class LoginFragment extends BaseFragment {
     }
     RegisterActivity.start(activity);
   }
+
+  public class User {
+
+    public String mAccount;
+    public String mPassword;
+    public String mNickName;
+
+  }
+
 }
