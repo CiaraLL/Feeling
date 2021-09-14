@@ -1,3 +1,4 @@
+include ':framework:app'
 include ':framework:retrofit-utility'
 include ':resources:color-library'
 include ':framework:ui:utility'
@@ -5,7 +6,7 @@ include ':feeling:welcome'
 include ':feeling:login'
 include ':framework:ui:base-page'
 include ':framework:ui:tabFragment'
-include ':framework:application'
+
 include ':framework:network'
 include ':framework:sharepreferences'
 

@@ -1,4 +1,4 @@
-package com.lwh.application;
+package com.li.framework.app;
 
 import org.junit.Test;
 

@@ -4,7 +4,7 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <option name="testRunner" value="GRADLE" />
+        <option name="testRunner" value="PLATFORM" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
@@ -14,7 +14,7 @@
             <option value="$PROJECT_DIR$/feeling/login" />
             <option value="$PROJECT_DIR$/feeling/welcome" />
             <option value="$PROJECT_DIR$/framework" />
-            <option value="$PROJECT_DIR$/framework/application" />
+            <option value="$PROJECT_DIR$/framework/app" />
             <option value="$PROJECT_DIR$/framework/network" />
             <option value="$PROJECT_DIR$/framework/retrofit-utility" />
             <option value="$PROJECT_DIR$/framework/sharepreferences" />
@@ -27,6 +27,7 @@
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
+        <option name="useQualifiedModuleNames" value="true" />
       </GradleProjectSettings>
     </option>
   </component>
