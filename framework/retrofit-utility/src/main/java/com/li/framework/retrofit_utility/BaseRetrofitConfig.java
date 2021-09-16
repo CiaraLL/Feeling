@@ -9,20 +9,22 @@ import com.google.gson.Gson;
 import okhttp3.OkHttpClient;
 
 /**
- * description: IRetrofitConfig的基类
+ * description: IRetrofitConfig的基类：
+ * 配置的基本实现，后面有什么通用的配置都可以在这里实现
+ * 推荐库的使用方的自定义的retrofitConfig继承该类,需要自定义的具体内容再去子类化即可
  */
 public abstract class BaseRetrofitConfig implements IRetrofitConfig {
 
   @NonNull
   @Override
-  public Gson buildGson() {
+  public Gson getGson() {
     return GsonHolder.sGson;
   }
 
   @NonNull
   @Override
-  public OkHttpClient buildClient() {
-    return ClientHolder.sOkHttpClient;
+  public OkHttpClient getClient() {
+    return OkHttpClientHolder.sOkHttpClient;
   }
 
   // 默认就是一个没有任何自定义配置的gson对象
@@ -31,7 +33,7 @@ public abstract class BaseRetrofitConfig implements IRetrofitConfig {
   }
 
   // 只配置了超时时间
-  private static class ClientHolder {
+  private static class OkHttpClientHolder {
     // 默认的超时时间
     private final static int DEFAULT_API_TIMEOUT_SEC = 10;
 
