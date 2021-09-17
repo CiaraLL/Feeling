@@ -17,6 +17,7 @@
             <option value="$PROJECT_DIR$/framework" />
             <option value="$PROJECT_DIR$/framework/framework-context" />
             <option value="$PROJECT_DIR$/framework/framework-init" />
+            <option value="$PROJECT_DIR$/framework/framework-model" />
             <option value="$PROJECT_DIR$/framework/framework-network" />
             <option value="$PROJECT_DIR$/framework/framework-network/retrofit-utility" />
             <option value="$PROJECT_DIR$/framework/framework-ui" />
