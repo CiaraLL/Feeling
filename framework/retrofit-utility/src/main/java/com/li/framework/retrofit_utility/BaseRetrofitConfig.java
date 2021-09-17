@@ -15,6 +15,11 @@ import okhttp3.OkHttpClient;
  */
 public abstract class BaseRetrofitConfig implements IRetrofitConfig {
 
+  // 默认的超时时间
+  private final static int DEFAULT_API_TIMEOUT_SEC = 10;
+
+  private static volatile OkHttpClient sHttpClient = null;
+
   @NonNull
   @Override
   public Gson getGson() {
@@ -24,29 +29,35 @@ public abstract class BaseRetrofitConfig implements IRetrofitConfig {
   @NonNull
   @Override
   public OkHttpClient getClient() {
-    return OkHttpClientHolder.sOkHttpClient;
+    // 用静态内部类做单例就比较麻烦了(createOkHttpClientBuilder函数是要被子类定制的)，因此直接用双重检查锁
+    if (sHttpClient == null) {
+      synchronized (BaseRetrofitConfig.class) {
+        if (sHttpClient == null) {
+          sHttpClient = createOkHttpClientBuilder(DEFAULT_API_TIMEOUT_SEC).build();
+        }
+      }
+    }
+    return sHttpClient;
+  }
+
+  /**
+   * 用于对okHttpClient进行配置:超时时间、各种拦截器(例如发送请求时可以配置header)
+   * 子类可以重载该方法(添加自己的配置)
+   *
+   * @param timeoutSec 超时时间
+   */
+  // TODO: 9/17/21 后面加上添加header的拦截器
+  @NonNull
+  protected OkHttpClient.Builder createOkHttpClientBuilder(int timeoutSec) {
+    return new OkHttpClient.Builder()
+        .connectTimeout(timeoutSec, SECONDS)
+        .readTimeout(timeoutSec, SECONDS)
+        .writeTimeout(timeoutSec, SECONDS);
   }
 
   // 默认就是一个没有任何自定义配置的gson对象
   private static class GsonHolder {
     static Gson sGson = new Gson();
-  }
-
-  // 只配置了超时时间
-  private static class OkHttpClientHolder {
-    // 默认的超时时间
-    private final static int DEFAULT_API_TIMEOUT_SEC = 10;
-
-    static OkHttpClient sOkHttpClient = createOkHttpClient();
-
-    @NonNull
-    private static OkHttpClient createOkHttpClient() {
-      return new OkHttpClient.Builder()
-          .connectTimeout(DEFAULT_API_TIMEOUT_SEC, SECONDS)
-          .readTimeout(DEFAULT_API_TIMEOUT_SEC, SECONDS)
-          .writeTimeout(DEFAULT_API_TIMEOUT_SEC, SECONDS)
-          .build();
-    }
   }
 
 }
