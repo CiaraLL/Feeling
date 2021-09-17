@@ -3,6 +3,8 @@ package com.li.feeling.init.application;
 import android.app.Application;
 import android.content.Context;
 
+import com.li.framework.app.ContextService;
+
 /**
  * description: 整个app的application
  * Zygote进程是系统开机后由init进程fork出来的，然后Zygote进程会fork出SystemServer进程
@@ -26,7 +28,7 @@ public class FeelingApplication extends Application {
   @Override
   protected void attachBaseContext(Context base) {
     super.attachBaseContext(base);
-    // TODO: 9/17/21 全局初始化操作
+    ContextService.setAppContext(this);
   }
 
 }
