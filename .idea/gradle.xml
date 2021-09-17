@@ -14,14 +14,14 @@
             <option value="$PROJECT_DIR$/feeling/login" />
             <option value="$PROJECT_DIR$/feeling/welcome" />
             <option value="$PROJECT_DIR$/framework" />
-            <option value="$PROJECT_DIR$/framework/app" />
-            <option value="$PROJECT_DIR$/framework/network" />
-            <option value="$PROJECT_DIR$/framework/retrofit-utility" />
+            <option value="$PROJECT_DIR$/framework/framework-context" />
+            <option value="$PROJECT_DIR$/framework/framework-network" />
+            <option value="$PROJECT_DIR$/framework/framework-network/retrofit-utility" />
+            <option value="$PROJECT_DIR$/framework/framework-ui" />
+            <option value="$PROJECT_DIR$/framework/framework-ui/base-page" />
+            <option value="$PROJECT_DIR$/framework/framework-ui/tabFragment" />
+            <option value="$PROJECT_DIR$/framework/framework-ui/utility" />
             <option value="$PROJECT_DIR$/framework/sharepreferences" />
-            <option value="$PROJECT_DIR$/framework/ui" />
-            <option value="$PROJECT_DIR$/framework/ui/base-page" />
-            <option value="$PROJECT_DIR$/framework/ui/tabFragment" />
-            <option value="$PROJECT_DIR$/framework/ui/utility" />
             <option value="$PROJECT_DIR$/resources" />
             <option value="$PROJECT_DIR$/resources/color-library" />
           </set>

@@ -1,2 +1,0 @@
-com/li/framework/application/BuildConfig.java
- com.li.framework.application.BuildConfig

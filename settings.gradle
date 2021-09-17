@@ -1,13 +1,13 @@
-include ':framework:app'
-include ':framework:retrofit-utility'
+include ':framework:framework-network:retrofit-utility'
+include ':framework:framework-context'
 include ':resources:color-library'
-include ':framework:ui:utility'
+include ':framework:framework-ui:utility'
 include ':feeling:welcome'
 include ':feeling:login'
-include ':framework:ui:base-page'
-include ':framework:ui:tabFragment'
+include ':framework:framework-ui:base-page'
+include ':framework:framework-ui:tabFragment'
 
-include ':framework:network'
+include ':framework:framework-network'
 include ':framework:sharepreferences'
 
 dependencyResolutionManagement {
