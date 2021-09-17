@@ -11,7 +11,7 @@ import android.content.Context;
  * 1. 点击桌面应用的图标后(发生在Launch应用的进程中)，然后发消息给SystemServer进程，然后SystemServer进程的ActivityManagerServer(AMS)
  * 通过socket通信告知Zygote进程来fork出app进程(每一个应用程序都是一个app进程)
  * <p>
- * 2. app进程启动后，会实例化ActivityThread对象，然后执行它的main函数，也就是在该函数中，启动了主线程的loop,,然后acticityThread通过
+ * 2. app进程启动后，会实例化ActivityThread对象，然后执行它的main函数，也就是在该函数中，启动了主线程的loop,,然后activityThread通过
  * binder通信，告诉AMS执行attachApplication(mAppThread)方法，该方法里面依次初始化了application和activity
  * <p>
  * 3. ActivityThread.handleBindApplication()方法通知主线程创建Application对象，然后调用
