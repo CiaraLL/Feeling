@@ -73,19 +73,19 @@ public class LoginFragment extends BaseFragment {
   }
 
   private void doLogin() {
-   RetrofitManager.getInstance().create(LoginApiService.class)
-       .login(mPhoneView.getText().toString() , "bbb")
-   .enqueue(new Callback<User>() {
-     @Override
-     public void onResponse(Call<User> call, Response<User> response) {
-       System.out.println("");
-     }
-
-     @Override
-     public void onFailure(Call<User> call, Throwable t) {
-       System.out.println("");
-     }
-   });
+//   RetrofitManager.getInstance().create(LoginApiService.class)
+//       .login(mPhoneView.getText().toString() , "bbb")
+//   .enqueue(new Callback<User>() {
+//     @Override
+//     public void onResponse(Call<User> call, Response<User> response) {
+//       System.out.println("");
+//     }
+//
+//     @Override
+//     public void onFailure(Call<User> call, Throwable t) {
+//       System.out.println("");
+//     }
+//   });
 
   }
 
