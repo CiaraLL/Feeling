@@ -1,3 +1,5 @@
+include ':feeling:init'
+include ':framework:framework-init'
 include ':framework:framework-network:retrofit-utility'
 include ':framework:framework-context'
 include ':resources:color-library'
