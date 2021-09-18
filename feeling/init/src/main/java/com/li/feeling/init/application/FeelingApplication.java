@@ -33,7 +33,7 @@ public class FeelingApplication extends Application {
 
     ContextService.setAppContext(this);
 
-    RetrofitInitModule.getins.init(this);
+//    RetrofitInitModule.getins.init(this);
 
   }
 

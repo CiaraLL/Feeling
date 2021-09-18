@@ -18,7 +18,7 @@ public class RetrofitInitModule implements InitModule {
       @NonNull
       @Override
       public Context getContext() {
-        return context;x
+        return context;
       }
     };
     RetrofitManager.getInstance().init(initConfig);

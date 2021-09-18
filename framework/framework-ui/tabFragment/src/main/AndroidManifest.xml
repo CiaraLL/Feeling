@@ -5,9 +5,7 @@
     tools:ignore="NamespaceTypo">
 
     <application>
-        <activity
-            android:name="com.li.tabfragment.TabFragment"
-            android:exported="true" />
+
     </application>
 
 </manifest>
