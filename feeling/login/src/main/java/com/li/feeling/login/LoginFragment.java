@@ -10,16 +10,22 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.google.gson.Gson;
 import com.li.feeling.R;
 import com.li.feeling.login.api.LoginApiService;
 import com.li.feeling.register.RegisterActivity;
 import com.li.fragment.base_page.fragment.BaseFragment;
+import com.li.framework.netwoek.retrofit_utility.BaseRetrofitConfig;
+import com.li.framework.netwoek.retrofit_utility.IRetrofitConfig;
+import com.li.framework.netwoek.retrofit_utility.RetrofitManager;
 import com.li.framework.retrofit_utility.RetrofitManager;
 import com.li.framework.ui.utility.DuplicatedClickFilter;
 
+import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import rx.Scheduler;
 
 
 /**
@@ -73,19 +79,31 @@ public class LoginFragment extends BaseFragment {
   }
 
   private void doLogin() {
-//   RetrofitManager.getInstance().create(LoginApiService.class)
-//       .login(mPhoneView.getText().toString() , "bbb")
-//   .enqueue(new Callback<User>() {
-//     @Override
-//     public void onResponse(Call<User> call, Response<User> response) {
-//       System.out.println("");
-//     }
-//
-//     @Override
-//     public void onFailure(Call<User> call, Throwable t) {
-//       System.out.println("");
-//     }
-//   });
+
+    Domin{
+
+      Live("http://asd"),
+    sco..()
+
+    }
+
+    FeelingRetrofitConfig = new FeelingRetrofitConfig(Domin.live,Scheduler);
+
+    IRetrofitConfig retrofitConfig = new BaseRetrofitConfig() {
+      @NonNull
+      @Override
+      public String getBaseUrl() {
+        return "http://124/:8080";
+      }
+
+      @Override
+      public Scheduler getSubscribeScheduler() {
+        return null;
+      }
+    };
+    RetrofitManager.getInstance().create(FeelingRetrofitConfig,LoginApiService.class)
+        .login("","")
+        .enqueue(new );
 
   }
 

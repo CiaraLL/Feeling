@@ -11,6 +11,6 @@ import androidx.annotation.NonNull;
 public interface IRetrofitInitConfig {
 
   @NonNull
-  public Context getContext();
+  Context getContext();
 
 }

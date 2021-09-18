@@ -4,6 +4,7 @@
   xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
+      android:name="com.li.feeling.init.application.FeelingApplication"
         android:icon="@mipmap/app">
         <activity android:name="com.li.feeling.welcome.WelcomeActivity"
           android:theme="@style/Theme.AppCompat.NoActionBar"

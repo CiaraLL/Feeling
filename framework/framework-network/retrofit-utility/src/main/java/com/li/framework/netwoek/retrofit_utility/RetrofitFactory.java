@@ -28,6 +28,7 @@ public class RetrofitFactory {
     } else {
       builder.addCallAdapterFactory(RxJavaCallAdapterFactory.create());
     }
+
     return builder.build();
   }
 

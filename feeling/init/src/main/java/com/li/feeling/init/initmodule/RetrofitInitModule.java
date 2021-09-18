@@ -13,13 +13,12 @@ import com.li.framework_init.InitModule;
 public class RetrofitInitModule implements InitModule {
 
   @Override
-  public void init() {
+  public void init(@NonNull Context context) {
     IRetrofitInitConfig initConfig = new IRetrofitInitConfig() {
       @NonNull
       @Override
       public Context getContext() {
-        // TODO: 9/17/21 传入context
-        return null;
+        return context;x
       }
     };
     RetrofitManager.getInstance().init(initConfig);

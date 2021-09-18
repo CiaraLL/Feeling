@@ -3,7 +3,9 @@ package com.li.feeling.init.application;
 import android.app.Application;
 import android.content.Context;
 
+import com.li.feeling.init.initmodule.RetrofitInitModule;
 import com.li.framework.app.ContextService;
+
 
 /**
  * description: 整个app的application
@@ -28,7 +30,11 @@ public class FeelingApplication extends Application {
   @Override
   protected void attachBaseContext(Context base) {
     super.attachBaseContext(base);
+
     ContextService.setAppContext(this);
+
+    RetrofitInitModule.getins.init(this);
+
   }
 
 }

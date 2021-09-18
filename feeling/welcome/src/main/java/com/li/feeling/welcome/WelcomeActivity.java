@@ -32,6 +32,7 @@ public class WelcomeActivity extends Activity {
     setContentView(R.layout.activity_welcome_layout);
     mCountDownView = findViewById(R.id.welcome_activity_count_down_view);
     startCountDown();
+
   }
 
   // 开始倒计时

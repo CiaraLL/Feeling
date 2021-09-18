@@ -26,7 +26,7 @@ public class ContextService {
     return sApplication;
   }
 
-  // 当前的context,,如果有activity正在运行，那么取最上层的activity
+  // 获得当前的context,如果有activity正在运行，那么取最上层的activity
   @NonNull
   public static Context getCurrentContext() {
     // TODO: 9/17/21 获取当前最上层的activity
