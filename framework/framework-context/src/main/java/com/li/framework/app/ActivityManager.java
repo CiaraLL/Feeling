@@ -7,7 +7,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.li.feeling.init.application.FeelingApplication;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -22,18 +21,11 @@ public class ActivityManager implements Application.ActivityLifecycleCallbacks {
     // 当前所有的activity
     private static final List<WeakReference<Activity>> mActivityStack = new ArrayList<>();
 
-    // 单例
-    private static final FeelingApplication FEELING_APPLICATION = new FeelingApplication();
-
     // 获取所有的activity
     public List<WeakReference<Activity>> getActivityStack() {
         return mActivityStack;
     }
 
-    // 获得实例
-    public FeelingApplication getFeelingApplication() {
-        return FEELING_APPLICATION;
-    }
 
     @Override
     public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle savedInstanceState) {

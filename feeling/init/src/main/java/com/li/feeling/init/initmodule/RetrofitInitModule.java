@@ -10,7 +10,8 @@ import com.li.framework_init.InitModule;
 /**
  * description: 用于Retrofit初始化
  */
-public class RetrofitInitModule implements InitModule {
+public class
+RetrofitInitModule implements InitModule {
 
   @Override
   public void init(@NonNull Context context) {

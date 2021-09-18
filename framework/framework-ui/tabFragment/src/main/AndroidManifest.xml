@@ -4,8 +4,5 @@
     package="com.li.framework.tabfragment"
     tools:ignore="NamespaceTypo">
 
-    <application>
-
-    </application>
 
 </manifest>

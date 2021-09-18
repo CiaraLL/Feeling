@@ -5,11 +5,10 @@ include ':framework:framework-network:retrofit-utility'
 include ':framework:framework-context'
 include ':resources:color-library'
 include ':framework:framework-ui:utility'
-include ':feeling:welcome'
 include ':feeling:login'
 include ':framework:framework-ui:base-page'
 include ':framework:framework-ui:tabFragment'
-
+include ':feeling:welcome'
 include ':framework:framework-network'
 include ':framework:sharepreferences'
 
