@@ -21,6 +21,5 @@ dependencyResolutionManagement {
         jcenter() // Warning: this repository is going to shut down soon
     }
 }
-rootProject.name = "Feelling"
+rootProject.name = "Feeling"
 
-include ':feeling:mine'
