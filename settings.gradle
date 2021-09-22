@@ -1,3 +1,4 @@
+include ':framework:framework-recycler'
 include ':feeling:model'
 include ':feeling:init'
 include ':feeling:home'
