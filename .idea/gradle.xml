@@ -11,6 +11,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/feeling" />
+            <option value="$PROJECT_DIR$/feeling/home" />
             <option value="$PROJECT_DIR$/feeling/init" />
             <option value="$PROJECT_DIR$/feeling/login" />
             <option value="$PROJECT_DIR$/feeling/model" />

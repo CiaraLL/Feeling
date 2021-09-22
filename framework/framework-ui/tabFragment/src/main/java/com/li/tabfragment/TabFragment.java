@@ -21,7 +21,7 @@ public abstract class TabFragment extends Fragment {
 
     private View mViewContainer;
     private ViewPager mFragmentPager;
-    private TabLayout mTabLayout;
+    protected TabLayout mTabLayout;
     private FragmentStatePagerAdapter mPagerAdapter;
 
     private TabLayout.OnTabSelectedListener mTabSelectedListener = new TabLayout.OnTabSelectedListener() {
