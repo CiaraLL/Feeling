@@ -3,6 +3,8 @@ package com.li.feeling.init.application;
 import android.app.Application;
 import android.content.Context;
 
+import androidx.multidex.MultiDex;
+
 import com.li.feeling.init.initmodule.RetrofitInitModule;
 import com.li.framework.app.ContextService;
 
@@ -30,6 +32,8 @@ public class FeelingApplication extends Application {
   @Override
   protected void attachBaseContext(Context base) {
     super.attachBaseContext(base);
+    // 处理SdkVersion20及以下版本无法支持加载多个dex文件
+    MultiDex.install(base);
 
     ContextService.setAppContext(this);
 
