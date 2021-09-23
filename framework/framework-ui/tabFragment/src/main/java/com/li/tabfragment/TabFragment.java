@@ -63,7 +63,7 @@ public abstract class TabFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mFragmentPager = view.findViewById(R.id.fragment_pager);
+        mFragmentPager = view.findViewById(R.id.fragment_pager_container);
         mTabLayout = view.findViewById(R.id.tab_container);
 
         //初始化tablayout
