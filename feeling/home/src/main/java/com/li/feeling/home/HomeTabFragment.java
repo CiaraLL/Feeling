@@ -11,7 +11,7 @@ import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 
 import com.google.android.material.tabs.TabLayout;
-import com.li.feeling.homefeelinglist.HomeFeelingListFragment;
+import com.li.feeling.feellist.HomeFeelListFragment;
 import com.li.feeling.message.MessageFragment;
 import com.li.feeling.mine.MineFragment;
 import com.li.tabfragment.TabFragment;
@@ -45,7 +45,7 @@ public class HomeTabFragment extends TabFragment {
   private TabFragmentItem getFeelingListItem() {
     TabLayout.Tab tab = mTabLayout.newTab();
     tab.setCustomView(getTabView("主页"));
-    return new TabFragmentItem(tab, new HomeFeelingListFragment());
+    return new TabFragmentItem(tab, new HomeFeelListFragment());
   }
 
   private TabFragmentItem getMessageListItem() {

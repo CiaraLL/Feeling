@@ -5,6 +5,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,18 +21,35 @@ public abstract class LiRecyclerAdapter<Data extends LiRecyclerItemViewData>
     extends RecyclerView.Adapter<LiRecycleViewHolder<Data>> {
 
   @NonNull
+  protected Context mContext;
+
+  @NonNull
   private List<Data> mDataList = new ArrayList<>();
 
   @NonNull
   private Set<LiRecycleViewHolder<Data>> mViewHolders = new HashSet<>();
 
+  public LiRecyclerAdapter(@NonNull Context context) {
+    mContext = context;
+  }
+
   @Override
   public int getItemViewType(int position) {
     Data data = getItem(position);
     if (data != null) {
-      return data.getItemDataType();
+      return data.getItemViewDataType();
     }
     return super.getItemViewType(position);
+  }
+
+  @NonNull
+  @CallSuper
+  @Override
+  public LiRecycleViewHolder<Data> onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    // 空的vh：当子类无法对viewType处理时
+    View blankView = LayoutInflater.from(mContext)
+        .inflate(R.layout.li_recycler_blank_item_layout, parent, false);
+    return new LiRecyclerBlankItemViewHolder(blankView);
   }
 
   @Override
@@ -66,9 +88,8 @@ public abstract class LiRecyclerAdapter<Data extends LiRecyclerItemViewData>
   }
 
   @Nullable
-  private Data getItem(int position) {
+  public Data getItem(int position) {
     return mDataList.get(position);
   }
-
 
 }

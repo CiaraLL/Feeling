@@ -6,7 +6,7 @@ package com.li.frameowrk.recycler;
  */
 public interface LiRecyclerItemViewData {
 
-  // 数据的类型
-  int getItemDataType();
+  // view数据的类型
+  int getItemViewDataType();
 
 }
