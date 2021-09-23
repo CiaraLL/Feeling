@@ -320,7 +320,7 @@
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:src="@drawable/wallet"
+                android:src="@drawable/icon_wallet"
                 android:layout_marginLeft="20dp"
                 android:layout_gravity="center"
                 android:layout_weight="1"/>

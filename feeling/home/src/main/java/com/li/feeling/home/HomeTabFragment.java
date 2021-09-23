@@ -9,7 +9,9 @@ import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 
 import com.google.android.material.tabs.TabLayout;
+import com.li.feeling.find.FindFragment;
 import com.li.feeling.homefeelinglist.HomeFeelingListFragment;
+import com.li.feeling.message.MessageFragment;
 import com.li.feeling.mine.MineFragment;
 import com.li.tabfragment.TabFragment;
 import com.li.tabfragment.TabFragmentDelegates;
@@ -31,8 +33,10 @@ public class HomeTabFragment extends TabFragment {
     @Override
     protected List<TabFragmentDelegates> getFragmentDelegates() {
         List<TabFragmentDelegates> fragmentDelegates = new ArrayList<>();
-        fragmentDelegates.add(getMineFragmentDelegate());
         fragmentDelegates.add(getFeelingListDelegates());
+        fragmentDelegates.add(getFindListDelegates());
+        fragmentDelegates.add(getMessageListDelegates());
+        fragmentDelegates.add(getMineFragmentDelegate());
         return fragmentDelegates
                 ;
     }
@@ -44,6 +48,17 @@ public class HomeTabFragment extends TabFragment {
         return new TabFragmentDelegates(tab, new HomeFeelingListFragment());
     }
 
+    private TabFragmentDelegates getMessageListDelegates(){
+        TabLayout.Tab tab = mTabLayout.newTab();
+        tab.setCustomView(getTabView("消息"));
+        return new TabFragmentDelegates(tab,new MessageFragment());
+    }
+
+    private TabFragmentDelegates getFindListDelegates(){
+        TabLayout.Tab tab = mTabLayout.newTab();
+        tab.setCustomView(getTabView("发现"));
+        return new TabFragmentDelegates(tab,new FindFragment());
+    }
     @NonNull
     private TabFragmentDelegates getMineFragmentDelegate() {
         TabLayout.Tab tab = mTabLayout.newTab();
@@ -60,6 +75,7 @@ public class HomeTabFragment extends TabFragment {
     private View getTabView(@NonNull String tabText) {
         TextView textView = new TextView(getContext());
         textView.setText(tabText);
+        textView.setTextSize(15);
         textView.setGravity(Gravity.CENTER);
         ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
