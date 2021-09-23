@@ -1,5 +1,6 @@
 package com.li.tabfragment;
 
+import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -24,22 +25,23 @@ public abstract class TabFragment extends Fragment {
     protected TabLayout mTabLayout;
     private FragmentStatePagerAdapter mPagerAdapter;
 
-    private TabLayout.OnTabSelectedListener mTabSelectedListener = new TabLayout.OnTabSelectedListener() {
-        @Override
-        public void onTabSelected(TabLayout.Tab tab) {
-            setSelect(tab.getPosition());
-        }
+    private TabLayout.OnTabSelectedListener mTabSelectedListener =
+            new TabLayout.OnTabSelectedListener() {
+                @Override
+                public void onTabSelected(TabLayout.Tab tab) {
+                    setSelect(tab.getPosition());
+                }
 
-        @Override
-        public void onTabUnselected(TabLayout.Tab tab) {
+                @Override
+                public void onTabUnselected(TabLayout.Tab tab) {
 
-        }
+                }
 
-        @Override
-        public void onTabReselected(TabLayout.Tab tab) {
+                @Override
+                public void onTabReselected(TabLayout.Tab tab) {
 
-        }
-    };
+                }
+            };
 
     private void setSelect(int position) {
         mFragmentPager.setCurrentItem(position);
@@ -51,10 +53,12 @@ public abstract class TabFragment extends Fragment {
         if (mViewContainer != null) {
             return mViewContainer;
         }
-        return mViewContainer = inflater.inflate(getLayoutId(), container, false);
+        return mViewContainer = inflater.inflate(
+                getLayoutId(),
+                container,
+                false);
     }
 
-    protected abstract int getLayoutId();
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -88,6 +92,14 @@ public abstract class TabFragment extends Fragment {
 
     }
 
+    @LayoutRes
+    protected abstract int getLayoutId();
+
+    @NonNull
+    protected abstract List<TabFragmentDelegates> getFragmentDelegates();
+
+    //获得所有的tab
+    @NonNull
     private List<TabLayout.Tab> getTabList() {
         List<TabLayout.Tab> tabs = new ArrayList<>();
         List<TabFragmentDelegates> fragmentDelegates = getFragmentDelegates();
@@ -97,8 +109,9 @@ public abstract class TabFragment extends Fragment {
         return tabs;
     }
 
-    protected abstract List<TabFragmentDelegates> getFragmentDelegates();
 
+    //获得所有fragment
+    @NonNull
     private List<Fragment> getFragmentList() {
         List<Fragment> fragments = new ArrayList<>();
         List<TabFragmentDelegates> fragmentDelegates = getFragmentDelegates();

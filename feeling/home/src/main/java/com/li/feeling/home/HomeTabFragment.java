@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 
 import com.google.android.material.tabs.TabLayout;
@@ -22,6 +23,7 @@ import java.util.List;
 public class HomeTabFragment extends TabFragment {
 
     @Override
+    @LayoutRes
     protected int getLayoutId() {
         return R.layout.fragment_home_layout;
     }
@@ -31,15 +33,18 @@ public class HomeTabFragment extends TabFragment {
         List<TabFragmentDelegates> fragmentDelegates = new ArrayList<>();
         fragmentDelegates.add(getMineFragmentDelegate());
         fragmentDelegates.add(getFeelingListDelegates());
-        return null;
+        return fragmentDelegates
+                ;
     }
 
+    @NonNull
     private TabFragmentDelegates getFeelingListDelegates() {
         TabLayout.Tab tab = mTabLayout.newTab();
         tab.setCustomView(getTabView("主页"));
         return new TabFragmentDelegates(tab, new HomeFeelingListFragment());
     }
 
+    @NonNull
     private TabFragmentDelegates getMineFragmentDelegate() {
         TabLayout.Tab tab = mTabLayout.newTab();
         tab.setCustomView(getTabView("我的"));

@@ -13,7 +13,7 @@ public class TabFragmentDelegates {
     @NonNull
     public Fragment mFragment;
 
-    public TabFragmentDelegates(TabLayout.Tab mTab, Fragment mFragment) {
+    public TabFragmentDelegates(@NonNull TabLayout.Tab mTab, @NonNull Fragment mFragment) {
         this.mTab = mTab;
         this.mFragment = mFragment;
     }

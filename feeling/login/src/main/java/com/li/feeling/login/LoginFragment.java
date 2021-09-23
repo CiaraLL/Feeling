@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -79,31 +81,51 @@ public class LoginFragment extends BaseFragment {
   }
 
   private void doLogin() {
-//
+
 //    Domin{
 //
 //      Live("http://asd"),
 //    sco..()
 //
 //    }
-//
-//    FeelingRetrofitConfig = new FeelingRetrofitConfig(Domin.live,Scheduler);
-//
-//    IRetrofitConfig retrofitConfig = new BaseRetrofitConfig() {
-//      @NonNull
-//      @Override
-//      public String getBaseUrl() {
-//        return "http://124/:8080";
-//      }
-//
-//      @Override
-//      public Scheduler getSubscribeScheduler() {
-//        return null;
-//      }
-//    };
-//    RetrofitManager.getInstance().create(FeelingRetrofitConfig,LoginApiService.class)
-//        .login("","")
-//        .enqueue(new );
+
+    IRetrofitConfig iRetrofitConfig = new IRetrofitConfig() {
+      @NonNull
+      @Override
+      public Gson getGson() {
+        return null;
+      }
+
+      @NonNull
+      @Override
+      public String getBaseUrl() {
+        return "http://124/:8080";
+      }
+
+      @NonNull
+      @Override
+      public OkHttpClient getClient() {
+        return null;
+      }
+
+      @Override
+      public Scheduler getSubscribeScheduler() {
+        return null;
+      }
+    };
+    RetrofitManager.getInstance().create(iRetrofitConfig,LoginApiService.class)
+        .login("","")
+        .enqueue(new Callback<User>() {
+          @Override
+          public void onResponse(Call<User> call, Response<User> response) {
+
+          }
+
+          @Override
+          public void onFailure(Call<User> call, Throwable t) {
+            Toast.makeText(getContext(), "失败了", Toast.LENGTH_SHORT).show();
+          }
+        });
 
   }
 

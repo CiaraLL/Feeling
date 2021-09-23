@@ -70,4 +70,5 @@ public abstract class LiRecyclerAdapter<Data extends LiRecyclerItemViewData>
     return mDataList.get(position);
   }
 
+
 }

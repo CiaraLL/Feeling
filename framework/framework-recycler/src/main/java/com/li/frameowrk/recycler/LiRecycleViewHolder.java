@@ -7,7 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 /**
  * description: viewHolder基类
  */
-public abstract class LiRecycleViewHolder<Data extends LiRecyclerItemViewData>
+public abstract class
+LiRecycleViewHolder<Data extends LiRecyclerItemViewData>
     extends RecyclerView.ViewHolder {
 
   private Data mData;
