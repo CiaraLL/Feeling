@@ -82,13 +82,6 @@ public class LoginFragment extends BaseFragment {
 
   private void doLogin() {
 
-//    Domin{
-//
-//      Live("http://asd"),
-//    sco..()
-//
-//    }
-
     IRetrofitConfig iRetrofitConfig = new IRetrofitConfig() {
       @NonNull
       @Override
@@ -98,8 +91,9 @@ public class LoginFragment extends BaseFragment {
 
       @NonNull
       @Override
+
       public String getBaseUrl() {
-        return "http://124/:8080";
+        return "http://192.168.1.9:8080";
       }
 
       @NonNull
