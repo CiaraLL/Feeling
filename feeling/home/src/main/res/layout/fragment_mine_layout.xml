@@ -109,7 +109,7 @@
         app:layout_constraintEnd_toEndOf="@+id/mine_fragment_pager_head_viewContainer"
         android:layout_marginTop="10dp">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_marginTop="10dp"
@@ -117,7 +117,8 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="40dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="30dp"
                 android:gravity="center">
 
                 <TextView
@@ -143,7 +144,7 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="120dp"
+                android:layout_centerInParent="true"
                 android:gravity="center">
 
                 <TextView
@@ -169,7 +170,8 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="120dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="30dp"
                 android:gravity="center">
 
                 <TextView
@@ -192,27 +194,27 @@
                     android:textSize="15sp" />
             </RelativeLayout>
 
-        </LinearLayout>
+        </RelativeLayout>
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:layout_marginTop="10dp"
+            android:weightSum="4"
             android:orientation="horizontal">
-            <RelativeLayout
+            <LinearLayout
                 android:id="@+id/mine_content_photo_album_container"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="30dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
                 android:gravity="center">
 
                 <ImageView
                     android:id="@+id/icon_photo_album"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:layout_centerHorizontal="true"
-                    android:gravity="center_vertical"
                     android:src="@drawable/icon_photo_album"
                     tools:ignore="DuplicateIds" />
 
@@ -224,13 +226,14 @@
                     android:gravity="center_vertical"
                     android:text="我的相册"
                     android:textSize="15sp" />
-            </RelativeLayout>
+            </LinearLayout>
 
-            <RelativeLayout
+            <LinearLayout
                 android:id="@+id/mine_content_my_favourite"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="33dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
                 android:gravity="center">
 
                 <ImageView
@@ -250,13 +253,14 @@
                     android:gravity="center_vertical"
                     android:text="点赞/收藏"
                     android:textSize="15sp" />
-            </RelativeLayout>
+            </LinearLayout>
 
-            <RelativeLayout
+            <LinearLayout
                 android:id="@+id/mine_content_draft_box"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="33dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
                 android:gravity="center">
 
                 <ImageView
@@ -276,20 +280,21 @@
                     android:gravity="center_vertical"
                     android:text="草稿记录"
                     android:textSize="15sp" />
-            </RelativeLayout>
+            </LinearLayout>
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="33dp"
-                android:gravity="center">
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_gravity="center">
 
                 <ImageView
                     android:id="@+id/icon_customer_service"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_centerHorizontal="true"
-                    android:gravity="center_vertical"
                     android:src="@drawable/icon_customer_service"
                     tools:ignore="DuplicateIds" />
 
@@ -301,7 +306,7 @@
                     android:gravity="center_vertical"
                     android:text="我的客服"
                     android:textSize="15sp" />
-            </RelativeLayout>
+            </LinearLayout>
 
         </LinearLayout>
 
