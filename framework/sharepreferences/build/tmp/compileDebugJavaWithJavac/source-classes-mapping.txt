@@ -1,0 +1,2 @@
+com/example/li/framework/sharepreferences/BuildConfig.java
+ com.example.li.framework.sharepreferences.BuildConfig
