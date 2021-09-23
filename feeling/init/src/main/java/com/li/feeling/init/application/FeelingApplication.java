@@ -5,6 +5,7 @@ import android.content.Context;
 
 import androidx.multidex.MultiDex;
 
+import com.li.feeling.init.initmodule.LiSharedPreferencesInitModule;
 import com.li.feeling.init.initmodule.RetrofitInitModule;
 import com.li.framework.app.ContextService;
 
@@ -37,7 +38,8 @@ public class FeelingApplication extends Application {
 
     ContextService.setAppContext(this);
 
-//    RetrofitInitModule.getins.init(this);
+    LiSharedPreferencesInitModule.getInstance().init(this);
+    RetrofitInitModule.getInstance().init(this);
 
   }
 

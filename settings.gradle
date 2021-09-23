@@ -12,7 +12,7 @@ include ':framework:framework-ui:base-page'
 include ':framework:framework-ui:tabFragment'
 include ':feeling:welcome'
 include ':framework:framework-network'
-include ':framework:sharepreferences'
+include ':framework:framework-sharedpreferences'
 
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
