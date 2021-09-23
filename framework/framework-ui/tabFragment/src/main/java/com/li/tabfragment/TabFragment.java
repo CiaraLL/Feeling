@@ -25,6 +25,7 @@ public abstract class TabFragment extends Fragment {
     protected TabLayout mTabLayout;
     private FragmentStatePagerAdapter mPagerAdapter;
 
+    @NonNull
     private TabLayout.OnTabSelectedListener mTabSelectedListener =
             new TabLayout.OnTabSelectedListener() {
                 @Override
@@ -33,19 +34,11 @@ public abstract class TabFragment extends Fragment {
                 }
 
                 @Override
-                public void onTabUnselected(TabLayout.Tab tab) {
-
-                }
+                public void onTabUnselected(TabLayout.Tab tab) { }
 
                 @Override
-                public void onTabReselected(TabLayout.Tab tab) {
-
-                }
+                public void onTabReselected(TabLayout.Tab tab) { }
             };
-
-    private void setSelect(int position) {
-        mFragmentPager.setCurrentItem(position);
-    }
 
     @Nullable
     @Override
@@ -96,27 +89,31 @@ public abstract class TabFragment extends Fragment {
     protected abstract int getLayoutId();
 
     @NonNull
-    protected abstract List<TabFragmentDelegates> getFragmentDelegates();
+    protected abstract List<TabFragmentItem> getTabFragmentItems();
+
+    // 选中某页
+    private void setSelect(int position) {
+    mFragmentPager.setCurrentItem(position);
+  }
 
     //获得所有的tab
     @NonNull
     private List<TabLayout.Tab> getTabList() {
         List<TabLayout.Tab> tabs = new ArrayList<>();
-        List<TabFragmentDelegates> fragmentDelegates = getFragmentDelegates();
-        for (TabFragmentDelegates tabFragmentDelegates : fragmentDelegates) {
-            tabs.add(tabFragmentDelegates.mTab);
+        List<TabFragmentItem> tabFragmentItems = getTabFragmentItems();
+        for (TabFragmentItem tabFragmentItem : tabFragmentItems) {
+            tabs.add(tabFragmentItem.mTab);
         }
         return tabs;
     }
-
 
     //获得所有fragment
     @NonNull
     private List<Fragment> getFragmentList() {
         List<Fragment> fragments = new ArrayList<>();
-        List<TabFragmentDelegates> fragmentDelegates = getFragmentDelegates();
-        for (TabFragmentDelegates tabFragmentDelegates : fragmentDelegates) {
-            fragments.add(tabFragmentDelegates.mFragment);
+        List<TabFragmentItem> tabFragmentItems = getTabFragmentItems();
+        for (TabFragmentItem tabFragmentItem : tabFragmentItems) {
+            fragments.add(tabFragmentItem.mFragment);
         }
         return fragments;
     }
