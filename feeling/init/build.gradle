@@ -3,10 +3,10 @@ apply from: rootProject.file('gradle/android-library-project.gradle')
 dependencies {
 
     implementation project(path: ':framework:framework-init')
-    implementation project(path: ':framework:framework-network:retrofit-utility')
+    implementation project(path: ':library:retrofit-utility')
     implementation project(path: ':framework:framework-context')
     implementation 'androidx.annotation:annotation:1.2.0'
-    implementation project(path: ':framework:framework-sharedpreferences')
+    implementation project(path: ':library:sharedpreferences-utility')
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'

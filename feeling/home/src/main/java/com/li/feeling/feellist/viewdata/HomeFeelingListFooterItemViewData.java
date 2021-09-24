@@ -1,6 +1,7 @@
 package com.li.feeling.feellist.viewdata;
 
-import com.li.frameowrk.recycler.LiRecyclerItemViewData;
+
+import com.li.library.recycler.LiRecyclerItemViewData;
 
 /**
  * description: home页面的feel列表的footerItem的数据

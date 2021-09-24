@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 
 import com.li.feeling.feellist.viewdata.HomeFeelingListFooterItemViewData;
 import com.li.feeling.home.R;
-import com.li.frameowrk.recycler.LiRecycleViewHolder;
+import com.li.library.recycler.LiRecycleViewHolder;
 
 /**
  * description: footer的vh

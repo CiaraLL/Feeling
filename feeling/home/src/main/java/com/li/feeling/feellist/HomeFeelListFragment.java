@@ -20,11 +20,7 @@ import com.li.feeling.feellist.viewdata.HomeFeelingListFooterItemViewData;
 import com.li.feeling.home.R;
 import com.li.feeling.model.Feel;
 import com.li.fragment.base_page.fragment.BaseFragment;
-import com.li.frameowrk.recycler.LiRecyclerItemViewData;
-import com.li.framework.netwoek.retrofit_utility.BaseRetrofitConfig;
-import com.li.framework.netwoek.retrofit_utility.RetrofitManager;
-
-import rx.Scheduler;
+import com.li.library.recycler.LiRecyclerItemViewData;
 
 /**
  * home页面的feel列表Fragment

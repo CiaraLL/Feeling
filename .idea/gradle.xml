@@ -18,15 +18,17 @@
             <option value="$PROJECT_DIR$/feeling/welcome" />
             <option value="$PROJECT_DIR$/framework" />
             <option value="$PROJECT_DIR$/framework/framework-context" />
+            <option value="$PROJECT_DIR$/framework/framework-gson" />
             <option value="$PROJECT_DIR$/framework/framework-init" />
             <option value="$PROJECT_DIR$/framework/framework-network" />
-            <option value="$PROJECT_DIR$/framework/framework-network/retrofit-utility" />
-            <option value="$PROJECT_DIR$/framework/framework-recycler" />
-            <option value="$PROJECT_DIR$/framework/framework-sharedpreferences" />
             <option value="$PROJECT_DIR$/framework/framework-ui" />
             <option value="$PROJECT_DIR$/framework/framework-ui/base-page" />
-            <option value="$PROJECT_DIR$/framework/framework-ui/tabFragment" />
             <option value="$PROJECT_DIR$/framework/framework-ui/utility" />
+            <option value="$PROJECT_DIR$/library" />
+            <option value="$PROJECT_DIR$/library/recycler" />
+            <option value="$PROJECT_DIR$/library/retrofit-utility" />
+            <option value="$PROJECT_DIR$/library/sharedpreferences-utility" />
+            <option value="$PROJECT_DIR$/library/tabfragment" />
             <option value="$PROJECT_DIR$/resources" />
             <option value="$PROJECT_DIR$/resources/color-library" />
           </set>

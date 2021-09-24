@@ -6,7 +6,7 @@ import android.os.CountDownTimer;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 
-import com.li.feeling.home.HomeActivity;
+import com.li.feeling.login.LoginActivity;
 
 
 /**
@@ -46,7 +46,7 @@ public class WelcomeActivity extends Activity {
 
       @Override
       public void onFinish() {
-        HomeActivity.start(WelcomeActivity.this);
+        LoginActivity.start(WelcomeActivity.this);
         WelcomeActivity.this.finish();
       }
     }.start();

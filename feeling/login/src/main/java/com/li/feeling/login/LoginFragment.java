@@ -8,20 +8,17 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.google.gson.Gson;
 import com.li.feeling.R;
-
 import com.li.feeling.login.api.LoginApiService;
 import com.li.feeling.register.RegisterActivity;
 import com.li.fragment.base_page.fragment.BaseFragment;
-import com.li.framework.netwoek.retrofit_utility.BaseRetrofitConfig;
-import com.li.framework.netwoek.retrofit_utility.IRetrofitConfig;
-import com.li.framework.netwoek.retrofit_utility.RetrofitManager;
 import com.li.framework.ui.utility.DuplicatedClickFilter;
+import com.li.library.retrofit_utlity.IRetrofitConfig;
+import com.li.library.retrofit_utlity.RetrofitManager;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Call;
@@ -107,8 +104,8 @@ public class LoginFragment extends BaseFragment {
         return null;
       }
     };
-    RetrofitManager.getInstance().create(iRetrofitConfig,LoginApiService.class)
-        .login("","")
+    RetrofitManager.getInstance().create(iRetrofitConfig, LoginApiService.class)
+        .login("", "")
         .enqueue(new Callback<User>() {
           @Override
           public void onResponse(Call<User> call, Response<User> response) {

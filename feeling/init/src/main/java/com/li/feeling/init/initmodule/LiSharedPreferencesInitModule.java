@@ -3,8 +3,8 @@ package com.li.feeling.init.initmodule;
 import android.content.Context;
 import androidx.annotation.NonNull;
 
-import com.li.framework.sharedpreferences.LiSharedPreferences;
 import com.li.framework_init.InitModule;
+import com.li.library.sharedpreferences_utility.LiSharedPreferences;
 
 /**
  * description: 初始化SharedPreference

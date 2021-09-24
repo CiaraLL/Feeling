@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 
 import com.li.feeling.feellist.viewdata.HomeFeelingListFeelItemViewData;
 import com.li.feeling.home.R;
-import com.li.frameowrk.recycler.LiRecycleViewHolder;
+import com.li.library.recycler.LiRecycleViewHolder;
 
 /**
  * description: feelItem的vh

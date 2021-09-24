@@ -9,11 +9,11 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation project(path: ':framework:framework-ui:base-page')
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    implementation project(path: ':framework:framework-ui:tabFragment')
-    implementation project(path: ':framework:framework-recycler')
-    implementation project(path: ':framework:framework-recycler')
+    implementation project(path: ':library:tabfragment')
+    implementation project(path: ':library:recycler')
+    implementation project(path: ':library:recycler')
     implementation project(path: ':feeling:model')
-    implementation project(path: ':framework:framework-network:retrofit-utility')
+    implementation project(path: ':library:retrofit-utility')
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'

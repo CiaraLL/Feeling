@@ -2,7 +2,8 @@ package com.li.feeling.feellist.viewdata;
 
 import androidx.annotation.DrawableRes;
 
-import com.li.frameowrk.recycler.LiRecyclerItemViewData;
+import com.li.library.recycler.LiRecyclerItemViewData;
+
 
 /**
  * description: home页面的feel列表的feelItem的数据

@@ -10,9 +10,9 @@ import com.li.feeling.feellist.viewdata.HomeFeelListItemViewDataType;
 import com.li.feeling.feellist.viewholder.HomeFeelListFeelItemViewHolder;
 import com.li.feeling.feellist.viewholder.HomeFeelListFooterItemViewHolder;
 import com.li.feeling.home.R;
-import com.li.frameowrk.recycler.LiRecycleViewHolder;
-import com.li.frameowrk.recycler.LiRecyclerAdapter;
-import com.li.frameowrk.recycler.LiRecyclerItemViewData;
+import com.li.library.recycler.LiRecycleViewHolder;
+import com.li.library.recycler.LiRecyclerAdapter;
+import com.li.library.recycler.LiRecyclerItemViewData;
 
 public class HomeFeelListRecyclerAdapter
     extends LiRecyclerAdapter<LiRecyclerItemViewData> {

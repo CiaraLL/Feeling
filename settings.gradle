@@ -1,18 +1,19 @@
-include ':framework:framework-recycler'
+include ':library:tabfragment'
+include ':library:sharedpreferences-utility'
+include ':library:recycler'
+include ':library:retrofit-utility'
+include ':framework:framework-gson'
 include ':feeling:model'
 include ':feeling:init'
 include ':feeling:home'
 include ':framework:framework-init'
-include ':framework:framework-network:retrofit-utility'
 include ':framework:framework-context'
 include ':resources:color-library'
 include ':framework:framework-ui:utility'
 include ':feeling:login'
 include ':framework:framework-ui:base-page'
-include ':framework:framework-ui:tabFragment'
 include ':feeling:welcome'
 include ':framework:framework-network'
-include ':framework:framework-sharedpreferences'
 
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
