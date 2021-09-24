@@ -10,7 +10,7 @@ public class FeelUrlUtil {
   // 获得url
   @NonNull
   public static String getUrl(@NonNull FeelingUrl feelingUrl) {
-    return feelingUrl.mShceme + "://" + feelingUrl.mHost + ":" + feelingUrl.mPort;
+    return feelingUrl.mScheme + "://" + feelingUrl.mHost + ":" + feelingUrl.mPort;
   }
 
 }

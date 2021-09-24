@@ -3,7 +3,7 @@ package com.li.library.retrofit_utlity;
 import androidx.annotation.NonNull;
 
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
@@ -24,9 +24,9 @@ public class RetrofitFactory {
     // 调用方指定的RxJava订阅(subscribe)时的调度器
     if (retrofitConfig.getSubscribeScheduler() != null) {
       builder.addCallAdapterFactory(
-          RxJavaCallAdapterFactory.createWithScheduler(retrofitConfig.getSubscribeScheduler()));
+          RxJava2CallAdapterFactory.createWithScheduler(retrofitConfig.getSubscribeScheduler()));
     } else {
-      builder.addCallAdapterFactory(RxJavaCallAdapterFactory.create());
+      builder.addCallAdapterFactory(RxJava2CallAdapterFactory.create());
     }
 
     return builder.build();

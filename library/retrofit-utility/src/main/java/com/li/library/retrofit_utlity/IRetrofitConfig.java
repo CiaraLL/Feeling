@@ -4,8 +4,8 @@ import androidx.annotation.NonNull;
 
 import com.google.gson.Gson;
 
+import io.reactivex.Scheduler;
 import okhttp3.OkHttpClient;
-import rx.Scheduler;
 
 /**
  * description: retrofit的一些配置

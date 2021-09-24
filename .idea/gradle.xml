@@ -25,6 +25,7 @@
             <option value="$PROJECT_DIR$/framework/framework-ui/base-page" />
             <option value="$PROJECT_DIR$/framework/framework-ui/utility" />
             <option value="$PROJECT_DIR$/framework/network" />
+            <option value="$PROJECT_DIR$/framework/scheduler-utility" />
             <option value="$PROJECT_DIR$/library" />
             <option value="$PROJECT_DIR$/library/recycler" />
             <option value="$PROJECT_DIR$/library/retrofit-utility" />

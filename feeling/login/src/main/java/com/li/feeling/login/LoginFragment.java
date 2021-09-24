@@ -17,9 +17,11 @@ import com.li.feeling.model.User;
 import com.li.feeling.register.RegisterActivity;
 import com.li.fragment.base_page.fragment.BaseFragment;
 import com.li.framework.common_util.ToastUtil;
+import com.li.framework.scheduler_utility.SchedulerManager;
 import com.li.framework.ui.utility.DuplicatedClickFilter;
 
-import rx.Observer;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
 
 
 /**
@@ -35,6 +37,9 @@ public class LoginFragment extends BaseFragment {
 
   // 注册
   private View mRegisterView;
+
+  @Nullable
+  private Disposable mLoginDisposable;
 
   @Nullable
   @Override
@@ -87,24 +92,15 @@ public class LoginFragment extends BaseFragment {
       return;
     }
 
-    LoginApiService.get()
+    mLoginDisposable = LoginApiService.get()
         .login(mPhoneStr, mPassword)
-        .subscribe(new Observer<User>() {
+        .observeOn(SchedulerManager.MAIN)
+        .subscribe(new Consumer<User>() {
           @Override
-          public void onCompleted() {
-
-          }
-
-          @Override
-          public void onError(Throwable e) {
-            System.out.println(e);
-          }
-
-          @Override
-          public void onNext(User user) {
+          public void accept(User user) throws Exception {
             System.out.println(user);
           }
-        });
+        }, throwable -> {System.out.println(throwable);});
   }
 
   private void jumpToRegisterPager() {
@@ -115,4 +111,12 @@ public class LoginFragment extends BaseFragment {
     RegisterActivity.start(activity);
   }
 
+  @Override
+  public void onDestroy() {
+    super.onDestroy();
+    // 避免网络请求的内存泄漏
+    if (mLoginDisposable != null) {
+      mLoginDisposable.dispose();
+    }
+  }
 }

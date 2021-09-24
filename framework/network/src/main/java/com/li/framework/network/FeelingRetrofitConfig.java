@@ -7,7 +7,7 @@ import com.google.gson.Gson;
 import com.li.framework.gson.FeelingGson;
 import com.li.library.retrofit_utlity.BaseRetrofitConfig;
 
-import rx.Scheduler;
+import io.reactivex.Scheduler;
 
 /**
  * description: retrofit的配置
