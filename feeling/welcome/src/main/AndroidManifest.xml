@@ -3,6 +3,8 @@
     package="com.li.feeling.welcome"
   xmlns:android="http://schemas.android.com/apk/res/android">
 
+  <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
     <application
       android:name="com.li.feeling.init.application.FeelingApplication"
         android:icon="@mipmap/app">

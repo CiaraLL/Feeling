@@ -1,3 +1,5 @@
+include ':framework:common-util'
+include ':framework:network'
 include ':library:tabfragment'
 include ':library:sharedpreferences-utility'
 include ':library:recycler'
@@ -13,7 +15,6 @@ include ':framework:framework-ui:utility'
 include ':feeling:login'
 include ':framework:framework-ui:base-page'
 include ':feeling:welcome'
-include ':framework:framework-network'
 
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)

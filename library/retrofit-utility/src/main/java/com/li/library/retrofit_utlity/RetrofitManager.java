@@ -39,13 +39,11 @@ public class RetrofitManager {
    */
   @NonNull
   public <T> T create(@NonNull IRetrofitConfig retrofitConfig, @NonNull Class<T> serviceType) {
-    return createRetrofit(retrofitConfig).create(serviceType);
-  }
-
-  // 创建retrofit实例
-  @NonNull
-  private Retrofit createRetrofit(@NonNull IRetrofitConfig retrofitConfig) {
-    return RetrofitFactory.create(retrofitConfig);
+    // 创建retrofit对象
+    Retrofit retrofit = RetrofitFactory.create(retrofitConfig);
+    // 创建service的代理
+    return retrofit.create(serviceType);
   }
 
 }
+

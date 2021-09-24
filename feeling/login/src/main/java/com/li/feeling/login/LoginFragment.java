@@ -2,29 +2,24 @@ package com.li.feeling.login;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.google.gson.Gson;
 import com.li.feeling.R;
 import com.li.feeling.login.api.LoginApiService;
+import com.li.feeling.model.User;
 import com.li.feeling.register.RegisterActivity;
 import com.li.fragment.base_page.fragment.BaseFragment;
+import com.li.framework.common_util.ToastUtil;
 import com.li.framework.ui.utility.DuplicatedClickFilter;
-import com.li.library.retrofit_utlity.IRetrofitConfig;
-import com.li.library.retrofit_utlity.RetrofitManager;
 
-import okhttp3.OkHttpClient;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import rx.Scheduler;
+import rx.Observer;
 
 
 /**
@@ -78,46 +73,38 @@ public class LoginFragment extends BaseFragment {
   }
 
   private void doLogin() {
+    String mPhoneStr = mPhoneView.getText().toString();
+    String mPassword = mPasswordView.getText().toString();
 
-    IRetrofitConfig iRetrofitConfig = new IRetrofitConfig() {
-      @NonNull
-      @Override
-      public Gson getGson() {
-        return null;
-      }
+    if (TextUtils.isEmpty(mPhoneStr)) {
+      ToastUtil.showToast("请输入账号");
+      mPhoneView.requestFocus();
+      return;
+    }
+    if (TextUtils.isEmpty(mPassword)) {
+      ToastUtil.showToast("请输入密码");
+      mPasswordView.requestFocus();
+      return;
+    }
 
-      @NonNull
-      @Override
-
-      public String getBaseUrl() {
-        return "http://192.168.1.9:8080";
-      }
-
-      @NonNull
-      @Override
-      public OkHttpClient getClient() {
-        return null;
-      }
-
-      @Override
-      public Scheduler getSubscribeScheduler() {
-        return null;
-      }
-    };
-    RetrofitManager.getInstance().create(iRetrofitConfig, LoginApiService.class)
-        .login("", "")
-        .enqueue(new Callback<User>() {
+    LoginApiService.get()
+        .login(mPhoneStr, mPassword)
+        .subscribe(new Observer<User>() {
           @Override
-          public void onResponse(Call<User> call, Response<User> response) {
+          public void onCompleted() {
 
           }
 
           @Override
-          public void onFailure(Call<User> call, Throwable t) {
-            Toast.makeText(getContext(), "失败了", Toast.LENGTH_SHORT).show();
+          public void onError(Throwable e) {
+            System.out.println(e);
+          }
+
+          @Override
+          public void onNext(User user) {
+            System.out.println(user);
           }
         });
-
   }
 
   private void jumpToRegisterPager() {
@@ -126,14 +113,6 @@ public class LoginFragment extends BaseFragment {
       return;
     }
     RegisterActivity.start(activity);
-  }
-
-  public class User {
-
-    public String mAccount;
-    public String mPassword;
-    public String mNickName;
-
   }
 
 }

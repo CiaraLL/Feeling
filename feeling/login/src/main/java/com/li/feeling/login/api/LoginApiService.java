@@ -1,22 +1,33 @@
 package com.li.feeling.login.api;
 
-import java.lang.reflect.Proxy;
+import com.li.feeling.model.User;
+import com.li.framework.network.FeelingRetrofitConfig;
+import com.li.framework.network.FeelingUrl;
+import com.li.library.retrofit_utlity.RetrofitManager;
 
-import com.li.feeling.login.LoginFragment;
-
-import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
+import rx.Observable;
 
 /**
  * description: 登陆的请求
  */
 public interface LoginApiService {
 
+  // 单例
+  LoginApiService mLoginApiService = RetrofitManager.getInstance()
+      .create(new FeelingRetrofitConfig(FeelingUrl.LOGIN), LoginApiService.class);
+
+  static LoginApiService get() {
+    return mLoginApiService;
+  }
+
   // 登陆请求
   @FormUrlEncoded
   @POST("/user/login")
-  Call<LoginFragment.User> login(@Field("account") String account, @Field("password") String password);
+  Observable<User> login(@Field("account") String account, @Field("password") String password);
 
 }
+
+

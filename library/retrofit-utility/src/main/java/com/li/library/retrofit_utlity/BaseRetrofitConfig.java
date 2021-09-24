@@ -5,6 +5,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 import androidx.annotation.NonNull;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import okhttp3.OkHttpClient;
 

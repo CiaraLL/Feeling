@@ -2,8 +2,6 @@
 <manifest package="com.li.feeling"
   xmlns:android="http://schemas.android.com/apk/res/android">
 
-  <uses-permission android:name="android.permission.INTERNET"></uses-permission>
-
   <application>
     <activity
       android:name="com.li.feeling.login.LoginActivity"
