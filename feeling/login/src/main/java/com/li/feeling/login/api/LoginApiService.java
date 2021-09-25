@@ -1,6 +1,7 @@
 package com.li.feeling.login.api;
 
 import com.li.feeling.model.User;
+import com.li.framework.network.FeelingResponse;
 import com.li.framework.network.FeelingRetrofitConfig;
 import com.li.framework.network.FeelingUrl;
 import com.li.framework.scheduler_utility.SchedulerManager;
@@ -28,7 +29,7 @@ public interface LoginApiService {
   // 登陆请求
   @FormUrlEncoded
   @POST("/user/login")
-  Observable<User> login(@Field("account") String account, @Field("password") String password);
+  Observable<FeelingResponse<User>> login(@Field("account") String account, @Field("password") String password);
 
 }
 

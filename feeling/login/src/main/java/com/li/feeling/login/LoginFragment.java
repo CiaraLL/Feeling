@@ -12,11 +12,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.li.feeling.R;
+import com.li.feeling.home.HomeActivity;
 import com.li.feeling.login.api.LoginApiService;
 import com.li.feeling.model.User;
 import com.li.feeling.register.RegisterActivity;
 import com.li.fragment.base_page.fragment.BaseFragment;
 import com.li.framework.common_util.ToastUtil;
+import com.li.framework.network.FeelingException;
+import com.li.framework.network.FeelingResponseTransform;
 import com.li.framework.scheduler_utility.SchedulerManager;
 import com.li.framework.ui.utility.DuplicatedClickFilter;
 
@@ -95,12 +98,24 @@ public class LoginFragment extends BaseFragment {
     mLoginDisposable = LoginApiService.get()
         .login(mPhoneStr, mPassword)
         .observeOn(SchedulerManager.MAIN)
+        .map(FeelingResponseTransform.transform())
         .subscribe(new Consumer<User>() {
           @Override
           public void accept(User user) throws Exception {
-            System.out.println(user);
+            onLoginSuccess(user);
           }
-        }, throwable -> {System.out.println(throwable);});
+        }, throwable -> {
+          if (throwable instanceof FeelingException) {
+            ToastUtil.showToast(((FeelingException) throwable).mErrorMessage);
+          }
+        });
+  }
+
+  // 登陆成功
+  private void onLoginSuccess(@NonNull User user) {
+    // TODO: 9/26/21 user管理
+    // 进入home页面
+    HomeActivity.start(getActivity());
   }
 
   private void jumpToRegisterPager() {
