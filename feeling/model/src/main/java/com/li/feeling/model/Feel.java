@@ -17,4 +17,7 @@ public class Feel implements Serializable {
   // 点赞数
   public int mLikeNum;
 
+  public Feel() {
+
+  }
 }

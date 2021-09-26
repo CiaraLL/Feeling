@@ -52,6 +52,11 @@ public abstract class LiRecyclerAdapter<Data extends LiRecyclerItemViewData>
     return new LiRecyclerBlankItemViewHolder(blankView);
   }
 
+  /**
+   * 绑定holder
+   * @param holder
+   * @param position
+   */
   @Override
   public void onBindViewHolder(@NonNull LiRecycleViewHolder<Data> holder, int position) {
     mViewHolders.add(holder);
@@ -61,6 +66,10 @@ public abstract class LiRecyclerAdapter<Data extends LiRecyclerItemViewData>
     }
   }
 
+  /**
+   * 回收holder
+   * @param holder
+   */
   @Override
   public void onViewRecycled(@NonNull LiRecycleViewHolder<Data> holder) {
     super.onViewRecycled(holder);
@@ -68,6 +77,11 @@ public abstract class LiRecyclerAdapter<Data extends LiRecyclerItemViewData>
     mViewHolders.remove(holder);
   }
 
+  /**
+   * 滚动至不可见时调用该方法，页面退出时不调用
+   * 解注册释放资源
+   * @param recyclerView
+   */
   @Override
   public void onDetachedFromRecyclerView(@NonNull RecyclerView recyclerView) {
     super.onDetachedFromRecyclerView(recyclerView);

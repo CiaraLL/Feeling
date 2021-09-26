@@ -8,26 +8,39 @@ import androidx.annotation.NonNull;
 
 import com.li.feeling.model.Feel;
 import com.li.feeling.model.User;
+import com.li.framework.network.FeelingResponse;
+
+import io.reactivex.Observable;
+import io.reactivex.Observer;
 
 /**
  * description: 一个简单的实现类
  */
 public class IFeelListDataServiceImpl implements IFeelListDataService {
+    @Override
+    public Observable<FeelingResponse<Feel>> getFeelListData() {
+        return new Observable<FeelingResponse<Feel>>() {
+            @Override
+            protected void subscribeActual(Observer<? super FeelingResponse<Feel>> observer) {
 
-  @NonNull
-  @Override
-  public List<Feel> getFeelListData() {
-    List<Feel> feelList = new ArrayList<>();
-    for (int i = 0; i < 20; ++i) {
-      Feel feel = new Feel();
-      feel.mUser = new User();
-      feel.mUser.mNickName = i + "莉莉";
-      feel.mPublishTime = SystemClock.elapsedRealtime();
-      feel.mContentText = i + "内容文案";
-      feel.mLikeNum = i;
-
-      feelList.add(feel);
+            }
+        };
     }
-    return feelList;
-  }
+
+//  @NonNull
+//  @Override
+//  public List<Feel> getFeelListData() {
+//    List<Feel> feelList = new ArrayList<>();
+//    for (int i = 0; i < 20; ++i) {
+//      Feel feel = new Feel();
+//      feel.mUser = new User();
+//      feel.mUser.mNickName = i + "莉莉";
+//      feel.mPublishTime = SystemClock.elapsedRealtime();
+//      feel.mContentText = i + "内容文案";
+//      feel.mLikeNum = i;
+//
+//      feelList.add(feel);
+//    }
+//    return feelList;
+//  }
 }

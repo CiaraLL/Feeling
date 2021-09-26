@@ -6,7 +6,9 @@ package com.li.framework.network;
 public enum FeelingUrl {
 
   LOGIN("http", "192.168.1.8", 8080), // 登陆业务
-  REGISTER("http", "192.168.1.8", 8080); // 注册业务
+  REGISTER("http", "192.168.1.8", 8080),
+  REQUSETFEEL("http", "192.168.1.8", 8080);//申请Feel; // 注册业务
+
 
   String mScheme;
   String mHost; // 域名或者ip地址
