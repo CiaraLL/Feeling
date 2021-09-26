@@ -19,7 +19,7 @@ import com.li.feeling.register.RegisterActivity;
 import com.li.fragment.base_page.fragment.BaseFragment;
 import com.li.framework.common_util.ToastUtil;
 import com.li.framework.network.FeelingException;
-import com.li.framework.network.FeelingResponseTransform;
+import com.li.framework.network.FeelingResponseTransformer;
 import com.li.framework.scheduler_utility.SchedulerManager;
 import com.li.framework.ui.utility.DuplicatedClickFilter;
 
@@ -98,7 +98,7 @@ public class LoginFragment extends BaseFragment {
     mLoginDisposable = LoginApiService.get()
         .login(mPhoneStr, mPassword)
         .observeOn(SchedulerManager.MAIN)
-        .map(FeelingResponseTransform.transform())
+        .map(FeelingResponseTransformer.transform())
         .subscribe(new Consumer<User>() {
           @Override
           public void accept(User user) throws Exception {
