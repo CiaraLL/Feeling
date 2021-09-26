@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res-auto"
+    xmlns:android1="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.li.framework.tabfragment"
+    android1:versionCode="1"
+    android1:versionName="1.0"
+    tools:ignore="NamespaceTypo" >
+
+    <uses-sdk
+        android1:minSdkVersion="16"
+        android1:targetSdkVersion="31" />
+
+</manifest>

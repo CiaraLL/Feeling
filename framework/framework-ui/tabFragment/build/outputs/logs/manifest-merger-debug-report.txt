@@ -1,0 +1,43 @@
+-- Merging decision tree log ---
+manifest
+ADDED from E:\code\android\Feeling\framework\framework-ui\tabFragment\src\main\AndroidManifest.xml:2:1-8:12
+INJECTED from E:\code\android\Feeling\framework\framework-ui\tabFragment\src\main\AndroidManifest.xml:2:1-8:12
+INJECTED from E:\code\android\Feeling\framework\framework-ui\tabFragment\src\main\AndroidManifest.xml:2:1-8:12
+INJECTED from E:\code\android\Feeling\framework\framework-ui\tabFragment\src\main\AndroidManifest.xml:2:1-8:12
+INJECTED from E:\code\android\Feeling\framework\framework-ui\tabFragment\src\main\AndroidManifest.xml:2:1-8:12
+INJECTED from E:\code\android\Feeling\framework\framework-ui\tabFragment\src\main\AndroidManifest.xml:2:1-8:12
+INJECTED from E:\code\android\Feeling\framework\framework-ui\tabFragment\src\main\AndroidManifest.xml:2:1-8:12
+	package
+		ADDED from E:\code\android\Feeling\framework\framework-ui\tabFragment\src\main\AndroidManifest.xml:4:5-43
+		INJECTED from E:\code\android\Feeling\framework\framework-ui\tabFragment\src\main\AndroidManifest.xml
+		INJECTED from E:\code\android\Feeling\framework\framework-ui\tabFragment\src\main\AndroidManifest.xml
+	xmlns:android1
+		ADDED from E:\code\android\Feeling\framework\framework-ui\tabFragment\src\main\AndroidManifest.xml:2:1-8:12
+	android1:versionName
+		INJECTED from E:\code\android\Feeling\framework\framework-ui\tabFragment\src\main\AndroidManifest.xml
+		ADDED from E:\code\android\Feeling\framework\framework-ui\tabFragment\src\main\AndroidManifest.xml:2:1-8:12
+		INJECTED from E:\code\android\Feeling\framework\framework-ui\tabFragment\src\main\AndroidManifest.xml
+	xmlns:tools
+		ADDED from E:\code\android\Feeling\framework\framework-ui\tabFragment\src\main\AndroidManifest.xml:3:5-51
+	android1:versionCode
+		INJECTED from E:\code\android\Feeling\framework\framework-ui\tabFragment\src\main\AndroidManifest.xml
+		ADDED from E:\code\android\Feeling\framework\framework-ui\tabFragment\src\main\AndroidManifest.xml:2:1-8:12
+		INJECTED from E:\code\android\Feeling\framework\framework-ui\tabFragment\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from E:\code\android\Feeling\framework\framework-ui\tabFragment\src\main\AndroidManifest.xml:2:11-66
+	tools:ignore
+		ADDED from E:\code\android\Feeling\framework\framework-ui\tabFragment\src\main\AndroidManifest.xml:5:5-33
+uses-sdk
+INJECTED from E:\code\android\Feeling\framework\framework-ui\tabFragment\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from E:\code\android\Feeling\framework\framework-ui\tabFragment\src\main\AndroidManifest.xml
+INJECTED from E:\code\android\Feeling\framework\framework-ui\tabFragment\src\main\AndroidManifest.xml
+INJECTED from E:\code\android\Feeling\framework\framework-ui\tabFragment\src\main\AndroidManifest.xml
+INJECTED from E:\code\android\Feeling\framework\framework-ui\tabFragment\src\main\AndroidManifest.xml
+	android1:targetSdkVersion
+		INJECTED from E:\code\android\Feeling\framework\framework-ui\tabFragment\src\main\AndroidManifest.xml
+		ADDED from E:\code\android\Feeling\framework\framework-ui\tabFragment\src\main\AndroidManifest.xml
+		INJECTED from E:\code\android\Feeling\framework\framework-ui\tabFragment\src\main\AndroidManifest.xml
+	android1:minSdkVersion
+		INJECTED from E:\code\android\Feeling\framework\framework-ui\tabFragment\src\main\AndroidManifest.xml
+		ADDED from E:\code\android\Feeling\framework\framework-ui\tabFragment\src\main\AndroidManifest.xml
+		INJECTED from E:\code\android\Feeling\framework\framework-ui\tabFragment\src\main\AndroidManifest.xml
