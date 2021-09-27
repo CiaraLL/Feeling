@@ -18,6 +18,14 @@ import com.li.framework_init.InitModule;
  */
 public class SharedPreferencesInitModule implements InitModule {
 
+  public static SharedPreferencesInitModule getInstance() {
+    return SharedPreferencesInitModule.SharedPreferencesInitModuleHolder.INSTANCE;
+  }
+
+  private static class SharedPreferencesInitModuleHolder {
+    static SharedPreferencesInitModule INSTANCE = new SharedPreferencesInitModule();
+  }
+
   @Override
   public void init(@NonNull Context context) {
     SharedPreferencesHelper.init(

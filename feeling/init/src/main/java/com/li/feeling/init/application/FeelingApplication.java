@@ -5,8 +5,8 @@ import android.content.Context;
 
 import androidx.multidex.MultiDex;
 
-import com.li.feeling.init.initmodule.LiSharedPreferencesInitModule;
 import com.li.feeling.init.initmodule.RetrofitInitModule;
+import com.li.feeling.init.initmodule.SharedPreferencesInitModule;
 import com.li.framework.app.ContextService;
 
 
@@ -38,7 +38,8 @@ public class FeelingApplication extends Application {
 
     ContextService.setAppContext(this);
 
-    LiSharedPreferencesInitModule.getInstance().init(this);
+    // TODO: 9/27/21 所有的initModule收敛到一个类中去管理
+    SharedPreferencesInitModule.getInstance().init(this);
     RetrofitInitModule.getInstance().init(this);
 
   }
