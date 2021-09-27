@@ -7,10 +7,9 @@ import androidx.annotation.NonNull;
 import com.tencent.mmkv.MMKV;
 
 /**
- * description: 对SharedPreferences的封装
+ * description: SharedPreferences工厂
  */
-// TODO: 9/23/21 增加存储和读取数据的方法
-public class LiSharedPreferences {
+public class SharedPreferencesFactory {
 
   // 初始化
   public static void init(@NonNull Context context) {
@@ -21,6 +20,7 @@ public class LiSharedPreferences {
   @NonNull
   public static SharedPreferences get(String key) {
     // 多进程模式
+    // TODO: 9/27/21 为啥用多进程模式
     return MMKV.mmkvWithID(key, MMKV.MULTI_PROCESS_MODE);
   }
 

@@ -4,7 +4,7 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 
 import com.li.framework_init.InitModule;
-import com.li.library.sharedpreferences_utility.LiSharedPreferences;
+import com.li.library.sharedpreferences_utility.SharedPreferencesFactory;
 
 /**
  * description: 初始化SharedPreference
@@ -21,7 +21,7 @@ public class LiSharedPreferencesInitModule implements InitModule {
 
   @Override
   public void init(@NonNull Context context) {
-    LiSharedPreferences.init(context);
+    SharedPreferencesFactory.init(context);
   }
 
 }
