@@ -7,6 +7,7 @@ import java.io.Serializable;
  */
 public class Feel implements Serializable {
 
+  public long mId;
   // 所属者
   public User mUser;
   // 发布时间

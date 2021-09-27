@@ -17,6 +17,7 @@ import com.li.feeling.login.api.LoginApiService;
 import com.li.feeling.model.User;
 import com.li.feeling.register.RegisterActivity;
 import com.li.fragment.base_page.fragment.BaseFragment;
+import com.li.framework.common_util.RxUtil;
 import com.li.framework.common_util.ToastUtil;
 import com.li.framework.network.FeelingException;
 import com.li.framework.network.FeelingResponseTransformer;
@@ -130,8 +131,6 @@ public class LoginFragment extends BaseFragment {
   public void onDestroy() {
     super.onDestroy();
     // 避免网络请求的内存泄漏
-    if (mLoginDisposable != null) {
-      mLoginDisposable.dispose();
-    }
+    RxUtil.dispose(mLoginDisposable);
   }
 }

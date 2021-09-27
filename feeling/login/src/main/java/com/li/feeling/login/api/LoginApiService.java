@@ -18,17 +18,17 @@ import retrofit2.http.POST;
 public interface LoginApiService {
 
   // 单例
-  LoginApiService mLoginApiService = RetrofitManager.getInstance()
+  LoginApiService sLoginApiService = RetrofitManager.getInstance()
       .create(new FeelingRetrofitConfig(FeelingUrl.LOGIN, SchedulerManager.NETWORKING),
           LoginApiService.class);
 
   static LoginApiService get() {
-    return mLoginApiService;
+    return sLoginApiService;
   }
 
   // 登陆请求
   @FormUrlEncoded
-  @POST("/user/login")
+  @POST("feeling/user/login")
   Observable<FeelingResponse<User>> login(@Field("account") String account, @Field("password") String password);
 
 }
