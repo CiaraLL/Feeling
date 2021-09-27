@@ -9,6 +9,7 @@ import com.google.gson.annotations.SerializedName;
  */
 public class User {
 
+  // 空数据
   @NonNull
   public static final User EMPTY = new User();
 
