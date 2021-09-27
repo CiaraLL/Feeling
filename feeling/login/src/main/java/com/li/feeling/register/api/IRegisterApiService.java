@@ -1,6 +1,5 @@
 package com.li.feeling.register.api;
 
-import com.li.feeling.model.Feel;
 import com.li.feeling.model.User;
 import com.li.framework.network.FeelingResponse;
 import com.li.framework.network.FeelingRetrofitConfig;
@@ -13,17 +12,17 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
-public interface RegisterApiService {
+public interface IRegisterApiService {
 
-    RegisterApiService mRegisterApiService = RetrofitManager.getInstance().create(
-            new FeelingRetrofitConfig(FeelingUrl.REGISTER, SchedulerManager.NETWORKING)
-            , RegisterApiService.class);
+    IRegisterApiService sRegisterApiService = RetrofitManager.getInstance().create(
+        new FeelingRetrofitConfig(FeelingUrl.REGISTER, SchedulerManager.NETWORKING),
+        IRegisterApiService.class);
 
-    static RegisterApiService get() {
-        return mRegisterApiService;
+    static IRegisterApiService get() {
+        return sRegisterApiService;
     }
 
     @FormUrlEncoded
     @POST("feeling/user/register")
-    Observable<FeelingResponse<User>> register(@Field("account") String account, @Field("password") String password);
+    Observable<FeelingResponse<User>> register(@Field("phone") String phone, @Field("password") String password);
 }

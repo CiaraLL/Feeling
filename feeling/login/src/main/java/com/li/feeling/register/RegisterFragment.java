@@ -9,15 +9,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.li.feeling.R;
 import com.li.feeling.home.HomeActivity;
+import com.li.feeling.login.LoginActivity;
 import com.li.feeling.model.User;
-import com.li.feeling.register.api.RegisterApiService;
+import com.li.feeling.register.api.IRegisterApiService;
 import com.li.fragment.base_page.fragment.BaseFragment;
 import com.li.framework.common_util.ToastUtil;
 import com.li.framework.network.FeelingException;
@@ -38,6 +38,7 @@ public class RegisterFragment extends BaseFragment {
     private EditText mPasswordView;
     private Button mRegisterButton;
 
+    @Nullable
     private Disposable mRegisterDisposable;
 
     @Nullable
@@ -61,27 +62,27 @@ public class RegisterFragment extends BaseFragment {
     }
 
     private void doRegister() {
-        String mAccount = mPhoneView.getText().toString();
-        String mPassword = mPasswordView.getText().toString();
+        String phone = mPhoneView.getText().toString();
+        String password = mPasswordView.getText().toString();
 
-        if (TextUtils.isEmpty(mAccount)){
+        if (TextUtils.isEmpty(phone)){
             ToastUtil.showToast("请输入要注册的手机号");
             mPhoneView.requestFocus();
             return;
         }
-        if (TextUtils.isEmpty(mPassword)){
+        if (TextUtils.isEmpty(password)){
             ToastUtil.showToast("请输入密码");
             mPasswordView.requestFocus();
             return;
         }
 
-        mRegisterDisposable = RegisterApiService.get()
-                .register(mAccount,mPassword)
+        mRegisterDisposable = IRegisterApiService.get()
+                .register(phone,password)
                 .observeOn(SchedulerManager.MAIN)
                 .map(FeelingResponseTransformer.transform())
                 .subscribe(new Consumer<User>() {
                     @Override
-                    public void accept(User user) throws Exception {
+                    public void accept(User user) {
                         onRegisterSuccess(user);
                     }
                 },throwable -> {
@@ -91,11 +92,12 @@ public class RegisterFragment extends BaseFragment {
                 });
     }
 
-    private void onRegisterSuccess(User user) {
-        Activity activity = new Activity();
-        if(activity == null){
-            return;
+    // 注册成功
+    private void onRegisterSuccess(@NonNull User user) {
+        Activity activity = getActivity();
+        if(activity != null){
+          LoginActivity.start(activity);
+          activity.finish();
         }
-        HomeActivity.start(activity);
     }
 }
