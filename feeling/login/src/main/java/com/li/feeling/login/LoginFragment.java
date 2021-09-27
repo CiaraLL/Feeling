@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import com.li.feeling.R;
 import com.li.feeling.home.HomeActivity;
 import com.li.feeling.login.api.LoginApiService;
+import com.li.feeling.model.CurrentUser;
 import com.li.feeling.model.User;
 import com.li.feeling.register.RegisterActivity;
 import com.li.fragment.base_page.fragment.BaseFragment;
@@ -114,9 +115,14 @@ public class LoginFragment extends BaseFragment {
 
   // 登陆成功
   private void onLoginSuccess(@NonNull User user) {
-    // TODO: 9/26/21 user管理
-    // 进入home页面
-    HomeActivity.start(getActivity());
+    // 更新当前用户
+    CurrentUser.get().update(user);
+
+    Activity activity = getActivity();
+    if (activity != null && !activity.isFinishing()) {
+      // 进入home页面
+      HomeActivity.start(activity);
+    }
   }
 
   private void jumpToRegisterPager() {

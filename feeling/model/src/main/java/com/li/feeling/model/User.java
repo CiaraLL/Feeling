@@ -1,11 +1,16 @@
 package com.li.feeling.model;
 
+import androidx.annotation.NonNull;
+
 import com.google.gson.annotations.SerializedName;
 
 /**
  * description: 用户信息
  */
 public class User {
+
+  @NonNull
+  public static final User EMPTY = new User();
 
   @SerializedName("id")
   public String mId;
