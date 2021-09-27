@@ -63,4 +63,28 @@ public class SharedPreferencesHelper {
     return sDeserializer.deserialize(value, type);
   }
 
+  // 用于读取String类型
+  @NonNull
+  public static String getString(@NonNull String key) {
+    return sSharedPreferences.getString(key, EMPTY_STR);
+  }
+
+  // 读取boolean
+  public static boolean getBoolean(@NonNull String key, boolean defaultValue) {
+    Boolean value = get(key, Boolean.class);
+    if (value == null) {
+      return defaultValue;
+    }
+    return value;
+  }
+
+  // 读取int
+  public static int getInt(@NonNull String key, int defaultValue) {
+    Integer value = get(key, Boolean.class);
+    if (value == null) {
+      return defaultValue;
+    }
+    return value;
+  }
+
 }
