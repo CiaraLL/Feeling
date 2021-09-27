@@ -14,26 +14,26 @@ import com.li.fragment.base_page.activity.BaseActivity;
  */
 public class LoginActivity extends BaseActivity {
 
-  public static void start(@NonNull Activity activity){
-    Intent intent = new Intent(activity, LoginActivity.class);
-    activity.startActivity(intent);
-  }
+    public static void start(@NonNull Activity activity) {
+        Intent intent = new Intent(activity, LoginActivity.class);
+        activity.startActivity(intent);
+    }
 
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    replaceLoginFragment();
-  }
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        replaceLoginFragment();
+    }
 
-  private void replaceLoginFragment() {
-    getSupportFragmentManager()
-        .beginTransaction()
-        .replace(android.R.id.content, getLoginFragment())
-        .commitAllowingStateLoss();
-  }
+    private void replaceLoginFragment() {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(android.R.id.content, getLoginFragment())
+                .commitAllowingStateLoss();
+    }
 
-  @NonNull
-  private Fragment getLoginFragment() {
-    return new LoginFragment();
-  }
+    @NonNull
+    private Fragment getLoginFragment() {
+        return new LoginFragment();
+    }
 }

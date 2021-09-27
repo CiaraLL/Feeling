@@ -1,7 +1,9 @@
 package com.li.feeling.register;
 
 
+import android.app.Activity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,14 +15,31 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.li.feeling.R;
+import com.li.feeling.home.HomeActivity;
+import com.li.feeling.model.User;
+import com.li.feeling.register.api.RegisterApiService;
 import com.li.fragment.base_page.fragment.BaseFragment;
+import com.li.framework.common_util.ToastUtil;
+import com.li.framework.network.FeelingException;
+import com.li.framework.network.FeelingResponseTransformer;
+import com.li.framework.scheduler_utility.SchedulerManager;
 import com.li.framework.ui.utility.DuplicatedClickFilter;
 
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
 
+
+/**
+ * 注册页面Fragment
+ */
 public class RegisterFragment extends BaseFragment {
+
     private EditText mPhoneView;
     private EditText mPasswordView;
     private Button mRegisterButton;
+
+    private Disposable mRegisterDisposable;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -33,18 +52,50 @@ public class RegisterFragment extends BaseFragment {
         mPhoneView = view.findViewById(R.id.fragment_register_pager_phone_edittext);
         mPasswordView = view.findViewById(R.id.fragment_register_pager_password_edittext);
         mRegisterButton = view.findViewById(R.id.fragment_register_page_register_button);
-        mPhoneView.setOnClickListener(new DuplicatedClickFilter() {
+        mRegisterButton.setOnClickListener(new DuplicatedClickFilter() {
             @Override
             protected void handleClickEvent() {
-                Toast.makeText(getActivity(), "请输入手机号注册", Toast.LENGTH_SHORT).show();
+                doRegister();
             }
         });
+    }
 
-        mPasswordView.setOnClickListener(new DuplicatedClickFilter() {
-            @Override
-            protected void handleClickEvent() {
-                Toast.makeText(getActivity(), "请输入注册密码", Toast.LENGTH_SHORT).show();
-            }
-        });
+    private void doRegister() {
+        String mAccount = mPhoneView.getText().toString();
+        String mPassword = mPasswordView.getText().toString();
+
+        if (TextUtils.isEmpty(mAccount)){
+            ToastUtil.showToast("请输入要注册的手机号");
+            mPhoneView.requestFocus();
+            return;
+        }
+        if (TextUtils.isEmpty(mPassword)){
+            ToastUtil.showToast("请输入密码");
+            mPasswordView.requestFocus();
+            return;
+        }
+
+        mRegisterDisposable = RegisterApiService.get()
+                .register(mAccount,mPassword)
+                .observeOn(SchedulerManager.MAIN)
+                .map(FeelingResponseTransformer.transform())
+                .subscribe(new Consumer<User>() {
+                    @Override
+                    public void accept(User user) throws Exception {
+                        onRegisterSuccess(user);
+                    }
+                },throwable -> {
+                    if(throwable instanceof FeelingException){
+                        ToastUtil.showToast((((FeelingException) throwable).mErrorMessage));
+                    }
+                });
+    }
+
+    private void onRegisterSuccess(User user) {
+        Activity activity = new Activity();
+        if(activity == null){
+            return;
+        }
+        HomeActivity.start(activity);
     }
 }
