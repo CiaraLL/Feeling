@@ -161,6 +161,8 @@ public class LoginFragment extends BaseFragment {
       LoginCacheHelper.saveLoginPassword("");
       if (throwable instanceof FeelingException) {
         ToastUtil.showToast(((FeelingException) throwable).mErrorMessage);
+      }else{
+        ToastUtil.showToast("error，请稍后重试");
       }
     }
 
