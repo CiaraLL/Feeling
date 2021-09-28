@@ -22,6 +22,11 @@ public class CurrentUser {
   @NonNull
   private User mUser = User.EMPTY;
 
+  @NonNull
+  public User getUser() {
+    return mUser;
+  }
+
   // 更新数据
   public void update(@NonNull User user) {
     mUser = user;

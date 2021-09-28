@@ -8,7 +8,6 @@ import io.reactivex.schedulers.Schedulers;
 
 /**
  * description: RxJava的Scheduler分类
- * ObserverOn时Accept函数使用的Scheduler
  */
 public class SchedulerManager {
 

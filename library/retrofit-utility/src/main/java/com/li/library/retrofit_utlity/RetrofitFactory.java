@@ -17,7 +17,6 @@ public class RetrofitFactory {
    * @param retrofitConfig 配置信息
    */
   public static Retrofit create(@NonNull IRetrofitConfig retrofitConfig) {
-
     Retrofit.Builder builder = new Retrofit.Builder()
         .baseUrl(retrofitConfig.getBaseUrl())
         .addConverterFactory(GsonConverterFactory.create(retrofitConfig.getGson()))

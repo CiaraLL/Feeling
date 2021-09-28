@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="com.li.feeling.userdeatil"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <application>
+    <activity
+      android:name="com.li.feeling.userdeatil.UserDetailActivity"
+      android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+  </application>
+
+</manifest>

@@ -19,6 +19,7 @@ dependencies {
     implementation project(path: ':framework:common-util')
     implementation project(path: ':framework:framework-gson')
     implementation project(path: ':framework:framework-ui:utility')
+    implementation project(path: ':feeling:userdeatil')
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'

@@ -7,10 +7,6 @@
             android:name=".HomeActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity
-            android:name="com.li.feeling.mine.MyHomePagerActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        </activity>
     </application>
 
 </manifest>

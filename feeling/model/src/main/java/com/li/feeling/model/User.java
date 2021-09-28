@@ -1,5 +1,7 @@
 package com.li.feeling.model;
 
+import java.io.Serializable;
+
 import androidx.annotation.NonNull;
 
 import com.google.gson.annotations.SerializedName;
@@ -7,7 +9,7 @@ import com.google.gson.annotations.SerializedName;
 /**
  * description: 用户信息
  */
-public class User {
+public class User implements Serializable {
 
   // 空数据
   @NonNull
