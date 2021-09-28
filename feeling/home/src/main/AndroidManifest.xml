@@ -5,8 +5,12 @@
     <application>
         <activity
             android:name=".HomeActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name="com.li.feeling.mine.MyHomePagerActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        </activity>
     </application>
 
 </manifest>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/my_home_pager_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        android:text="编辑个人资料"
+        android:textSize="15dp"/>
+
+    <LinearLayout
+        app:layout_constraintTop_toBottomOf="@+id/my_home_pager_title"
+        android:id="@+id/phone_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="20dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="手机："
+            android:textSize="20sp">
+        </TextView>
+        <EditText
+            android:id="@+id/my_home_pager_phone_editText"
+            android:layout_width="290dp"
+            android:layout_height="wrap_content"
+            android:background="@null">
+        </EditText>
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/arrow"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
+    <LinearLayout
+        app:layout_constraintTop_toBottomOf="@+id/phone_container"
+        android:id="@+id/name_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="昵称："
+            android:textSize="20sp">
+        </TextView>
+        <EditText
+            android:id="@+id/my_home_pager_name_editText"
+            android:layout_width="290dp"
+            android:layout_height="wrap_content"
+            android:background="@null">
+        </EditText>
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/arrow"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
+    <LinearLayout
+        app:layout_constraintTop_toBottomOf="@+id/name_container"
+        android:id="@+id/sex_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="性别："
+            android:textSize="20sp">
+        </TextView>
+        <EditText
+            android:id="@+id/my_home_pager_sex_editText"
+            android:layout_width="290dp"
+            android:layout_height="wrap_content"
+            android:background="@null">
+        </EditText>
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/arrow"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

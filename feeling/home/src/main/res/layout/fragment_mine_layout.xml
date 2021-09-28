@@ -49,7 +49,7 @@
                 android:gravity="center">
 
                 <TextView
-                    android:id="@+id/mine_content_photo_album"
+                    android:id="@+id/mine_content_user_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
@@ -57,10 +57,10 @@
                     android:textSize="20dp" />
 
                 <TextView
-                    android:id="@+id/mine_head_show_info_view"
+                    android:id="@+id/mine_head_brief_introduction_view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/mine_content_photo_album"
+                    android:layout_below="@+id/mine_content_user_name"
                     android:layout_marginTop="10dp"
                     android:text="简介："
                     android:textSize="13sp" />
@@ -68,6 +68,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/my_home_pager"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
@@ -76,12 +77,10 @@
             android:layout_marginTop="40dp"
             android:layout_marginRight="20dp"
             android:orientation="horizontal">
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
-                android:text="个人主页"
+                android:text="个人资料"
                 android:textSize="20dp"/>
             <ImageView
                 android:layout_width="20dp"
@@ -119,7 +118,7 @@
                 android:gravity="center">
 
                 <TextView
-                    android:id="@+id/mine_content_photo_album"
+                    android:id="@+id/mine_content_user_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
@@ -131,7 +130,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/mine_content_photo_album"
+                    android:layout_below="@+id/mine_content_user_name"
                     android:layout_marginTop="5dp"
                     android:gravity="center_vertical"
                     android:text="动态"
@@ -145,7 +144,7 @@
                 android:gravity="center">
 
                 <TextView
-                    android:id="@+id/mine_content_photo_album"
+                    android:id="@+id/mine_content_user_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
@@ -157,7 +156,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/mine_content_photo_album"
+                    android:layout_below="@+id/mine_content_user_name"
                     android:layout_marginTop="5dp"
                     android:gravity="center_vertical"
                     android:text="关注"
@@ -172,7 +171,7 @@
                 android:gravity="center">
 
                 <TextView
-                    android:id="@+id/mine_content_photo_album"
+                    android:id="@+id/mine_content_user_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
@@ -184,7 +183,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/mine_content_photo_album"
+                    android:layout_below="@+id/mine_content_user_name"
                     android:layout_marginTop="5dp"
                     android:gravity="center_vertical"
                     android:text="粉丝"
