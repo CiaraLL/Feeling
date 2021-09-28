@@ -5,10 +5,10 @@
   <application>
     <activity
       android:name="com.li.feeling.login.LoginActivity"
-      android:theme="@style/Theme.AppCompat.NoActionBar" />
+      android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     <activity
       android:name="com.li.feeling.register.RegisterActivity"
-      android:theme="@style/Theme.AppCompat.NoActionBar" />
+      android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
   </application>
 
 </manifest>

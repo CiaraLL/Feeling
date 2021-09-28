@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -32,10 +33,12 @@ public abstract class TabFragment extends Fragment {
                 }
 
                 @Override
-                public void onTabUnselected(TabLayout.Tab tab) { }
+                public void onTabUnselected(TabLayout.Tab tab) {
+                }
 
                 @Override
-                public void onTabReselected(TabLayout.Tab tab) { }
+                public void onTabReselected(TabLayout.Tab tab) {
+                }
             };
 
     @Nullable
@@ -80,7 +83,6 @@ public abstract class TabFragment extends Fragment {
         };
         mFragmentPager.setAdapter(mPagerAdapter);
         mFragmentPager.setOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
-
     }
 
     @LayoutRes
@@ -91,8 +93,8 @@ public abstract class TabFragment extends Fragment {
 
     // 选中某页
     private void setSelect(int position) {
-    mFragmentPager.setCurrentItem(position);
-  }
+        mFragmentPager.setCurrentItem(position);
+    }
 
     //获得所有的tab
     @NonNull

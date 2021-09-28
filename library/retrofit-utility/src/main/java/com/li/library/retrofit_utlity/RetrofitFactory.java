@@ -17,11 +17,12 @@ public class RetrofitFactory {
    * @param retrofitConfig 配置信息
    */
   public static Retrofit create(@NonNull IRetrofitConfig retrofitConfig) {
+
     Retrofit.Builder builder = new Retrofit.Builder()
         .baseUrl(retrofitConfig.getBaseUrl())
         .addConverterFactory(GsonConverterFactory.create(retrofitConfig.getGson()))
         .client(retrofitConfig.getClient());
-    // 调用方指定的RxJava订阅(subscribe)时的调度器
+    // 调用方指定的RxJava订阅(subscribe)过程中使用的调度器
     if (retrofitConfig.getSubscribeScheduler() != null) {
       builder.addCallAdapterFactory(
           RxJava2CallAdapterFactory.createWithScheduler(retrofitConfig.getSubscribeScheduler()));
@@ -31,5 +32,4 @@ public class RetrofitFactory {
 
     return builder.build();
   }
-
 }

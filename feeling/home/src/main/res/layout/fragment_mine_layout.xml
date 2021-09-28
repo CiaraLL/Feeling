@@ -54,7 +54,6 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:text="11111111111"
-                    android:textColor="@color/color_base_white"
                     android:textSize="20dp" />
 
                 <TextView
@@ -64,7 +63,6 @@
                     android:layout_below="@+id/mine_content_photo_album"
                     android:layout_marginTop="10dp"
                     android:text="简介："
-                    android:textColor="@color/color_base_white"
                     android:textSize="13sp" />
             </RelativeLayout>
         </LinearLayout>
@@ -84,8 +82,7 @@
                 android:layout_height="wrap_content"
 
                 android:text="个人主页"
-                android:textSize="20dp"
-                android:textColor="@color/color_base_white"/>
+                android:textSize="20dp"/>
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"

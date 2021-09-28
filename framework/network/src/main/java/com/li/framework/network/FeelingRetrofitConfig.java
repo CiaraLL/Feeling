@@ -42,7 +42,7 @@ public class FeelingRetrofitConfig extends BaseRetrofitConfig {
 
   @Override
   public Scheduler getSubscribeScheduler() {
-    return mScheduler;
+      return mScheduler;
   }
 
 }
