@@ -308,52 +308,18 @@
 
 
         <LinearLayout
-            android:id="@+id/mine_content_my_wallet"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="30dp"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/icon_wallet"
-                android:layout_marginLeft="20dp"
-                android:layout_gravity="center"
-                android:layout_weight="1"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_gravity="center_vertical"
-                android:gravity="center_vertical"
-                android:text="我的钱包"
-                android:textSize="16sp">
-            </TextView>
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginRight="30dp"
-                android:layout_marginLeft="200dp"
-                android:src="@drawable/arrow">
-            </ImageView>
-        </LinearLayout>
-
-        <LinearLayout
             android:id="@+id/mine_content_offline"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="30dp"
             android:orientation="horizontal">
-
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:layout_gravity="center"
+                android:src="@drawable/icon_offline"
                 android:layout_marginLeft="20dp"
-                android:layout_weight="1"
-                android:src="@drawable/icon_offline" />
+                android:layout_gravity="center"
+                android:layout_weight="1"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -373,6 +339,7 @@
                 android:src="@drawable/arrow">
             </ImageView>
         </LinearLayout>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
