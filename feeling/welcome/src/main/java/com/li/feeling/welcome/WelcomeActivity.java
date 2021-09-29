@@ -47,7 +47,7 @@ public class WelcomeActivity extends Activity {
 
       @Override
       public void onFinish() {
-        HomeActivity.start(WelcomeActivity.this);
+        LoginActivity.start(WelcomeActivity.this);
         WelcomeActivity.this.finish();
       }
     }.start();
