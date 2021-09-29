@@ -31,7 +31,7 @@
             android:orientation="horizontal"
             android:layout_marginTop="50dp"
             tools:ignore="MissingConstraints"
-            android:layout_marginLeft="10dp">[]=
+            android:layout_marginLeft="10dp">
 
             <ImageView
                 android:layout_width="70dp"
@@ -49,12 +49,12 @@
                 android:gravity="center">
 
                 <TextView
-                    android:id="@+id/mine_content_user_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:text="11111111111"
-                    android:textSize="20dp" />
+                  android:id="@+id/mine_content_user_name"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_centerHorizontal="true"
+                  android:text="11111111111"
+                  android:textSize="20dp" />
 
                 <TextView
                     android:id="@+id/mine_head_brief_introduction_view"
@@ -91,7 +91,7 @@
                 android:gravity="center">
 
                 <TextView
-                    android:id="@+id/mine_content_user_name"
+                    android:id="@+id/mine_page_user_feel_num"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
@@ -101,13 +101,13 @@
                     tools:ignore="DuplicateIds" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/mine_content_user_name"
-                    android:layout_marginTop="5dp"
-                    android:gravity="center_vertical"
-                    android:text="动态"
-                    android:textSize="15sp" />
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@+id/mine_page_user_feel_num"
+                  android:layout_marginTop="5dp"
+                  android:gravity="center_vertical"
+                  android:text="动态"
+                  android:textSize="15sp" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -117,7 +117,7 @@
                 android:gravity="center">
 
                 <TextView
-                    android:id="@+id/mine_content_user_name"
+                    android:id="@+id/mine_page_my_focus_num"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
@@ -129,7 +129,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/mine_content_user_name"
+                    android:layout_below="@+id/mine_page_my_focus_num"
                     android:layout_marginTop="5dp"
                     android:gravity="center_vertical"
                     android:text="关注"
@@ -144,7 +144,7 @@
                 android:gravity="center">
 
                 <TextView
-                    android:id="@+id/mine_content_user_name"
+                    android:id="@+id/mine_page_fan_num"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
@@ -156,7 +156,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/mine_content_user_name"
+                    android:layout_below="@+id/mine_page_fan_num"
                     android:layout_marginTop="5dp"
                     android:gravity="center_vertical"
                     android:text="粉丝"

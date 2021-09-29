@@ -17,17 +17,18 @@
         <entry key="..\:/code/android/Feeling/feeling/home/src/main/res/layout/fragment_home_layout.xml" value="0.2" />
         <entry key="..\:/code/android/Feeling/feeling/home/src/main/res/layout/fragment_message_layout.xml" value="0.1296875" />
         <entry key="..\:/code/android/Feeling/feeling/home/src/main/res/layout/fragment_mine.xml" value="0.11510416666666666" />
-        <entry key="..\:/code/android/Feeling/feeling/home/src/main/res/layout/fragment_mine_layout.xml" value="0.264" />
+        <entry key="..\:/code/android/Feeling/feeling/home/src/main/res/layout/fragment_mine_layout.xml" value="0.2" />
         <entry key="..\:/code/android/Feeling/feeling/home/src/main/res/layout/home_feel_list_feel_item_layout.xml" value="0.25364583333333335" />
         <entry key="..\:/code/android/Feeling/feeling/home/src/main/res/layout/home_feel_list_footer_item_layout.xml" value="0.25364583333333335" />
         <entry key="..\:/code/android/Feeling/feeling/login/src/main/res/layout/fragment_login_layout.xml" value="0.2" />
         <entry key="..\:/code/android/Feeling/feeling/login/src/main/res/layout/fragment_mine_layout.xml" value="0.1296875" />
         <entry key="..\:/code/android/Feeling/feeling/login/src/main/res/layout/fragment_register_layout.xml" value="0.20199275362318841" />
         <entry key="..\:/code/android/Feeling/feeling/mine/src/main/res/layout/fragment_mine_layout.xml" value="0.264" />
+        <entry key="..\:/code/android/Feeling/feeling/publish/src/main/res/drawable/drawable.xml" value="0.2462962962962963" />
         <entry key="..\:/code/android/Feeling/feeling/publish/src/main/res/layout/activity_publish_feel_layout.xml" value="0.12239583333333333" />
         <entry key="..\:/code/android/Feeling/feeling/publish/src/main/res/layout/activity_publish_layout.xml" value="0.2" />
         <entry key="..\:/code/android/Feeling/feeling/publish/src/main/res/layout/fragment_publish_feel_layout.xml" value="0.12239583333333333" />
-        <entry key="..\:/code/android/Feeling/feeling/userdeatil/src/main/res/layout/activity_user_detail_layout.xml" value="0.25364583333333335" />
+        <entry key="..\:/code/android/Feeling/feeling/userdeatil/src/main/res/layout/activity_user_detail_layout.xml" value="0.176" />
         <entry key="..\:/code/android/Feeling/feeling/welcome/src/main/res/layout/activity_welcome_layout.xml" value="0.2" />
         <entry key="..\:/code/android/Feeling/framework/framework-ui/tabFragment/src/main/res/layout/fragment_home_layout.xml" value="0.1296875" />
         <entry key="..\:/code/android/Feeling/framework/ui/tabFragment/src/main/res/layout/activity_tab_fragment.xml" value="0.20199275362318841" />
@@ -40,5 +41,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.12" />
+      </ProjectState>
+    </option>
   </component>
 </project>

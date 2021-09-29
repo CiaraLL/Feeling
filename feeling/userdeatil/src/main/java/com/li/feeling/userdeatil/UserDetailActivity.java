@@ -7,6 +7,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import com.li.feeling.model.User;
 import com.li.fragment.base_page.activity.BaseActivity;
@@ -18,15 +19,6 @@ import com.li.fragment.base_page.activity.BaseActivity;
 // TODO: 2021/9/28 内容写到fragment中
 public class UserDetailActivity extends BaseActivity {
 
-  private static final String USER_KEY = "user";
-
-  // 用户信息
-  @NonNull
-  private User mUser;
-
-  private TextView mUserNameView;
-  private TextView mUserIdView;
-  private TextView mUserSexView;
 
   public static void start(@NonNull Activity activity, @NonNull User user) {
     Intent intent = new Intent(activity, UserDetailActivity.class);
@@ -38,23 +30,17 @@ public class UserDetailActivity extends BaseActivity {
   protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_user_detail_layout);
-    initUserInfo();
-    initView();
+    replaceUserDetailFragment();
   }
 
-  // 初始化用户信息
-  private void initUserInfo() {
-    Intent intent = getIntent();
-    mUser = (User) intent.getSerializableExtra(USER_KEY);
+  private void replaceUserDetailFragment() {
+    getSupportFragmentManager()
+        .beginTransaction()
+        .replace(android.R.id.content,getUserDetailFragment())
+        .commitAllowingStateLoss();
   }
 
-  private void initView() {
-    mUserNameView = findViewById(R.id.user_detail_page_user_name_editText);
-    mUserIdView = findViewById(R.id.user_detail_page_user_id_editText);
-    mUserSexView = findViewById(R.id.user_detail_page_user_sex_editText);
-
-    mUserNameView.setText(mUser.mNickName);
-    mUserIdView.setText(mUser.mPhone);
-    mUserSexView.setText(mUser.mSex);
+  private Fragment getUserDetailFragment() {
+    return new UserDetailFragment();
   }
 }
