@@ -26,11 +26,9 @@ public class PublishFeelFragment extends BaseFragment {
 
   private Disposable mDisposable;
 
-  @Nullable
   @Override
-  public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-      @Nullable Bundle savedInstanceState) {
-    return inflater.inflate(R.layout.fragment_publish_feel_layout, container, false);
+  protected int getLayoutResId() {
+    return R.layout.fragment_publish_feel_layout;
   }
 
   @Override

@@ -24,12 +24,9 @@ public class UserDetailFragment extends BaseFragment {
   private TextView mUserIdView;
   private TextView mUserSexView;
 
-
-  @Nullable
   @Override
-  public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-      @Nullable Bundle savedInstanceState) {
-    return inflater.inflate(R.layout.activity_user_detail_layout,container,false);
+  protected int getLayoutResId() {
+    return R.layout.activity_user_detail_layout;
   }
 
   @Override

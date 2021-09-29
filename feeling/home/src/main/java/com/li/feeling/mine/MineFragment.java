@@ -22,11 +22,8 @@ public class MineFragment extends BaseFragment {
   private TextView mBriefIntroduction;
 
   @Override
-  public View onCreateView(
-      @NonNull LayoutInflater inflater,
-      @Nullable ViewGroup container,
-      @Nullable Bundle savedInstanceState) {
-    return inflater.inflate(R.layout.fragment_mine_layout, container, false);
+  protected int getLayoutResId() {
+    return R.layout.fragment_mine_layout;
   }
 
   @Override

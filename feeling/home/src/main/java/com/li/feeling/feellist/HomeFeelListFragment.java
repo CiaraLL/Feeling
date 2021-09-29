@@ -47,9 +47,13 @@ public class HomeFeelListFragment extends BaseFragment {
   private Disposable mFeelListDisposable;
 
   @Override
-  public View onCreateView(
-      LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-    return inflater.inflate(R.layout.fragment_home_feel_list_layout, container, false);
+  protected int getLayoutResId() {
+    return R.layout.fragment_home_feel_list_layout;
+  }
+
+  @Override
+  public void onCreate(@Nullable Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
   }
 
   @Override

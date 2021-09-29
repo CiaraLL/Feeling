@@ -41,11 +41,9 @@ public class RegisterFragment extends BaseFragment {
   @Nullable
   private Disposable mRegisterDisposable;
 
-  @Nullable
   @Override
-  public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-      @Nullable Bundle savedInstanceState) {
-    return inflater.inflate(R.layout.fragment_register_layout, null);
+  protected int getLayoutResId() {
+    return R.layout.fragment_register_layout;
   }
 
   @Override

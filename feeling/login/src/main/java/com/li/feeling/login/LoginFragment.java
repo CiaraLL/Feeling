@@ -49,13 +49,9 @@ public class LoginFragment extends BaseFragment {
   @Nullable
   private Disposable mLoginDisposable;
 
-  @Nullable
   @Override
-  public View onCreateView(
-      @NonNull LayoutInflater inflater,
-      @Nullable ViewGroup container,
-      @Nullable Bundle savedInstanceState) {
-    return inflater.inflate(R.layout.fragment_login_layout, container, false);
+  protected int getLayoutResId() {
+    return R.layout.fragment_login_layout;
   }
 
   @Override
