@@ -46,7 +46,7 @@ public class MineFragment extends BaseFragment {
       @Override
       protected void handleClickEvent() {
         FragmentActivity activity = getActivity();
-        if(activity!=null){
+        if (activity != null) {
           UserDetailActivity.start(activity, CurrentUser.get().getUser());
         }
       }

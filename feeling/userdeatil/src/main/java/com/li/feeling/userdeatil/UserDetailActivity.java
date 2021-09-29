@@ -43,7 +43,7 @@ public class UserDetailActivity extends BaseActivity {
   }
 
   // 初始化用户信息
-  private void initUserInfo(){
+  private void initUserInfo() {
     Intent intent = getIntent();
     mUser = (User) intent.getSerializableExtra(USER_KEY);
   }

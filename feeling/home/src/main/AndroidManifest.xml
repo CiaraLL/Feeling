@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.li.feeling.home">
+  package="com.li.feeling.home">
 
-    <application>
-        <activity
-            android:name=".HomeActivity"
-            android:exported="true"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-    </application>
+  <application>
+    <activity
+      android:name=".HomeActivity"
+      android:exported="true"
+      android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+  </application>
 
 </manifest>
