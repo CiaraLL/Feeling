@@ -3,10 +3,12 @@ package com.li.feeling.feellist;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -19,12 +21,14 @@ import com.li.feeling.feellist.viewdata.HomeFeelingListFeelItemViewData;
 import com.li.feeling.feellist.viewdata.HomeFeelingListFooterItemViewData;
 import com.li.feeling.home.R;
 import com.li.feeling.model.Feel;
+import com.li.feeling.publish.PublishFeelActivity;
 import com.li.fragment.base_page.fragment.BaseFragment;
 import com.li.framework.common_util.RxUtil;
 import com.li.framework.common_util.ToastUtil;
 import com.li.framework.network.FeelingException;
 import com.li.framework.network.FeelingResponseTransformer;
 import com.li.framework.scheduler_utility.SchedulerManager;
+import com.li.framework.ui.utility.DuplicatedClickFilter;
 import com.li.library.recycler.LiRecyclerItemViewData;
 
 import io.reactivex.disposables.Disposable;
@@ -37,6 +41,7 @@ public class HomeFeelListFragment extends BaseFragment {
 
   private RecyclerView mRecyclerView;
   private HomeFeelListRecyclerAdapter mFeelListAdapter;
+  private Button mAddFeelView;
 
   @Nullable
   private Disposable mFeelListDisposable;
@@ -57,6 +62,18 @@ public class HomeFeelListFragment extends BaseFragment {
 
   private void initView(@NonNull View view) {
     mRecyclerView = view.findViewById(R.id.home_feel_list_recycler_view);
+    mAddFeelView = view.findViewById(R.id.home_feel_list_add_feel_view);
+
+    mAddFeelView.setOnClickListener(new DuplicatedClickFilter() {
+      @Override
+      protected void handleClickEvent() {
+        Activity activity = getActivity();
+        if(activity != null){
+          PublishFeelActivity.start(activity);
+        }
+      }
+    });
+
     mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
     mFeelListAdapter = new HomeFeelListRecyclerAdapter(getContext());
     mRecyclerView.setAdapter(mFeelListAdapter);

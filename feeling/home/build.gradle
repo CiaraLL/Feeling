@@ -21,6 +21,7 @@ dependencies {
     implementation project(path: ':framework:framework-ui:utility')
     implementation project(path: ':feeling:userdeatil')
     implementation project(path: ':framework:framework-context')
+    implementation project(path: ':feeling:publish')
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'

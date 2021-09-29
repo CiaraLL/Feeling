@@ -9,8 +9,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
-import com.li.feeling.home.HomeActivity;
 import com.li.fragment.base_page.fragment.BaseFragment;
 import com.li.framework.ui.utility.DuplicatedClickFilter;
 
@@ -39,11 +37,7 @@ public class PublishFeelFragment extends BaseFragment {
     mCancelView.setOnClickListener(new DuplicatedClickFilter() {
       @Override
       protected void handleClickEvent() {
-        Activity activity = getActivity();
-        if (activity != null) {
-          HomeActivity.start(activity);
-          activity.finish();
-        }
+
       }
     });
 
