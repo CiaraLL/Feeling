@@ -65,8 +65,12 @@ public class SharedPreferencesHelper {
 
   // 用于读取String类型
   @NonNull
-  public static String getString(@NonNull String key) {
-    return sSharedPreferences.getString(key, EMPTY_STR);
+  public static String getString(@NonNull String key, @NonNull String defaultValue) {
+    String value = get(key, String.class);
+    if (value == null) {
+      return defaultValue;
+    }
+    return value;
   }
 
   // 读取boolean

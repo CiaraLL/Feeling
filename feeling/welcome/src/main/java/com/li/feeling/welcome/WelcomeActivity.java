@@ -15,8 +15,8 @@ import com.li.feeling.login.LoginActivity;
  */
 public class WelcomeActivity extends Activity {
 
-  // 倒计时时长--3秒
-  private static final long COUNT_DOWN_DURATION_MS = 3000;
+  // 倒计时时长--1秒
+  private static final long COUNT_DOWN_DURATION_MS = 1000;
   // 一秒倒计时一次
   private static final long COUNT_DOWN_TIME_INTERVAL = 1000;
 
@@ -47,7 +47,7 @@ public class WelcomeActivity extends Activity {
 
       @Override
       public void onFinish() {
-        HomeActivity.start(WelcomeActivity.this);
+        LoginActivity.start(WelcomeActivity.this);
         WelcomeActivity.this.finish();
       }
     }.start();

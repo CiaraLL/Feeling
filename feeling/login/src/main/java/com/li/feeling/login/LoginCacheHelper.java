@@ -25,7 +25,7 @@ public class LoginCacheHelper {
 
   @NonNull
   public static String getLastLoginPhone() {
-    return SharedPreferencesHelper.getString(LAST_LOGIN_PHONE);
+    return SharedPreferencesHelper.getString(LAST_LOGIN_PHONE, "");
   }
 
   // 密码
@@ -35,7 +35,7 @@ public class LoginCacheHelper {
 
   @NonNull
   public static String getLastLoginPassword() {
-    return SharedPreferencesHelper.getString(LAST_LOGIN_PWD);
+    return SharedPreferencesHelper.getString(LAST_LOGIN_PWD, "");
   }
 
   // 登陆结果
