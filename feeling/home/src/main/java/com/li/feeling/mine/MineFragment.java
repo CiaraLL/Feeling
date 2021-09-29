@@ -41,7 +41,7 @@ public class MineFragment extends BaseFragment {
 
     mUserName.setText(CurrentUser.get().getNickName());
     mBriefIntroduction.setText(CurrentUser.get().getSex());
-    mMyView.setOnClickListener(new DuplicatedClickFilter(){
+    mMyView.setOnClickListener(new DuplicatedClickFilter() {
 
       @Override
       protected void handleClickEvent() {

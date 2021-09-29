@@ -20,4 +20,4 @@ public enum FeelingUrl {
     mPort = port;
   }
 
-  }
+}

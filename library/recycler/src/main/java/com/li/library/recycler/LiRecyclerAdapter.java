@@ -54,6 +54,7 @@ public abstract class LiRecyclerAdapter<Data extends LiRecyclerItemViewData>
 
   /**
    * 绑定holder
+   *
    * @param holder
    * @param position
    */
@@ -68,6 +69,7 @@ public abstract class LiRecyclerAdapter<Data extends LiRecyclerItemViewData>
 
   /**
    * 回收holder
+   *
    * @param holder
    */
   @Override
@@ -80,6 +82,7 @@ public abstract class LiRecyclerAdapter<Data extends LiRecyclerItemViewData>
   /**
    * 滚动至不可见时调用该方法，页面退出时不调用
    * 解注册释放资源
+   *
    * @param recyclerView
    */
   @Override

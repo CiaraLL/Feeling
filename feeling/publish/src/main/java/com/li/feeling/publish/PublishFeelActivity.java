@@ -10,13 +10,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class PublishFeelActivity extends AppCompatActivity {
 
-    public static void start(@NonNull Activity activity){
-        Intent intent = new Intent(activity,PublishFeelActivity.class);
-        activity.startActivity(intent);
-    }
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_publish_layout);
-    }
+  public static void start(@NonNull Activity activity) {
+    Intent intent = new Intent(activity, PublishFeelActivity.class);
+    activity.startActivity(intent);
+  }
+
+  @Override
+  protected void onCreate(@Nullable Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_publish_layout);
+  }
 }

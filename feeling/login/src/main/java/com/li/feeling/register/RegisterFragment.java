@@ -34,70 +34,71 @@ import io.reactivex.functions.Consumer;
  */
 public class RegisterFragment extends BaseFragment {
 
-    private EditText mPhoneView;
-    private EditText mPasswordView;
-    private Button mRegisterButton;
+  private EditText mPhoneView;
+  private EditText mPasswordView;
+  private Button mRegisterButton;
 
-    @Nullable
-    private Disposable mRegisterDisposable;
+  @Nullable
+  private Disposable mRegisterDisposable;
 
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_register_layout,null);
+  @Nullable
+  @Override
+  public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+      @Nullable Bundle savedInstanceState) {
+    return inflater.inflate(R.layout.fragment_register_layout, null);
+  }
+
+  @Override
+  public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+    super.onViewCreated(view, savedInstanceState);
+    mPhoneView = view.findViewById(R.id.fragment_register_pager_phone_edittext);
+    mPasswordView = view.findViewById(R.id.fragment_register_pager_password_edittext);
+    mRegisterButton = view.findViewById(R.id.fragment_register_page_register_button);
+    mRegisterButton.setOnClickListener(new DuplicatedClickFilter() {
+      @Override
+      protected void handleClickEvent() {
+        doRegister();
+      }
+    });
+  }
+
+  private void doRegister() {
+    String phone = mPhoneView.getText().toString();
+    String password = mPasswordView.getText().toString();
+
+    if (TextUtils.isEmpty(phone)) {
+      ToastUtil.showToast("请输入要注册的手机号");
+      mPhoneView.requestFocus();
+      return;
+    }
+    if (TextUtils.isEmpty(password)) {
+      ToastUtil.showToast("请输入密码");
+      mPasswordView.requestFocus();
+      return;
     }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        mPhoneView = view.findViewById(R.id.fragment_register_pager_phone_edittext);
-        mPasswordView = view.findViewById(R.id.fragment_register_pager_password_edittext);
-        mRegisterButton = view.findViewById(R.id.fragment_register_page_register_button);
-        mRegisterButton.setOnClickListener(new DuplicatedClickFilter() {
-            @Override
-            protected void handleClickEvent() {
-                doRegister();
-            }
+    mRegisterDisposable = IRegisterApiService.get()
+        .register(phone, password)
+        .observeOn(SchedulerManager.MAIN)
+        .map(FeelingResponseTransformer.transform())
+        .subscribe(new Consumer<User>() {
+          @Override
+          public void accept(User user) {
+            onRegisterSuccess(user);
+          }
+        }, throwable -> {
+          if (throwable instanceof FeelingException) {
+            ToastUtil.showToast((((FeelingException) throwable).mErrorMessage));
+          }
         });
+  }
+
+  // 注册成功
+  private void onRegisterSuccess(@NonNull User user) {
+    Activity activity = getActivity();
+    if (activity != null) {
+      LoginActivity.start(activity);
+      activity.finish();
     }
-
-    private void doRegister() {
-        String phone = mPhoneView.getText().toString();
-        String password = mPasswordView.getText().toString();
-
-        if (TextUtils.isEmpty(phone)){
-            ToastUtil.showToast("请输入要注册的手机号");
-            mPhoneView.requestFocus();
-            return;
-        }
-        if (TextUtils.isEmpty(password)){
-            ToastUtil.showToast("请输入密码");
-            mPasswordView.requestFocus();
-            return;
-        }
-
-        mRegisterDisposable = IRegisterApiService.get()
-                .register(phone,password)
-                .observeOn(SchedulerManager.MAIN)
-                .map(FeelingResponseTransformer.transform())
-                .subscribe(new Consumer<User>() {
-                    @Override
-                    public void accept(User user) {
-                        onRegisterSuccess(user);
-                    }
-                },throwable -> {
-                    if(throwable instanceof FeelingException){
-                        ToastUtil.showToast((((FeelingException) throwable).mErrorMessage));
-                    }
-                });
-    }
-
-    // 注册成功
-    private void onRegisterSuccess(@NonNull User user) {
-        Activity activity = getActivity();
-        if(activity != null){
-          LoginActivity.start(activity);
-          activity.finish();
-        }
-    }
+  }
 }

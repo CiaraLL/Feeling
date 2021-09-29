@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:tools="http://schemas.android.com/tools"
-    package="com.li.feeling.welcome"
-  xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  package="com.li.feeling.welcome">
 
   <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 
-    <application
-      android:name="com.li.feeling.init.application.FeelingApplication"
-        android:icon="@mipmap/app"
-       android:usesCleartextTraffic="true">
-        <activity android:name="com.li.feeling.welcome.WelcomeActivity"
-          android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:label="@string/app_name">
-            <intent-filter >
-                <action android:name="android.intent.action.MAIN"></action>
-                <category android:name="android.intent.category.LAUNCHER"></category>
-            </intent-filter>
-        </activity>
+  <application
+    android:name="com.li.feeling.init.application.FeelingApplication"
+    android:icon="@mipmap/app"
+    android:usesCleartextTraffic="true">
+    <activity
+      android:name="com.li.feeling.welcome.WelcomeActivity"
+      android:label="@string/app_name"
+      android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"></action>
+        <category android:name="android.intent.category.LAUNCHER"></category>
+      </intent-filter>
+    </activity>
 
-    </application>
+  </application>
 
 </manifest>

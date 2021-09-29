@@ -16,25 +16,25 @@ import com.li.fragment.base_page.activity.BaseActivity;
  */
 public class RegisterActivity extends BaseActivity {
 
-    public static void start(@Nullable Activity activity) {
-        Intent intent = new Intent(activity, RegisterActivity.class);
-        activity.startActivity(intent);
-    }
+  public static void start(@Nullable Activity activity) {
+    Intent intent = new Intent(activity, RegisterActivity.class);
+    activity.startActivity(intent);
+  }
 
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        replaceRegisterFragment();
-    }
+  @Override
+  protected void onCreate(@Nullable Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    replaceRegisterFragment();
+  }
 
-    private void replaceRegisterFragment() {
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(android.R.id.content,getRegisterFragment())
-                .commitAllowingStateLoss();
-    }
+  private void replaceRegisterFragment() {
+    getSupportFragmentManager()
+        .beginTransaction()
+        .replace(android.R.id.content, getRegisterFragment())
+        .commitAllowingStateLoss();
+  }
 
-    private Fragment getRegisterFragment() {
-        return new RegisterFragment();
-    }
+  private Fragment getRegisterFragment() {
+    return new RegisterFragment();
+  }
 }

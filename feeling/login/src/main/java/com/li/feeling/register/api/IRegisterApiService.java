@@ -14,15 +14,16 @@ import retrofit2.http.POST;
 
 public interface IRegisterApiService {
 
-    IRegisterApiService sRegisterApiService = RetrofitManager.getInstance().create(
-        new FeelingRetrofitConfig(FeelingUrl.REGISTER, SchedulerManager.NETWORKING),
-        IRegisterApiService.class);
+  IRegisterApiService sRegisterApiService = RetrofitManager.getInstance().create(
+      new FeelingRetrofitConfig(FeelingUrl.REGISTER, SchedulerManager.NETWORKING),
+      IRegisterApiService.class);
 
-    static IRegisterApiService get() {
-        return sRegisterApiService;
-    }
+  static IRegisterApiService get() {
+    return sRegisterApiService;
+  }
 
-    @FormUrlEncoded
-    @POST("feeling/user/register")
-    Observable<FeelingResponse<User>> register(@Field("phone") String phone, @Field("password") String password);
+  @FormUrlEncoded
+  @POST("feeling/user/register")
+  Observable<FeelingResponse<User>> register(@Field("phone") String phone,
+      @Field("password") String password);
 }
