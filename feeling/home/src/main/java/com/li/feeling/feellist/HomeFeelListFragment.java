@@ -5,9 +5,7 @@ import java.util.List;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -57,11 +55,15 @@ public class HomeFeelListFragment extends BaseFragment {
   }
 
   @Override
-  public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-    super.onViewCreated(view, savedInstanceState);
+  public void onViewCreated(
+      @NonNull View view,
+      @Nullable Bundle savedInstanceState,
+      boolean isFirstCall) {
     initView(view);
     // 刷新列表数据
-    refreshFeelList();
+    if (isFirstCall) {
+      refreshFeelList();
+    }
   }
 
   private void initView(@NonNull View view) {
@@ -72,7 +74,7 @@ public class HomeFeelListFragment extends BaseFragment {
       @Override
       protected void handleClickEvent() {
         Activity activity = getActivity();
-        if(activity != null){
+        if (activity != null) {
           PublishFeelActivity.start(activity);
         }
       }

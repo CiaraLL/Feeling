@@ -18,6 +18,9 @@ public abstract class BaseFragment extends Fragment {
   @Nullable
   private View mRootView;
 
+  // 是否是第一次{@link onViewCreated}方法,因为fragment的onCreateView是会被多次调用的
+  private boolean mIsFirstCallViewCreatedMethod = true;
+
   @Nullable
   @Override
   public View onCreateView(
@@ -30,6 +33,24 @@ public abstract class BaseFragment extends Fragment {
     }
     return mRootView;
   }
+
+  @Override
+  public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+    super.onViewCreated(view, savedInstanceState);
+    onViewCreated(view, savedInstanceState, mIsFirstCallViewCreatedMethod);
+    mIsFirstCallViewCreatedMethod = false;
+  }
+
+  /**
+   * 推荐子类使用该方法
+   * 为啥重载了onViewCreated方法呢，是因为该方法可以通过
+   *
+   * @param isFirstCall 该参数分辨出是否是第一次调用
+   */
+  public void onViewCreated(
+      @NonNull View view,
+      @Nullable Bundle savedInstanceState,
+      boolean isFirstCall) { }
 
   // fragment的布局
   @LayoutRes
