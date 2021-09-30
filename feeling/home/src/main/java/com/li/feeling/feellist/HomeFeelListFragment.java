@@ -50,18 +50,13 @@ public class HomeFeelListFragment extends BaseFragment {
   }
 
   @Override
-  public void onCreate(@Nullable Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-  }
-
-  @Override
   public void onViewCreated(
       @NonNull View view,
       @Nullable Bundle savedInstanceState,
       boolean isFirstCall) {
-    initView(view);
     // 刷新列表数据
     if (isFirstCall) {
+      initView(view);
       refreshFeelList();
     }
   }
