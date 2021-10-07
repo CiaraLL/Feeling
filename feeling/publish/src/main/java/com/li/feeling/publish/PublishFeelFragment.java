@@ -1,16 +1,14 @@
 package com.li.feeling.publish;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.li.feeling.model.Feel;
-import com.li.feeling.publish.api.IPublishFeelService;
+import com.li.feeling.publish.api.IPublishFeelApiService;
 import com.li.fragment.base_page.fragment.BaseFragment;
 import com.li.framework.network.FeelingResponseTransformer;
 import com.li.framework.scheduler_utility.SchedulerManager;
@@ -58,7 +56,8 @@ public class PublishFeelFragment extends BaseFragment {
   }
 
   private void publishFeel() {
-    mDisposable = IPublishFeelService.get().publish()
+    mDisposable = IPublishFeelApiService.get()
+        .publish()
         .observeOn(SchedulerManager.MAIN)
         .map(FeelingResponseTransformer.transform())
         .subscribe(new Consumer<Feel>() {

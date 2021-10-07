@@ -13,15 +13,18 @@ import io.reactivex.Observable;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
-public interface IPublishFeelService {
+/**
+ * 发布feel的服务
+ */
+public interface IPublishFeelApiService {
 
   @NonNull
-  IPublishFeelService sPublishService = RetrofitManager.getInstance()
+  IPublishFeelApiService sPublishService = RetrofitManager.getInstance()
       .create(new FeelingRetrofitConfig(FeelingUrl.PUBLISH, SchedulerManager.NETWORKING),
-          IPublishFeelService.class);
+          IPublishFeelApiService.class);
 
   @NonNull
-  static IPublishFeelService get() {
+  static IPublishFeelApiService get() {
     return sPublishService;
   }
 
