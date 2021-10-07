@@ -1,5 +1,7 @@
 package com.li.feeling.feellist.service;
 
+import androidx.annotation.NonNull;
+
 import com.li.framework.network.FeelingResponse;
 import com.li.framework.network.FeelingRetrofitConfig;
 import com.li.framework.network.FeelingUrl;
@@ -17,10 +19,12 @@ import retrofit2.http.POST;
 public interface IFeelListApiService {
 
   // 单例
+  @NonNull
   IFeelListApiService sFeelListApiService = RetrofitManager.getInstance().create(
       new FeelingRetrofitConfig(FeelingUrl.FEEL_LIST, SchedulerManager.NETWORKING),
       IFeelListApiService.class);
 
+  @NonNull
   static IFeelListApiService get() {
     return sFeelListApiService;
   }

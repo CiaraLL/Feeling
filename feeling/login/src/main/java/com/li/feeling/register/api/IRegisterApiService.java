@@ -1,5 +1,7 @@
 package com.li.feeling.register.api;
 
+import androidx.annotation.NonNull;
+
 import com.li.feeling.model.User;
 import com.li.framework.network.FeelingResponse;
 import com.li.framework.network.FeelingRetrofitConfig;
@@ -14,9 +16,13 @@ import retrofit2.http.POST;
 
 public interface IRegisterApiService {
 
+  //单例
+  @NonNull
   IRegisterApiService sRegisterApiService = RetrofitManager.getInstance().create(
       new FeelingRetrofitConfig(FeelingUrl.REGISTER, SchedulerManager.NETWORKING),
       IRegisterApiService.class);
+
+  @NonNull
 
   static IRegisterApiService get() {
     return sRegisterApiService;

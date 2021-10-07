@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.li.feeling.model.Feel;
-import com.li.feeling.publish.api.PublishService;
+import com.li.feeling.publish.api.IPublishFeelService;
 import com.li.fragment.base_page.fragment.BaseFragment;
 import com.li.framework.network.FeelingResponseTransformer;
 import com.li.framework.scheduler_utility.SchedulerManager;
@@ -52,13 +52,13 @@ public class PublishFeelFragment extends BaseFragment {
 
       @Override
       protected void handleClickEvent() {
-        doPublish();
+        publishFeel();
       }
     });
   }
 
-  private void doPublish() {
-    mDisposable = PublishService.get().publish()
+  private void publishFeel() {
+    mDisposable = IPublishFeelService.get().publish()
         .observeOn(SchedulerManager.MAIN)
         .map(FeelingResponseTransformer.transform())
         .subscribe(new Consumer<Feel>() {
