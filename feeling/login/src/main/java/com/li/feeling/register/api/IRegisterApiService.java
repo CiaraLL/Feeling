@@ -30,6 +30,7 @@ public interface IRegisterApiService {
 
   @FormUrlEncoded
   @POST("feeling/user/register")
-  Observable<FeelingResponse<User>> register(@Field("phone") String phone,
+  Observable<FeelingResponse<User>> register(
+      @Field("phone") String phone,
       @Field("password") String password);
 }

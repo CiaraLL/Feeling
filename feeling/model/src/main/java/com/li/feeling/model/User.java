@@ -16,7 +16,7 @@ public class User implements Serializable {
   public static final User EMPTY = new User();
 
   @SerializedName("id")
-  public String mId;
+  public long mId;
   @SerializedName("phone")
   public String mPhone; // 手机号
   @SerializedName("password")

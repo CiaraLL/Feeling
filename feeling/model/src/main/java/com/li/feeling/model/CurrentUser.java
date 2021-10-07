@@ -32,7 +32,7 @@ public class CurrentUser {
     mUser = user;
   }
 
-  public String getId() {
+  public long getId() {
     return mUser.mId;
   }
 

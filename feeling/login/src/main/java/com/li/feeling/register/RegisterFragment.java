@@ -4,17 +4,13 @@ package com.li.feeling.register;
 import android.app.Activity;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.li.feeling.R;
-import com.li.feeling.home.HomeActivity;
 import com.li.feeling.login.LoginActivity;
 import com.li.feeling.model.User;
 import com.li.feeling.register.api.IRegisterApiService;
@@ -82,17 +78,19 @@ public class RegisterFragment extends BaseFragment {
         .subscribe(new Consumer<User>() {
           @Override
           public void accept(User user) {
-            onRegisterSuccess(user);
+            onRegisterSuccess();
           }
         }, throwable -> {
           if (throwable instanceof FeelingException) {
             ToastUtil.showToast((((FeelingException) throwable).mErrorMessage));
+          } else {
+            ToastUtil.showToast("请稍后再试");
           }
         });
   }
 
   // 注册成功
-  private void onRegisterSuccess(@NonNull User user) {
+  private void onRegisterSuccess() {
     Activity activity = getActivity();
     if (activity != null) {
       LoginActivity.start(activity);
