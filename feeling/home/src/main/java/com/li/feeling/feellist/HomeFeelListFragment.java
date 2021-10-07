@@ -13,8 +13,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.li.feeling.feellist.adapter.HomeFeelListRecyclerAdapter;
-import com.li.feeling.feellist.service.FeelListResponse;
-import com.li.feeling.feellist.service.IFeelListApiService;
+import com.li.feeling.feellist.service.HomeFeelListResponse;
+import com.li.feeling.feellist.service.IHomeFeelListApiService;
 import com.li.feeling.feellist.viewdata.HomeFeelingListFeelItemViewData;
 import com.li.feeling.feellist.viewdata.HomeFeelingListFooterItemViewData;
 import com.li.feeling.home.R;
@@ -83,14 +83,14 @@ public class HomeFeelListFragment extends BaseFragment {
   // 刷新feel列表:网络请求
   @NonNull
   private void refreshFeelList() {
-    mFeelListDisposable = IFeelListApiService.get()
+    mFeelListDisposable = IHomeFeelListApiService.get()
         .getFeelListData()
         .observeOn(SchedulerManager.MAIN)
         .map(FeelingResponseTransformer.transform())
         .subscribe(
-            new Consumer<FeelListResponse>() {
+            new Consumer<HomeFeelListResponse>() {
               @Override
-              public void accept(FeelListResponse response) {
+              public void accept(HomeFeelListResponse response) {
                 onFeelListDataChanged(response.mFeelList, response.mFooterTip);
               }
             },

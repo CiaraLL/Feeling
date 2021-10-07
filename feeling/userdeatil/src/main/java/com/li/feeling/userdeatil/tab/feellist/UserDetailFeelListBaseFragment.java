@@ -7,7 +7,8 @@ import com.li.fragment.base_page.fragment.BaseFragment;
  * 1. 用户自己发布的feel列表
  * 2. 用户点赞的feel列表
  */
-public abstract class UserDetailFeelListFragment extends BaseFragment {
+public abstract class UserDetailFeelListBaseFragment extends BaseFragment {
+
 
 
 }

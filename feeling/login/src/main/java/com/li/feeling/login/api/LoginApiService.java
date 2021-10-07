@@ -29,7 +29,8 @@ public interface LoginApiService {
   // 登陆请求
   @FormUrlEncoded
   @POST("feeling/user/login")
-  Observable<FeelingResponse<User>> login(@Field("account") String account,
+  Observable<FeelingResponse<User>> login(
+      @Field("phone") String phone,
       @Field("password") String password);
 
 }

@@ -9,28 +9,26 @@ import com.li.framework.scheduler_utility.SchedulerManager;
 import com.li.library.retrofit_utlity.RetrofitManager;
 
 import io.reactivex.Observable;
-import retrofit2.http.FormUrlEncoded;
-import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 /**
  * description: feel列表数据服务
  */
-public interface IFeelListApiService {
+public interface IHomeFeelListApiService {
 
   // 单例
   @NonNull
-  IFeelListApiService sFeelListApiService = RetrofitManager.getInstance().create(
-      new FeelingRetrofitConfig(FeelingUrl.FEEL_LIST, SchedulerManager.NETWORKING),
-      IFeelListApiService.class);
+  IHomeFeelListApiService sFeelListApiService = RetrofitManager.getInstance().create(
+      new FeelingRetrofitConfig(FeelingUrl.HOME_FEEL_LIST, SchedulerManager.NETWORKING),
+      IHomeFeelListApiService.class);
 
   @NonNull
-  static IFeelListApiService get() {
+  static IHomeFeelListApiService get() {
     return sFeelListApiService;
   }
 
   // 获取列表数据
-  @POST("/feeling/feel/list")
-  Observable<FeelingResponse<FeelListResponse>> getFeelListData();
+  @POST("/feeling/feel/home/list")
+  Observable<FeelingResponse<HomeFeelListResponse>> getFeelListData();
 
 }
