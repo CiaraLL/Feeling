@@ -44,7 +44,7 @@ public abstract class BaseFragment extends Fragment {
   /**
    * 推荐子类使用该方法
    * 为啥重载了onViewCreated方法呢，是因为该方法可以通过
-   *
+   * 注意子类不能调super.onViewCreated
    * @param isFirstCall 该参数分辨出是否是第一次调用
    */
   public void onViewCreated(

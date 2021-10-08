@@ -24,9 +24,9 @@ public class UserDetailFeelListBaseRecyclerAdapter
 
   @NonNull
   @Override
-  public LiRecycleViewHolder onCreateViewHolder(@NonNull ViewGroup parent,
+  public LiRecycleViewHolder onCreateViewHolder(
+      @NonNull ViewGroup parent,
       int viewType) {
-
     switch (viewType){
       case UserDetailFeelListItemViewDataType.FEEL_TYPE:
         View feelItemView = LayoutInflater.from(mContext)
@@ -39,4 +39,5 @@ public class UserDetailFeelListBaseRecyclerAdapter
     };
     return super.onCreateViewHolder(parent,viewType);
   }
+
 }

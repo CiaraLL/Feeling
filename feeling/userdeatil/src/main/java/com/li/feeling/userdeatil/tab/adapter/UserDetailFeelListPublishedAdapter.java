@@ -8,14 +8,8 @@ import com.li.library.recycler.LiRecycleViewHolder;
 
 public class UserDetailFeelListPublishedAdapter extends UserDetailFeelListBaseRecyclerAdapter{
 
-  public UserDetailFeelListPublishedAdapter(
-      @NonNull Context context) {
+  public UserDetailFeelListPublishedAdapter(@NonNull Context context) {
     super(context);
   }
 
-  @NonNull
-  @Override
-  public LiRecycleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-    return super.onCreateViewHolder(parent, viewType);
-  }
 }

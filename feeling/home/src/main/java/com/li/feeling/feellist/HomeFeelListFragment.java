@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.li.feeling.feellist.adapter.HomeFeelListRecyclerAdapter;
 import com.li.feeling.feellist.service.HomeFeelListResponse;
@@ -30,6 +31,7 @@ import com.li.framework.ui.utility.DuplicatedClickFilter;
 import com.li.library.recycler.LiRecyclerItemViewData;
 
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Action;
 import io.reactivex.functions.Consumer;
 
 /**
@@ -37,12 +39,22 @@ import io.reactivex.functions.Consumer;
  */
 public class HomeFeelListFragment extends BaseFragment {
 
+  private SwipeRefreshLayout mRefreshLayout;
   private RecyclerView mRecyclerView;
   private HomeFeelListRecyclerAdapter mFeelListAdapter;
   private Button mAddFeelView;
 
   @Nullable
   private Disposable mFeelListDisposable;
+
+  @NonNull
+  private SwipeRefreshLayout.OnRefreshListener mRefreshListener =
+      new SwipeRefreshLayout.OnRefreshListener() {
+        @Override
+        public void onRefresh() {
+          refreshFeelList();
+        }
+      };
 
   @Override
   protected int getLayoutResId() {
@@ -62,6 +74,9 @@ public class HomeFeelListFragment extends BaseFragment {
   }
 
   private void initView(@NonNull View view) {
+    mRefreshLayout = view.findViewById(R.id.home_feel_list_refresh_list_view);
+    mRefreshLayout.setOnRefreshListener(mRefreshListener);
+
     mRecyclerView = view.findViewById(R.id.home_feel_list_recycler_view);
     mAddFeelView = view.findViewById(R.id.home_feel_list_add_feel_view);
 
@@ -87,6 +102,13 @@ public class HomeFeelListFragment extends BaseFragment {
         .getFeelListData()
         .observeOn(SchedulerManager.MAIN)
         .map(FeelingResponseTransformer.transform())
+        .doFinally(new Action() {
+          @Override
+          public void run() throws Exception {
+            // 请求结束的时候，恢复
+            mRefreshLayout.setRefreshing(false);
+          }
+        })
         .subscribe(
             new Consumer<HomeFeelListResponse>() {
               @Override

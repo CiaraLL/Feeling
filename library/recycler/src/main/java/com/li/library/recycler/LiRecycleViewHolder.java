@@ -34,6 +34,7 @@ public abstract class LiRecycleViewHolder<Data extends LiRecyclerItemViewData>
 
   protected abstract void onBind(@NonNull Data data, int position);
 
+  // TODO: 2021/10/9 去掉abstract修饰，因为大多数情况下用不到onUnBind函数
   protected abstract void onUnBind();
 
 }

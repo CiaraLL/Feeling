@@ -3,22 +3,24 @@ package com.li.feeling.userdeatil.tab.feellist.published;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.os.Bundle;
-import android.view.View;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
+import com.li.feeling.model.CurrentUser;
 import com.li.feeling.model.Feel;
 import com.li.feeling.userdeatil.R;
 import com.li.feeling.userdeatil.service.IUserDetailApiService;
 import com.li.feeling.userdeatil.service.UserDetailFeelListResponse;
+import com.li.feeling.userdeatil.tab.adapter.UserDetailFeelListBaseRecyclerAdapter;
 import com.li.feeling.userdeatil.tab.adapter.UserDetailFeelListPublishedAdapter;
 import com.li.feeling.userdeatil.tab.feellist.UserDetailFeelListBaseFragment;
+import com.li.feeling.userdeatil.tab.viewdata.UserDetailFeelListPublishedFeelItemViewData;
 import com.li.feeling.userdeatil.tab.viewdata.UserDetailFeelListFooterItemViewData;
-import com.li.feeling.userdeatil.tab.viewdata.UserDetailPublishedFeeListItemViewData;
+import com.li.framework.common_util.CollectionUtil;
 import com.li.framework.common_util.RxUtil;
+import com.li.framework.common_util.ToastUtil;
+import com.li.framework.network.FeelingException;
 import com.li.framework.network.FeelingResponseTransformer;
 import com.li.framework.scheduler_utility.SchedulerManager;
 import com.li.library.recycler.LiRecyclerItemViewData;
@@ -31,8 +33,6 @@ import io.reactivex.functions.Consumer;
  */
 public class UserDetailPublishedFeelListFragment extends UserDetailFeelListBaseFragment {
 
-  private RecyclerView mRecyclerView;
-  private UserDetailFeelListPublishedAdapter mUserDetailFeelListPublishedAdapter;
   private Disposable mFeelListPublishedDisposable;
 
   @Override
@@ -41,35 +41,38 @@ public class UserDetailPublishedFeelListFragment extends UserDetailFeelListBaseF
   }
 
   @Override
-  public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState,
-      boolean isFirstCall) {
-    super.onViewCreated(view, savedInstanceState);
-    if (isFirstCall) {
-      initView(view);
-      onFeelListChanged();
-    }
-  }
-
-  private void onFeelListChanged() {
+  protected void refreshFeelList() {
     mFeelListPublishedDisposable = IUserDetailApiService.get()
-        .getUserPublishedFeelListData()
+        .getUserPublishedFeelListData(CurrentUser.get().getId())
         .map(FeelingResponseTransformer.transform())
         .observeOn(SchedulerManager.MAIN)
         .subscribe(new Consumer<UserDetailFeelListResponse>() {
           @Override
           public void accept(UserDetailFeelListResponse response) {
-            onFeelingPublishedDataChanged(response.mFeelList, response.mFooterTip);
+            onFeelListDataChanged(response.mFeelList, response.mFooterTip);
           }
         }, throwable -> {
-
+          if (throwable instanceof FeelingException) {
+            ToastUtil.showToast(((FeelingException) throwable).mErrorMessage);
+          } else {
+            ToastUtil.showToast("加载失败，请稍后重试");
+          }
         });
   }
 
-  private void onFeelingPublishedDataChanged(List<Feel> feelList, String footerTip) {
+  // 数据更新
+  private void onFeelListDataChanged(
+      @Nullable List<Feel> feelList,
+      @Nullable String footerTip) {
+    // 数据为空
+    if (CollectionUtil.isEmpty(feelList)) {
+      mRecyclerAdapter.setList(new ArrayList<>());
+      return;
+    }
     List<LiRecyclerItemViewData> LikeItemViewDataList = new ArrayList<>();
     for (Feel feel : feelList) {
-      UserDetailPublishedFeeListItemViewData publishedFeeListItemViewData =
-          new UserDetailPublishedFeeListItemViewData();
+      UserDetailFeelListPublishedFeelItemViewData publishedFeeListItemViewData =
+          new UserDetailFeelListPublishedFeelItemViewData();
       publishedFeeListItemViewData.mAvatarResId = R.drawable.mine_head_my_photo;
       publishedFeeListItemViewData.mContentText = feel.mContentText;
       publishedFeeListItemViewData.mName = feel.mUser.mNickName;
@@ -77,16 +80,17 @@ public class UserDetailPublishedFeelListFragment extends UserDetailFeelListBaseF
       publishedFeeListItemViewData.mLikeNum = feel.mLikeNum;
       LikeItemViewDataList.add(publishedFeeListItemViewData);
     }
-    LikeItemViewDataList.add(new UserDetailFeelListFooterItemViewData(footerTip));
-    mUserDetailFeelListPublishedAdapter.setList(LikeItemViewDataList);
+    // footer
+    if (!TextUtils.isEmpty(footerTip)) {
+      LikeItemViewDataList.add(new UserDetailFeelListFooterItemViewData(footerTip));
+    }
+    mRecyclerAdapter.setList(LikeItemViewDataList);
   }
 
-  private void initView(View view) {
-    mRecyclerView = view.findViewById(R.id.user_detail_published_feel_list_recycler);
-
-    mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-    mUserDetailFeelListPublishedAdapter = new UserDetailFeelListPublishedAdapter(getContext());
-    mRecyclerView.setAdapter(mUserDetailFeelListPublishedAdapter);
+  @NonNull
+  @Override
+  protected UserDetailFeelListBaseRecyclerAdapter createRecyclerAdapter() {
+    return new UserDetailFeelListPublishedAdapter(getContext());
   }
 
   @Override
@@ -94,4 +98,5 @@ public class UserDetailPublishedFeelListFragment extends UserDetailFeelListBaseF
     super.onDestroy();
     RxUtil.dispose(mFeelListPublishedDisposable);
   }
+
 }

@@ -3,7 +3,7 @@
   android:layout_width="match_parent"
   android:layout_height="50dp">
   <TextView
-    android:id="@+id/user_detail_footer_item_tip_view"
+    android:id="@+id/user_detail_feel_list_footer_item_tip_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center">

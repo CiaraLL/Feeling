@@ -9,6 +9,8 @@ import com.li.framework.scheduler_utility.SchedulerManager;
 import com.li.library.retrofit_utlity.RetrofitManager;
 
 import io.reactivex.Observable;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
 /**
@@ -28,11 +30,15 @@ public interface IUserDetailApiService {
   }
 
   // 获取用户自己发布的feel列表数据
+  @FormUrlEncoded
   @POST("/feeling/feel/user/published/list")
-  Observable<FeelingResponse<UserDetailFeelListResponse>> getUserPublishedFeelListData();
+  Observable<FeelingResponse<UserDetailFeelListResponse>> getUserPublishedFeelListData(
+      @Field("userId") long userId);
 
   // 获取用户点赞的feel列表数据
+  @FormUrlEncoded
   @POST("/feeling/feel/user/like/list")
-  Observable<FeelingResponse<UserDetailFeelListResponse>> getUserLikeFeelListData();
+  Observable<FeelingResponse<UserDetailFeelListResponse>> getUserLikeFeelListData(
+      @Field("userId") long userId);
 
 }

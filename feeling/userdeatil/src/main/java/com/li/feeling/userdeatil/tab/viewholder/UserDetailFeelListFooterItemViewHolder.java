@@ -12,13 +12,14 @@ public class UserDetailFeelListFooterItemViewHolder extends
     LiRecycleViewHolder<UserDetailFeelListFooterItemViewData> {
 
   private TextView mTipView;
+
   public UserDetailFeelListFooterItemViewHolder(@NonNull View itemView) {
     super(itemView);
   }
 
   @Override
   protected void doBindView(@NonNull View itemView) {
-    mTipView = itemView.findViewById(R.id.user_detail_footer_item_tip_view);
+    mTipView = itemView.findViewById(R.id.user_detail_feel_list_footer_item_tip_view);
   }
 
   @Override

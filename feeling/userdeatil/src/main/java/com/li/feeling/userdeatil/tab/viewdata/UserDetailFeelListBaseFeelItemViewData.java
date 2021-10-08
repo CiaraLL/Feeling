@@ -4,23 +4,11 @@ import androidx.annotation.DrawableRes;
 
 import com.li.library.recycler.LiRecyclerItemViewData;
 
-public class UserDetailFeelListBaseItemViewData implements LiRecyclerItemViewData {
+public class UserDetailFeelListBaseFeelItemViewData implements LiRecyclerItemViewData {
 
   // 头像资源
   @DrawableRes
   public int mAvatarResId;
-
-  public UserDetailFeelListBaseItemViewData() {
-  }
-
-  public UserDetailFeelListBaseItemViewData(int avatarResId, String name, String time,
-      String contentText, int likeNum) {
-    mAvatarResId = avatarResId;
-    mName = name;
-    mTime = time;
-    mContentText = contentText;
-    mLikeNum = likeNum;
-  }
 
   // 姓名
   public String mName;
@@ -30,6 +18,22 @@ public class UserDetailFeelListBaseItemViewData implements LiRecyclerItemViewDat
   public String mContentText;
   // 点赞数
   public int mLikeNum;
+
+  public UserDetailFeelListBaseFeelItemViewData() {
+  }
+
+  public UserDetailFeelListBaseFeelItemViewData(
+      int avatarResId,
+      String name,
+      String time,
+      String contentText,
+      int likeNum) {
+    mAvatarResId = avatarResId;
+    mName = name;
+    mTime = time;
+    mContentText = contentText;
+    mLikeNum = likeNum;
+  }
 
   @Override
   public int getItemViewDataType() {
