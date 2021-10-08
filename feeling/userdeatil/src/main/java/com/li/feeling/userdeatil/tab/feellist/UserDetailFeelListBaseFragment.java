@@ -1,5 +1,10 @@
 package com.li.feeling.userdeatil.tab.feellist;
 
+import android.os.Bundle;
+import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.li.fragment.base_page.fragment.BaseFragment;
 
 /**
@@ -8,7 +13,8 @@ import com.li.fragment.base_page.fragment.BaseFragment;
  * 2. 用户点赞的feel列表
  */
 public abstract class UserDetailFeelListBaseFragment extends BaseFragment {
-
-
-
+  @Override
+  public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+    super.onViewCreated(view, savedInstanceState);
+  }
 }
