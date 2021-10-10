@@ -13,7 +13,7 @@
     app:layout_constraintTop_toTopOf="parent"
     android:orientation="horizontal">
     <ImageView
-      android:id="@+id/user_detail_feel_item_avatar_view"
+      android:id="@+id/user_detail_feel_list_feel_item_avatar_view"
       android:layout_width="60dp"
       android:layout_height="match_parent"
       android:layout_marginLeft="10dp"
@@ -25,17 +25,17 @@
       android:layout_gravity="center"
       android:gravity="center">
       <TextView
-        android:id="@+id/user_detail_feel_item_name_view"
+        android:id="@+id/user_detail_feel_list_feel__item_name_view"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:text="11111"
         android:textSize="20dp"/>
 
       <TextView
-        android:id="@+id/user_detail_feel_item_time_view"
+        android:id="@+id/user_detail_feel_list_feel_item_time_view"
         android:layout_width="match_parent"
         android:layout_height="20dp"
-        android:layout_below="@+id/user_detail_feel_item_name_view"
+        android:layout_below="@+id/user_detail_feel_list_feel__item_name_view"
         android:textSize="15dp"
         tools:text="2222" />
     </RelativeLayout>
@@ -48,7 +48,7 @@
     android:layout_height="wrap_content"
     app:layout_constraintTop_toBottomOf="@+id/user_detail_feel_item_user_info_container">
     <TextView
-      android:id="@+id/user_detail_feel_item_content_text_view"
+      android:id="@+id/user_detail_feel_list_feel_item_content_text_view"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginLeft="10dp"
@@ -76,7 +76,7 @@
         android:src="@drawable/icon_content_item_likes">
       </ImageView>
       <TextView
-        android:id="@+id/user_detail_feel_item_like_num_view"
+        android:id="@+id/user_detail_feel_list_feel_item_like_num_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"

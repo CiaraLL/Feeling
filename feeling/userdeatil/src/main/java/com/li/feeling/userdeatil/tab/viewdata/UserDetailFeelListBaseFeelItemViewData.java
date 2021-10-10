@@ -4,6 +4,9 @@ import androidx.annotation.DrawableRes;
 
 import com.li.library.recycler.LiRecyclerItemViewData;
 
+/**
+ * 用户详情页面FeelList的item的Data基类
+ */
 public class UserDetailFeelListBaseFeelItemViewData implements LiRecyclerItemViewData {
 
   // 头像资源

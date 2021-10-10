@@ -5,6 +5,9 @@ import java.lang.annotation.RetentionPolicy;
 
 import androidx.annotation.IntDef;
 
+/**
+ * FeelList的item类型
+ */
 @Retention(RetentionPolicy.SOURCE)
 @IntDef({UserDetailFeelListItemViewDataType.FEEL_TYPE,
     UserDetailFeelListItemViewDataType.FOOTER_TYPE})

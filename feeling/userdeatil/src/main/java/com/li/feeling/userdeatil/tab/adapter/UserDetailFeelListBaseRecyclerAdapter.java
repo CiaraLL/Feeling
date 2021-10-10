@@ -14,6 +14,9 @@ import com.li.library.recycler.LiRecycleViewHolder;
 import com.li.library.recycler.LiRecyclerAdapter;
 import com.li.library.recycler.LiRecyclerItemViewData;
 
+/**
+ * 用户详情页面FeelList的基类Adapter
+ */
 public class UserDetailFeelListBaseRecyclerAdapter
     extends LiRecyclerAdapter<LiRecyclerItemViewData> {
 

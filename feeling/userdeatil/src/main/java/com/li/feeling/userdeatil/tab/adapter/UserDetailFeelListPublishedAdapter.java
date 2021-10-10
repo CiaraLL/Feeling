@@ -6,7 +6,10 @@ import androidx.annotation.NonNull;
 
 import com.li.library.recycler.LiRecycleViewHolder;
 
-public class UserDetailFeelListPublishedAdapter extends UserDetailFeelListBaseRecyclerAdapter{
+/**
+ * UserDetailF页面中PubLishedFeelList的Adapter
+ */
+public class UserDetailFeelListPublishedAdapter extends UserDetailFeelListBaseRecyclerAdapter {
 
   public UserDetailFeelListPublishedAdapter(@NonNull Context context) {
     super(context);

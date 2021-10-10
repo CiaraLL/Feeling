@@ -8,6 +8,9 @@ import com.li.feeling.userdeatil.R;
 import com.li.feeling.userdeatil.tab.viewdata.UserDetailFeelListFooterItemViewData;
 import com.li.library.recycler.LiRecycleViewHolder;
 
+/**
+ * FeelList的item的ViewHolder
+ */
 public class UserDetailFeelListFooterItemViewHolder extends
     LiRecycleViewHolder<UserDetailFeelListFooterItemViewData> {
 

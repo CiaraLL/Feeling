@@ -9,6 +9,9 @@ import com.li.feeling.userdeatil.R;
 import com.li.feeling.userdeatil.tab.viewdata.UserDetailFeelListBaseFeelItemViewData;
 import com.li.library.recycler.LiRecycleViewHolder;
 
+/**
+ * FeelList的内容item的ViewHolder
+ */
 public class UserDetailFeelListFeelItemViewHolder
     extends LiRecycleViewHolder<UserDetailFeelListBaseFeelItemViewData> {
 
@@ -25,11 +28,11 @@ public class UserDetailFeelListFeelItemViewHolder
   @Override
   protected void doBindView(@NonNull View itemView) {
     // TODO: 2021/10/9 资源id的命名
-    mAvatarView = itemView.findViewById(R.id.user_detail_feel_item_avatar_view);
-    mNameView = itemView.findViewById(R.id.user_detail_feel_item_name_view);
-    mTimeVIew = itemView.findViewById(R.id.user_detail_feel_item_time_view);
-    mContentTextView = itemView.findViewById(R.id.user_detail_feel_item_content_text_view);
-    mLikeNumView = itemView.findViewById(R.id.user_detail_feel_item_like_num_view);
+    mAvatarView = itemView.findViewById(R.id.user_detail_feel_list_feel_item_avatar_view);
+    mNameView = itemView.findViewById(R.id.user_detail_feel_list_feel__item_name_view);
+    mTimeVIew = itemView.findViewById(R.id.user_detail_feel_list_feel_item_time_view);
+    mContentTextView = itemView.findViewById(R.id.user_detail_feel_list_feel_item_content_text_view);
+    mLikeNumView = itemView.findViewById(R.id.user_detail_feel_list_feel_item_like_num_view);
   }
 
   @Override

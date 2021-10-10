@@ -2,6 +2,9 @@ package com.li.feeling.userdeatil.tab.viewdata;
 
 import com.li.library.recycler.LiRecyclerItemViewData;
 
+/**
+ * 用户详情页面FeelList的FooterItem中的Data数据
+ */
 public class UserDetailFeelListFooterItemViewData implements LiRecyclerItemViewData {
 
   // 提示文案
