@@ -3,6 +3,10 @@ package com.li.feeling.feellist;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,6 +24,7 @@ import com.li.feeling.feellist.viewdata.HomeFeelingListFeelItemViewData;
 import com.li.feeling.feellist.viewdata.HomeFeelingListFooterItemViewData;
 import com.li.feeling.home.R;
 import com.li.feeling.model.Feel;
+import com.li.feeling.model.FeelPublishSuccessEvent;
 import com.li.feeling.publish.PublishFeelActivity;
 import com.li.fragment.base_page.fragment.BaseFragment;
 import com.li.framework.common_util.RxUtil;
@@ -59,6 +64,12 @@ public class HomeFeelListFragment extends BaseFragment {
   @Override
   protected int getLayoutResId() {
     return R.layout.fragment_home_feel_list_layout;
+  }
+
+  @Override
+  public void onCreate(@Nullable Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    EventBus.getDefault().register(this);
   }
 
   @Override
@@ -151,9 +162,16 @@ public class HomeFeelListFragment extends BaseFragment {
     mFeelListAdapter.setList(itemViewDataList);
   }
 
+  // 发布feel成功时，会回到home页面，因此需要刷新下列表
+  @Subscribe(threadMode = ThreadMode.MAIN)
+  public void onFeelPublishSuccessEvent(FeelPublishSuccessEvent event) {
+    refreshFeelList();
+  }
+
   @Override
   public void onDestroy() {
     super.onDestroy();
+    EventBus.getDefault().unregister(this);
     RxUtil.dispose(mFeelListDisposable);
   }
 }

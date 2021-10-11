@@ -1,5 +1,7 @@
 package com.li.feeling.publish;
 
+import org.greenrobot.eventbus.EventBus;
+
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -11,6 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
 
 import com.li.feeling.model.CurrentUser;
+import com.li.feeling.model.FeelPublishSuccessEvent;
 import com.li.feeling.publish.api.IPublishFeelApiService;
 import com.li.fragment.base_page.fragment.BaseFragment;
 import com.li.framework.common_util.ToastUtil;
@@ -33,6 +36,11 @@ public class PublishFeelFragment extends BaseFragment {
   @Override
   protected int getLayoutResId() {
     return R.layout.fragment_publish_feel_layout;
+  }
+
+  @Override
+  public void onCreate(@Nullable Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
   }
 
   @Override
@@ -88,6 +96,7 @@ public class PublishFeelFragment extends BaseFragment {
 
   // 发布成功
   private void onPublishFeelSucceed() {
+    EventBus.getDefault().post(new FeelPublishSuccessEvent());
     FragmentActivity activity = getActivity();
     if (activity != null) {
       activity.finish();
