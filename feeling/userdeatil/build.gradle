@@ -13,6 +13,7 @@ dependencies {
     implementation project(path: ':framework:network')
     implementation project(path: ':framework:scheduler-utility')
     implementation project(path: ':library:recycler')
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'

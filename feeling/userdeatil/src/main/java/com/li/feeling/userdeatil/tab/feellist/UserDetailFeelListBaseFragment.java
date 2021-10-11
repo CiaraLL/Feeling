@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.li.feeling.userdeatil.R;
 import com.li.feeling.userdeatil.tab.adapter.UserDetailFeelListBaseRecyclerAdapter;
@@ -19,8 +20,16 @@ import com.li.fragment.base_page.fragment.BaseFragment;
  */
 public abstract class UserDetailFeelListBaseFragment extends BaseFragment {
 
+  protected SwipeRefreshLayout mRefreshLayout;
   protected RecyclerView mRecyclerView;
   protected UserDetailFeelListBaseRecyclerAdapter mRecyclerAdapter;
+
+  private SwipeRefreshLayout.OnRefreshListener mRefreshListener = new SwipeRefreshLayout.OnRefreshListener() {
+    @Override
+    public void onRefresh() {
+      refreshFeelList();
+    }
+  };
 
   @Override
   public void onViewCreated(
@@ -35,6 +44,9 @@ public abstract class UserDetailFeelListBaseFragment extends BaseFragment {
 
   @CallSuper
   protected void initView(@NonNull View rootView){
+    mRefreshLayout = rootView.findViewById(R.id.refresh_list_view);
+    mRefreshLayout.setOnRefreshListener(mRefreshListener);
+
     mRecyclerView = rootView.findViewById(R.id.recycler_view);
     mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
     mRecyclerAdapter = createRecyclerAdapter();

@@ -26,6 +26,7 @@ import com.li.framework.scheduler_utility.SchedulerManager;
 import com.li.library.recycler.LiRecyclerItemViewData;
 
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Action;
 import io.reactivex.functions.Consumer;
 
 /**
@@ -46,6 +47,12 @@ public class UserDetailLikeFeelListFragment extends UserDetailFeelListBaseFragme
         .getUserLikeFeelListData(CurrentUser.get().getId())
         .map(FeelingResponseTransformer.transform())
         .observeOn(SchedulerManager.MAIN)
+        .doFinally(new Action() {
+          @Override
+          public void run() throws Exception {
+            mRefreshLayout.setRefreshing(false);
+          }
+        })
         .subscribe(new Consumer<UserDetailFeelListResponse>() {
           @Override
           public void accept(UserDetailFeelListResponse response) {
