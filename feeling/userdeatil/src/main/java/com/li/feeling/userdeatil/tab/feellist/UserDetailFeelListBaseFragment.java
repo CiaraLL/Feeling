@@ -24,7 +24,9 @@ public abstract class UserDetailFeelListBaseFragment extends BaseFragment {
   protected RecyclerView mRecyclerView;
   protected UserDetailFeelListBaseRecyclerAdapter mRecyclerAdapter;
 
-  private SwipeRefreshLayout.OnRefreshListener mRefreshListener = new SwipeRefreshLayout.OnRefreshListener() {
+  @NonNull
+  private final
+  SwipeRefreshLayout.OnRefreshListener mRefreshListener = new SwipeRefreshLayout.OnRefreshListener() {
     @Override
     public void onRefresh() {
       refreshFeelList();
@@ -58,5 +60,7 @@ public abstract class UserDetailFeelListBaseFragment extends BaseFragment {
   protected abstract UserDetailFeelListBaseRecyclerAdapter createRecyclerAdapter();
 
   protected abstract void refreshFeelList();
+
+  protected abstract void stopRefresh();
 
 }

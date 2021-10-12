@@ -50,7 +50,7 @@ public class UserDetailLikeFeelListFragment extends UserDetailFeelListBaseFragme
         .doFinally(new Action() {
           @Override
           public void run() throws Exception {
-            mRefreshLayout.setRefreshing(false);
+            stopRefresh();
           }
         })
         .subscribe(new Consumer<UserDetailFeelListResponse>() {
@@ -65,6 +65,11 @@ public class UserDetailLikeFeelListFragment extends UserDetailFeelListBaseFragme
             ToastUtil.showToast("加载失败，请稍后重试");
           }
         });
+  }
+
+  @Override
+  protected void stopRefresh() {
+    mRefreshLayout.setRefreshing(false);
   }
 
   // 数据更新
