@@ -26,12 +26,13 @@ public abstract class UserDetailFeelListBaseFragment extends BaseFragment {
 
   @NonNull
   private final
-  SwipeRefreshLayout.OnRefreshListener mRefreshListener = new SwipeRefreshLayout.OnRefreshListener() {
-    @Override
-    public void onRefresh() {
-      refreshFeelList();
-    }
-  };
+  SwipeRefreshLayout.OnRefreshListener mRefreshListener =
+      new SwipeRefreshLayout.OnRefreshListener() {
+        @Override
+        public void onRefresh() {
+          refreshFeelList();
+        }
+      };
 
   @Override
   public void onViewCreated(
@@ -45,7 +46,7 @@ public abstract class UserDetailFeelListBaseFragment extends BaseFragment {
   }
 
   @CallSuper
-  protected void initView(@NonNull View rootView){
+  protected void initView(@NonNull View rootView) {
     mRefreshLayout = rootView.findViewById(R.id.refresh_list_view);
     mRefreshLayout.setOnRefreshListener(mRefreshListener);
 
@@ -61,6 +62,7 @@ public abstract class UserDetailFeelListBaseFragment extends BaseFragment {
 
   protected abstract void refreshFeelList();
 
-  protected abstract void stopRefresh();
-
+  protected void stopRefresh() {
+    mRefreshLayout.setRefreshing(false);
+  }
 }

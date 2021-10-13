@@ -67,11 +67,6 @@ public class UserDetailLikeFeelListFragment extends UserDetailFeelListBaseFragme
         });
   }
 
-  @Override
-  protected void stopRefresh() {
-    mRefreshLayout.setRefreshing(false);
-  }
-
   // 数据更新
   private void onFeelListDataChanged(
       @Nullable List<Feel> feelList,
