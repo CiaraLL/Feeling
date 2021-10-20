@@ -13,29 +13,29 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
-// 点赞
-public interface ILikeApiService {
+// Feel点赞
+public interface IFeelLikeApiService {
 
   //单例
   @NonNull
-  ILikeApiService sHomeFeelListLikeApiService = RetrofitManager.getInstance().create(
+  IFeelLikeApiService sHomeFeelListLikeApiService = RetrofitManager.getInstance().create(
       new FeelingRetrofitConfig(FeelingUrl.LIKE, SchedulerManager.NETWORKING),
-      ILikeApiService.class);
+      IFeelLikeApiService.class);
 
-  static ILikeApiService get() {
+  static IFeelLikeApiService get() {
     return sHomeFeelListLikeApiService;
   }
 
   //点赞
   @FormUrlEncoded
-  @POST("feeling/feel/home/list/like")
+  @POST("feeling/feel/like")
   Observable<FeelingResponse<Boolean>> like(
       @Field("feelId") long feelId,
       @Field("userId") long userId);
 
   //取消点赞
   @FormUrlEncoded
-  @POST("feeling/feel/home/list/like")
+  @POST("/feeling/feel/cancellike")
   Observable<FeelingResponse<Boolean>> cancelLike(
       @Field("feelId") long feelId,
       @Field("userId") long userID);

@@ -8,6 +8,7 @@ dependencies {
     implementation project(path: ':library:retrofit-utility')
     implementation project(path: ':framework:scheduler-utility')
     implementation project(path: ':framework:scheduler-utility')
+    implementation project(path: ':feeling:model')
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
