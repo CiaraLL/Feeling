@@ -22,6 +22,7 @@ dependencies {
     implementation project(path: ':feeling:userdeatil')
     implementation project(path: ':framework:framework-context')
     implementation project(path: ':feeling:publish')
+    implementation project(path: ':feeling:common')
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'

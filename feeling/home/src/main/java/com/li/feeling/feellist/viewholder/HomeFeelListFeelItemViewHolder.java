@@ -5,8 +5,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 
+import com.li.feeling.feellist.IFeelListListener;
 import com.li.feeling.feellist.viewdata.HomeFeelingListFeelItemViewData;
 import com.li.feeling.home.R;
+import com.li.framework.ui.utility.DuplicatedClickFilter;
 import com.li.library.recycler.LiRecycleViewHolder;
 
 /**
@@ -19,10 +21,20 @@ public class HomeFeelListFeelItemViewHolder extends
   private TextView mNameView;
   private TextView mTimeVIew;
   private TextView mContentTextView;
+
+  // 点赞
+  private View mLikeContainer;
+  private ImageView mLikeImageView;
   private TextView mLikeNumView;
 
-  public HomeFeelListFeelItemViewHolder(@NonNull View itemView) {
+  @NonNull
+  private IFeelListListener mFeelListListener;
+
+  public HomeFeelListFeelItemViewHolder(
+      @NonNull View itemView,
+      @NonNull IFeelListListener feelListListener) {
     super(itemView);
+    mFeelListListener = feelListListener;
   }
 
   @Override
@@ -31,7 +43,16 @@ public class HomeFeelListFeelItemViewHolder extends
     mNameView = itemView.findViewById(R.id.feel_item_name_view);
     mTimeVIew = itemView.findViewById(R.id.feel_item_time_view);
     mContentTextView = itemView.findViewById(R.id.feel_item_content_text_view);
+    mLikeContainer = itemView.findViewById(R.id.feel_item_like_container);
+    mLikeImageView = itemView.findViewById(R.id.feel_item_like_image_view);
     mLikeNumView = itemView.findViewById(R.id.feel_item_like_num_view);
+
+    mLikeContainer.setOnClickListener(new DuplicatedClickFilter() {
+      @Override
+      protected void handleClickEvent() {
+        mFeelListListener.onClickFeelItemLikeView(mPosition);
+      }
+    });
   }
 
   @Override
@@ -41,6 +62,12 @@ public class HomeFeelListFeelItemViewHolder extends
     mTimeVIew.setText(data.mTime);
     mContentTextView.setText(data.mContentText);
     mLikeNumView.setText(data.mLikeNum + "");
+    // TODO: 2021/10/21 变红等
+    if(data.mIsLike){
+
+    }else{
+
+    }
   }
 
   @Override

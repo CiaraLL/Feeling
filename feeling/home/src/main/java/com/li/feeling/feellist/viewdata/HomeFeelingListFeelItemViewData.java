@@ -21,6 +21,8 @@ public class HomeFeelingListFeelItemViewData implements LiRecyclerItemViewData {
   public String mContentText;
   // 点赞数
   public int mLikeNum;
+  // 点赞过
+  public boolean mIsLike;
 
   @Override
   public int getItemViewDataType() {

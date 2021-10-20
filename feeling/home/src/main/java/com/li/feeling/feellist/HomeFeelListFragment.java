@@ -17,6 +17,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.li.feeling.common.like.likeservice.FeelLikeManager;
+import com.li.feeling.common.like.likeservice.IFeelLikeCallback;
 import com.li.feeling.feellist.adapter.HomeFeelListRecyclerAdapter;
 import com.li.feeling.feellist.service.HomeFeelListResponse;
 import com.li.feeling.feellist.service.IHomeFeelListApiService;
@@ -52,6 +54,9 @@ public class HomeFeelListFragment extends BaseFragment {
   @Nullable
   private Disposable mFeelListDisposable;
 
+  @Nullable
+  private List<Feel> mFeelList;
+
   @NonNull
   private SwipeRefreshLayout.OnRefreshListener mRefreshListener =
       new SwipeRefreshLayout.OnRefreshListener() {
@@ -60,6 +65,30 @@ public class HomeFeelListFragment extends BaseFragment {
           refreshFeelList();
         }
       };
+
+  // 列表监听
+  private final IFeelListListener mFeelListListener = new IFeelListListener() {
+    @Override
+    public void onClickFeelItemLikeView(int position) {
+      Feel feel = mFeelList.get(position);
+      FeelLikeManager.getInstance().like(feel.mId, new IFeelLikeCallback() {
+        @Override
+        public void onSucceed(boolean isLike) {
+          // 更新UI
+          feel.mIsLike = true;
+          mFeelListAdapter.notifyDataSetChanged();
+        }
+
+        @Override
+        public void onFail(@NonNull Throwable throwable, boolean isLike) {
+          if (throwable instanceof FeelingException) {
+            ToastUtil.showToast(((FeelingException) throwable).mErrorMessage);
+          }
+          ToastUtil.showToast("请稍后重试");
+        }
+      });
+    }
+  };
 
   @Override
   protected int getLayoutResId() {
@@ -102,7 +131,7 @@ public class HomeFeelListFragment extends BaseFragment {
     });
 
     mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-    mFeelListAdapter = new HomeFeelListRecyclerAdapter(getContext());
+    mFeelListAdapter = new HomeFeelListRecyclerAdapter(getContext(), mFeelListListener);
     mRecyclerView.setAdapter(mFeelListAdapter);
   }
 
@@ -141,6 +170,8 @@ public class HomeFeelListFragment extends BaseFragment {
    * @param footerTip 滑动到底部的提示
    */
   private void onFeelListDataChanged(@NonNull List<Feel> feelList, String footerTip) {
+    mFeelList = feelList;
+
     //列表UI数据
     List<LiRecyclerItemViewData> itemViewDataList = new ArrayList<>();
 
@@ -152,6 +183,7 @@ public class HomeFeelListFragment extends BaseFragment {
       feelItemViewData.mTime = feel.mPublishTime + "";
       feelItemViewData.mContentText = feel.mContentText;
       feelItemViewData.mLikeNum = feel.mLikeNum;
+      feelItemViewData.mIsLike = feel.mIsLike;
 
       itemViewDataList.add(feelItemViewData);
     }

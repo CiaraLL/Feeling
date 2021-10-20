@@ -25,6 +25,10 @@ public class Feel implements Serializable {
   @SerializedName("likeNum")
   public int mLikeNum;
 
+  // 自己是否点赞过
+  @SerializedName("isLike")
+  public boolean mIsLike;
+
   public Feel() {
 
   }

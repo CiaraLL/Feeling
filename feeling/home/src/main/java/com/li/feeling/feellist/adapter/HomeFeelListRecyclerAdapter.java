@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 
+import com.li.feeling.feellist.IFeelListListener;
 import com.li.feeling.feellist.viewdata.HomeFeelListItemViewDataType;
 import com.li.feeling.feellist.viewholder.HomeFeelListFeelItemViewHolder;
 import com.li.feeling.feellist.viewholder.HomeFeelListFooterItemViewHolder;
@@ -17,8 +18,14 @@ import com.li.library.recycler.LiRecyclerItemViewData;
 public class HomeFeelListRecyclerAdapter
     extends LiRecyclerAdapter<LiRecyclerItemViewData> {
 
-  public HomeFeelListRecyclerAdapter(@NonNull Context context) {
+  @NonNull
+  private IFeelListListener mFeelListListener;
+
+  public HomeFeelListRecyclerAdapter(
+      @NonNull Context context,
+      @NonNull IFeelListListener feelListListener) {
     super(context);
+    mFeelListListener = feelListListener;
   }
 
   @NonNull
@@ -29,7 +36,7 @@ public class HomeFeelListRecyclerAdapter
       case HomeFeelListItemViewDataType.FEEL_TYPE:
         View feelItemView = LayoutInflater.from(mContext)
             .inflate(R.layout.home_feel_list_feel_item_layout, parent, false);
-        return new HomeFeelListFeelItemViewHolder(feelItemView);
+        return new HomeFeelListFeelItemViewHolder(feelItemView, mFeelListListener);
       case HomeFeelListItemViewDataType.FOOTER_TYPE:
         View footerItemView = LayoutInflater.from(mContext)
             .inflate(R.layout.home_feel_list_footer_item_layout, parent, false);

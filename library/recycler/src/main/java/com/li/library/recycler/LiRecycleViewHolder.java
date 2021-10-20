@@ -11,7 +11,7 @@ public abstract class LiRecycleViewHolder<Data extends LiRecyclerItemViewData>
     extends RecyclerView.ViewHolder {
 
   private Data mData;
-  private int mPosition;
+  protected int mPosition;
 
   public LiRecycleViewHolder(@NonNull View itemView) {
     super(itemView);
