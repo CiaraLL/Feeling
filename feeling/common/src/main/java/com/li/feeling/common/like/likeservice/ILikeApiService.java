@@ -1,8 +1,7 @@
-package com.li.feeling.feellist.service.likeservice;
+package com.li.feeling.common.like.likeservice;
 
 import androidx.annotation.NonNull;
 
-import com.li.feeling.model.Feel;
 import com.li.framework.network.FeelingResponse;
 import com.li.framework.network.FeelingRetrofitConfig;
 import com.li.framework.network.FeelingUrl;
@@ -14,15 +13,16 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
-public interface IHomeFeelListLikeApiService {
+// 点赞
+public interface ILikeApiService {
 
   //单例
   @NonNull
-  IHomeFeelListLikeApiService sHomeFeelListLikeApiService = RetrofitManager.getInstance().create(
+  ILikeApiService sHomeFeelListLikeApiService = RetrofitManager.getInstance().create(
       new FeelingRetrofitConfig(FeelingUrl.LIKE, SchedulerManager.NETWORKING),
-      IHomeFeelListLikeApiService.class);
+      ILikeApiService.class);
 
-  static IHomeFeelListLikeApiService get() {
+  static ILikeApiService get() {
     return sHomeFeelListLikeApiService;
   }
 
