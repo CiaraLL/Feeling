@@ -73,7 +73,7 @@
                 android:id="@+id/feel_item_like_image_view"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:src="@drawable/icon_content_item_likes">
+                android:src="@drawable/like_selector">
             </ImageView>
             <TextView
               android:id="@+id/feel_item_like_num_view"

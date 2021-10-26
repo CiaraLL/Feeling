@@ -10,9 +10,9 @@ import io.reactivex.disposables.Disposable;
 public class RxUtil {
 
   // 销毁一个disposable
-  public static void dispose(@Nullable Disposable disposiable) {
-    if (disposiable != null) {
-      disposiable.dispose();
+  public static void dispose(@Nullable Disposable disposable) {
+    if (disposable != null) {
+      disposable.dispose();
     }
   }
 

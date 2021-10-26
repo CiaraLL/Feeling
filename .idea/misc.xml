@@ -8,6 +8,9 @@
         <entry key="..\:/code/android/Feeling/Feeling/feeling/login/src/main/res/layout/fragment_mine_layout.xml" value="0.176" />
         <entry key="..\:/code/android/Feeling/Feeling/feeling/mine/src/main/res/layout/fragment_mine_layout.xml" value="0.25364583333333335" />
         <entry key="..\:/code/android/Feeling/Feeling/feeling/welcome/src/main/res/layout/activity_welcome_layout.xml" value="0.1296875" />
+        <entry key="..\:/code/android/Feeling/feeling/home/src/main/res/drawable/style1.xml" value="0.26564102564102565" />
+        <entry key="..\:/code/android/Feeling/feeling/home/src/main/res/drawable/stylesum.xml" value="0.26564102564102565" />
+        <entry key="..\:/code/android/Feeling/feeling/home/src/main/res/drawable/stytle2.xml" value="0.26564102564102565" />
         <entry key="..\:/code/android/Feeling/feeling/home/src/main/res/layout/activity_home_layout.xml" value="0.1296875" />
         <entry key="..\:/code/android/Feeling/feeling/home/src/main/res/layout/activity_my_home_pager_layout.xml" value="0.264" />
         <entry key="..\:/code/android/Feeling/feeling/home/src/main/res/layout/content_item_layout.xml" value="0.4" />
@@ -21,6 +24,9 @@
         <entry key="..\:/code/android/Feeling/feeling/home/src/main/res/layout/fragment_mine_layout.xml" value="0.264" />
         <entry key="..\:/code/android/Feeling/feeling/home/src/main/res/layout/home_feel_list_feel_item_layout.xml" value="0.25364583333333335" />
         <entry key="..\:/code/android/Feeling/feeling/home/src/main/res/layout/home_feel_list_footer_item_layout.xml" value="0.25364583333333335" />
+        <entry key="..\:/code/android/Feeling/feeling/home/src/main/res/layout/message_list_message_footer_item_layout.xml" value="0.25364583333333335" />
+        <entry key="..\:/code/android/Feeling/feeling/home/src/main/res/layout/message_list_message_item.xml" value="0.25364583333333335" />
+        <entry key="..\:/code/android/Feeling/feeling/home/src/main/res/layout/message_list_message_item_layout.xml" value="0.25364583333333335" />
         <entry key="..\:/code/android/Feeling/feeling/login/src/main/res/layout/fragment_login_layout.xml" value="0.2" />
         <entry key="..\:/code/android/Feeling/feeling/login/src/main/res/layout/fragment_mine_layout.xml" value="0.1296875" />
         <entry key="..\:/code/android/Feeling/feeling/login/src/main/res/layout/fragment_register_layout.xml" value="0.20199275362318841" />
@@ -28,13 +34,15 @@
         <entry key="..\:/code/android/Feeling/feeling/publish/src/main/res/layout/activity_publish_feel_layout.xml" value="0.12239583333333333" />
         <entry key="..\:/code/android/Feeling/feeling/publish/src/main/res/layout/activity_publish_layout.xml" value="0.2" />
         <entry key="..\:/code/android/Feeling/feeling/publish/src/main/res/layout/fragment_publish_feel_layout.xml" value="0.12239583333333333" />
+        <entry key="..\:/code/android/Feeling/feeling/userdeatil/src/main/res/layout/fragment_user_detail_like_feel_list_layout.xml" value="0.1272644927536232" />
+        <entry key="..\:/code/android/Feeling/feeling/userdeatil/src/main/res/layout/fragment_user_detail_published_feel_list_layout.xml" value="0.1272644927536232" />
+        <entry key="..\:/code/android/Feeling/feeling/userdeatil/src/main/res/layout/fragment_user_detail_tab_layout.xml" value="0.25364583333333335" />
         <entry key="..\:/code/android/Feeling/feeling/welcome/src/main/res/layout/activity_welcome_layout.xml" value="0.2" />
         <entry key="..\:/code/android/Feeling/framework/framework-ui/tabFragment/src/main/res/layout/fragment_home_layout.xml" value="0.1296875" />
         <entry key="..\:/code/android/Feeling/framework/ui/tabFragment/src/main/res/layout/activity_tab_fragment.xml" value="0.20199275362318841" />
         <entry key="..\:/code/android/Feeling/library/recycler/src/main/res/layout/li_recycler_blank_item_layout.xml" value="0.25364583333333335" />
         <entry key="feeling/home/src/main/res/layout/fragment_home_feel_list_layout.xml" value="0.156912209889001" />
         <entry key="feeling/home/src/main/res/layout/fragment_home_layout.xml" value="0.156912209889001" />
-        <entry key="feeling/home/src/main/res/layout/home_feel_list_feel_item_layout.xml" value="0.375" />
         <entry key="feeling/publish/src/main/res/layout/fragment_publish_feel_layout.xml" value="0.156912209889001" />
         <entry key="feeling/userdeatil/src/main/res/layout/activity_user_detail_layout.xml" value="0.156912209889001" />
         <entry key="feeling/userdeatil/src/main/res/layout/fragment_user_detail_layout.xml" value="0.1796875" />
