@@ -31,3 +31,4 @@ rootProject.name = "Feeling"
 include ':feeling:publish'
 include ':feeling:userdeatil'
 include ':feeling:common'
+include ':feeling:message'
