@@ -12,11 +12,13 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/feeling" />
             <option value="$PROJECT_DIR$/feeling/common" />
+            <option value="$PROJECT_DIR$/feeling/desktop" />
             <option value="$PROJECT_DIR$/feeling/home" />
             <option value="$PROJECT_DIR$/feeling/init" />
             <option value="$PROJECT_DIR$/feeling/login" />
-            <option value="$PROJECT_DIR$/feeling/message" />
+            <option value="$PROJECT_DIR$/feeling/mine" />
             <option value="$PROJECT_DIR$/feeling/model" />
+            <option value="$PROJECT_DIR$/feeling/notification" />
             <option value="$PROJECT_DIR$/feeling/publish" />
             <option value="$PROJECT_DIR$/feeling/userdeatil" />
             <option value="$PROJECT_DIR$/feeling/welcome" />

@@ -3,9 +3,7 @@ package com.li.feeling.login;
 import android.app.Activity;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -15,7 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.li.feeling.R;
-import com.li.feeling.home.HomeActivity;
+import com.li.feeling.desktop.DesktopActivity;
 import com.li.feeling.login.api.LoginApiService;
 import com.li.feeling.model.CurrentUser;
 import com.li.feeling.model.User;
@@ -145,7 +143,7 @@ public class LoginFragment extends BaseFragment {
     Activity activity = getActivity();
     if (activity != null) {
       // 进入home页面
-      HomeActivity.start(activity);
+      DesktopActivity.start(activity);
       activity.finish();
     }
   }
