@@ -62,11 +62,10 @@ public class HomeFeelListFeelItemViewHolder extends
     mTimeVIew.setText(data.mTime);
     mContentTextView.setText(data.mContentText);
     mLikeNumView.setText(data.mLikeNum + "");
-    // TODO: 2021/10/21 变红等
     if (data.mIsLike) {
-
+      mLikeImageView.setImageResource(R.drawable.icon_content_item_like_red);
     } else {
-
+      mLikeImageView.setImageResource(R.drawable.icon_content_item_like_default);
     }
   }
 

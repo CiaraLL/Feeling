@@ -41,9 +41,12 @@
         <entry key="..\:/code/android/Feeling/framework/framework-ui/tabFragment/src/main/res/layout/fragment_home_layout.xml" value="0.1296875" />
         <entry key="..\:/code/android/Feeling/framework/ui/tabFragment/src/main/res/layout/activity_tab_fragment.xml" value="0.20199275362318841" />
         <entry key="..\:/code/android/Feeling/library/recycler/src/main/res/layout/li_recycler_blank_item_layout.xml" value="0.25364583333333335" />
+        <entry key="feeling/desktop/src/main/res/drawable/like_selector.xml" value="0.3138888888888889" />
+        <entry key="feeling/home/src/main/res/drawable/drawable.xml" value="0.3138888888888889" />
         <entry key="feeling/home/src/main/res/layout/fragment_home_feel_list_layout.xml" value="0.156912209889001" />
         <entry key="feeling/home/src/main/res/layout/fragment_home_layout.xml" value="0.156912209889001" />
         <entry key="feeling/home/src/main/res/layout/fragment_message_list_layout.xml" value="0.156912209889001" />
+        <entry key="feeling/home/src/main/res/layout/home_feel_list_feel_item_layout.xml" value="0.156912209889001" />
         <entry key="feeling/home/src/main/res/layout/home_feel_list_footer_item_layout.xml" value="0.21195652173913043" />
         <entry key="feeling/mine/src/main/res/layout/fragment_mine_layout.xml" value="0.21195652173913043" />
         <entry key="feeling/notification/src/main/res/layout/fragment_message_list_layout.xml" value="0.21195652173913043" />
