@@ -10,16 +10,16 @@ import com.li.library.recycler.LiRecycleViewHolder;
 import com.li.library.recycler.LiRecyclerAdapter;
 import com.li.library.recycler.LiRecyclerItemViewData;
 import com.li.message.R;
-import com.li.feeling.notification.list.viewdata.HomeMessageListItemViewDataType;
-import com.li.feeling.notification.list.viewholder.HomeMessageListMessageFooterViewHolder;
-import com.li.feeling.notification.list.viewholder.HomeMessageListMessageItemViewHolder;
+import com.li.feeling.notification.list.viewdata.type.NotificationListItemViewDataType;
+import com.li.feeling.notification.list.viewholder.NotificationListFooterItemViewHolder;
+import com.li.feeling.notification.list.viewholder.NitificationListFeelLikeItemViewHolder;
 
 /**
- * 点赞消息列表的adapter
+ * 通知列表的adapter
  */
-public class HomeMessageListRecyclerAdapter extends LiRecyclerAdapter<LiRecyclerItemViewData> {
+public class NotificationListRecyclerAdapter extends LiRecyclerAdapter<LiRecyclerItemViewData> {
 
-  public HomeMessageListRecyclerAdapter(
+  public NotificationListRecyclerAdapter(
       @NonNull Context context) {
     super(context);
   }
@@ -31,14 +31,14 @@ public class HomeMessageListRecyclerAdapter extends LiRecyclerAdapter<LiRecycler
       int viewType) {
 
     switch (viewType){
-      case HomeMessageListItemViewDataType.MESSAGE_ITEM:
+      case NotificationListItemViewDataType.FEEL_LIKE:
         View itemView = LayoutInflater.from(mContext)
             .inflate(R.layout.notification_list_noti_item_layout,parent,false);
-        return new HomeMessageListMessageItemViewHolder(itemView);
-      case HomeMessageListItemViewDataType.MESSAGE_FOOTER:
+        return new NitificationListFeelLikeItemViewHolder(itemView);
+      case NotificationListItemViewDataType.FOOTER:
         View footerView = LayoutInflater.from(mContext)
             .inflate(R.layout.notification_list_footer_item_layout,parent,false);
-        return new HomeMessageListMessageFooterViewHolder(footerView);
+        return new NotificationListFooterItemViewHolder(footerView);
     }
     return super.onCreateViewHolder(parent, viewType);
   }

@@ -4,7 +4,7 @@
   android:layout_height="50dp">
 
   <TextView
-    android:id="@+id/message_list_message_footer_item"
+    android:id="@+id/notification_list_footer_item_tip_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center">

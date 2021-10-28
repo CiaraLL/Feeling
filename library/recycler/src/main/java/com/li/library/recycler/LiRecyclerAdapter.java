@@ -27,7 +27,7 @@ public abstract class LiRecyclerAdapter<Data extends LiRecyclerItemViewData>
   private List<Data> mDataList = new ArrayList<>();
 
   @NonNull
-  private Set<LiRecycleViewHolder<Data>> mViewHolders = new HashSet<>();
+  private final Set<LiRecycleViewHolder<Data>> mViewHolders = new HashSet<>();
 
   public LiRecyclerAdapter(@NonNull Context context) {
     mContext = context;
