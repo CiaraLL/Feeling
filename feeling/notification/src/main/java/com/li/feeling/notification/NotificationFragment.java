@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.li.feeling.common.like.likeservice.FeelLikeResponse;
+import com.li.feeling.common.like.likeservice.IFeelLikeApiService;
 import com.li.feeling.model.notification.FeelingNotification;
 import com.li.feeling.model.notification.FeelingNotificationType;
 import com.li.feeling.model.notification.business.FeelLikeNotification;
@@ -81,8 +83,8 @@ public class NotificationFragment extends BaseFragment {
   // 刷新通知列表:网络请求
   @NonNull
   private void refreshNotificationList() {
-    mNotificationListDisposable = IHomeFeelListApiService.get()
-        .getFeelListData()
+    mNotificationListDisposable = IFeelLikeApiService.get()
+        .like()
         .observeOn(SchedulerManager.MAIN)
         .map(FeelingResponseTransformer.transform())
         .doFinally(new Action() {
@@ -93,10 +95,10 @@ public class NotificationFragment extends BaseFragment {
           }
         })
         .subscribe(
-            new Consumer<HomeFeelListResponse>() {
+            new Consumer<FeelLikeResponse>() {
               @Override
-              public void accept(HomeFeelListResponse response) {
-                onFeelListDataChanged(response.mFeelList, response.mFooterTip);
+              public void accept(FeelLikeResponse response) {
+                onFeelListDataChanged(response.mNotificationList, response.mFooterTip);
               }
             },
             throwable -> {

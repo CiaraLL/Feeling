@@ -10,7 +10,8 @@ public enum FeelingUrl {
   HOME_FEEL_LIST("http", "192.168.1.9", 8080), // home页面feel列表
   PUBLISH("http", "192.168.1.9", 8080), // 发布feel;
   USER_DETAIL("http", "192.168.1.9", 8080),
-  LIKE("http", "192.168.1.9", 8080);// 用户详情
+  LIKE("http", "192.168.1.9", 8080),
+  NOTIFICATION("http", "192.168.1.9", 8080);// 用户详情
 
   String mScheme;
   String mHost; // 域名或者ip地址
