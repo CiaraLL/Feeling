@@ -13,7 +13,7 @@ public enum FeelingUrl {
   PUBLISH("http", mTempHost, 8080), // 发布feel;
   USER_DETAIL("http", mTempHost, 8080),
   LIKE("http", mTempHost, 8080),
-  NOTIFICATION("http", mTempHost, 8080);// 用户详情
+  NOTIFICATION("http", mTempHost, 8080);// 通知
 
   String mScheme;
   String mHost; // 域名或者ip地址

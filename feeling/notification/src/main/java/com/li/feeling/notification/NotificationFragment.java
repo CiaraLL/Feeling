@@ -11,18 +11,28 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.li.feeling.model.CurrentUser;
+import com.li.feeling.model.notification.FeelingBaseNotification;
 import com.li.feeling.model.notification.FeelingNotification;
 import com.li.feeling.model.notification.FeelingNotificationType;
 import com.li.feeling.model.notification.business.FeelLikeNotification;
 import com.li.feeling.notification.list.adapter.NotificationListRecyclerAdapter;
+import com.li.feeling.notification.list.api.INotificationApiService;
+import com.li.feeling.notification.list.api.NotificationListResponse;
 import com.li.feeling.notification.list.viewdata.NotificationListFeelLikeItemViewData;
 import com.li.feeling.notification.list.viewdata.NotificationListFooterItemViewData;
 import com.li.fragment.base_page.fragment.BaseFragment;
 import com.li.framework.common_util.RxUtil;
+import com.li.framework.common_util.ToastUtil;
+import com.li.framework.network.FeelingException;
+import com.li.framework.network.FeelingResponseTransformer;
+import com.li.framework.scheduler_utility.SchedulerManager;
 import com.li.library.recycler.LiRecyclerItemViewData;
 import com.li.message.R;
 
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Action;
+import io.reactivex.functions.Consumer;
 
 /**
  * 通知fragment
@@ -30,7 +40,7 @@ import io.reactivex.disposables.Disposable;
 public class NotificationFragment extends BaseFragment {
 
   // 数据
-  private List<FeelingNotification> mNotificationList;
+  private List<FeelingBaseNotification> mNotificationList;
 
   private SwipeRefreshLayout mRefreshLayout;
   private RecyclerView mRecyclerView;
@@ -75,29 +85,29 @@ public class NotificationFragment extends BaseFragment {
   // 刷新通知列表:网络请求
   @NonNull
   private void refreshNotificationList() {
-//    mNotificationListDisposable = IFeelLikeApiService.get()
-//        .like()
-//        .observeOn(SchedulerManager.MAIN)
-//        .map(FeelingResponseTransformer.transform())
-//        .doFinally(new Action() {
-//          @Override
-//          public void run() throws Exception {
-//            // 请求结束的时候，恢复
-//            mRefreshLayout.setRefreshing(false);
-//          }
-//        })
-//        .subscribe(
-//            new Consumer<FeelLikeResponse>() {
-//              @Override
-//              public void accept(FeelLikeResponse response) {
-//
-//              }
-//            },
-//            throwable -> {
-//              if (throwable instanceof FeelingException) {
-//                ToastUtil.showToast(((FeelingException) throwable).mErrorMessage);
-//              }
-//            });
+    mNotificationListDisposable = INotificationApiService.get()
+        .getNotificationListData(CurrentUser.get().getId())
+        .observeOn(SchedulerManager.MAIN)
+        .map(FeelingResponseTransformer.transform())
+        .doFinally(new Action() {
+          @Override
+          public void run() throws Exception {
+            // 请求结束的时候，恢复
+            mRefreshLayout.setRefreshing(false);
+          }
+        })
+        .subscribe(
+            new Consumer<NotificationListResponse>() {
+              @Override
+              public void accept(NotificationListResponse response) {
+                onFeelListDataChanged(response.mNotificationList, response.mFooterTip);
+              }
+            },
+            throwable -> {
+              if (throwable instanceof FeelingException) {
+                ToastUtil.showToast(((FeelingException) throwable).mErrorMessage);
+              }
+            });
   }
 
   /**
@@ -106,7 +116,7 @@ public class NotificationFragment extends BaseFragment {
    * @param notificationList 列表数据
    * @param footerTip        滑动到底部的提示
    */
-  private void onFeelListDataChanged(@NonNull List<FeelingNotification> notificationList,
+  private void onFeelListDataChanged(@NonNull List<FeelingBaseNotification> notificationList,
       String footerTip) {
     // 保存下
     mNotificationList = notificationList;
