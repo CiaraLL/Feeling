@@ -2,6 +2,7 @@ package com.li.feeling.home.feellist.service;
 
 import androidx.annotation.NonNull;
 
+import com.li.feeling.model.User;
 import com.li.framework.network.FeelingResponse;
 import com.li.framework.network.FeelingRetrofitConfig;
 import com.li.framework.network.FeelingUrl;
@@ -9,6 +10,8 @@ import com.li.framework.scheduler_utility.SchedulerManager;
 import com.li.library.retrofit_utlity.RetrofitManager;
 
 import io.reactivex.Observable;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
 /**
@@ -29,6 +32,7 @@ public interface IHomeFeelListApiService {
 
   // 获取列表数据
   @POST("/feeling/feel/home/list")
-  Observable<FeelingResponse<HomeFeelListResponse>> getFeelListData();
+  @FormUrlEncoded
+  Observable<FeelingResponse<HomeFeelListResponse>> getFeelListData(@Field("userId") long userId);
 
 }

@@ -25,6 +25,7 @@ import com.li.feeling.home.feellist.service.HomeFeelListResponse;
 import com.li.feeling.home.feellist.service.IHomeFeelListApiService;
 import com.li.feeling.home.feellist.viewdata.HomeFeelingListFeelItemViewData;
 import com.li.feeling.home.feellist.viewdata.HomeFeelingListFooterItemViewData;
+import com.li.feeling.model.CurrentUser;
 import com.li.feeling.model.Feel;
 import com.li.feeling.model.FeelPublishSuccessEvent;
 import com.li.feeling.publish.PublishFeelActivity;
@@ -56,6 +57,8 @@ public class HomeFragment extends BaseFragment {
 
   @Nullable
   private List<Feel> mFeelList;
+  @Nullable
+  private String mFooterTip;
 
   @NonNull
   private SwipeRefreshLayout.OnRefreshListener mRefreshListener =
@@ -71,12 +74,14 @@ public class HomeFragment extends BaseFragment {
     @Override
     public void onClickFeelItemLikeView(int position) {
       Feel feel = mFeelList.get(position);
-      FeelLikeManager.getInstance().like(feel.mId, new IFeelLikeCallback() {
+      // 点赞的回调，注意，由于网络请求是异步的，等结果回来的时候，该feel可能已经不存在了(该feel的主人删除等)
+      IFeelLikeCallback likeCallback = new IFeelLikeCallback() {
         @Override
-        public void onSucceed(boolean isLike) {
+        public void onSucceed(long feelId, int feelLikeNum, boolean isLike) {
           // 更新UI
-          feel.mIsLike = true;
-          mFeelListAdapter.notifyDataSetChanged();
+          feel.mIsLike = isLike;
+          feel.mLikeNum = feelLikeNum;
+          onFeelListDataChanged(mFeelList, mFooterTip);
         }
 
         @Override
@@ -86,7 +91,13 @@ public class HomeFragment extends BaseFragment {
           }
           ToastUtil.showToast("请稍后重试");
         }
-      });
+      };
+      // 点赞或者取消赞
+      if (feel.mIsLike) {
+        FeelLikeManager.getInstance().cancelLike(feel.mId, likeCallback);
+      } else {
+        FeelLikeManager.getInstance().like(feel.mId, likeCallback);
+      }
     }
   };
 
@@ -139,7 +150,7 @@ public class HomeFragment extends BaseFragment {
   @NonNull
   private void refreshFeelList() {
     mFeelListDisposable = IHomeFeelListApiService.get()
-        .getFeelListData()
+        .getFeelListData(CurrentUser.get().getUser().mId)
         .observeOn(SchedulerManager.MAIN)
         .map(FeelingResponseTransformer.transform())
         .doFinally(new Action() {
@@ -171,6 +182,7 @@ public class HomeFragment extends BaseFragment {
    */
   private void onFeelListDataChanged(@NonNull List<Feel> feelList, String footerTip) {
     mFeelList = feelList;
+    mFooterTip = footerTip;
 
     //列表UI数据
     List<LiRecyclerItemViewData> itemViewDataList = new ArrayList<>();

@@ -29,14 +29,14 @@ public interface IFeelLikeApiService {
   //点赞
   @FormUrlEncoded
   @POST("feeling/feel/like")
-  Observable<FeelingResponse<Boolean>> like(
+  Observable<FeelingResponse<FeelLikeResponse>> like(
       @Field("feelId") long feelId,
       @Field("userId") long userId);
 
   //取消点赞
   @FormUrlEncoded
   @POST("/feeling/feel/cancellike")
-  Observable<FeelingResponse<Boolean>> cancelLike(
+  Observable<FeelingResponse<FeelLikeResponse>> cancelLike(
       @Field("feelId") long feelId,
       @Field("userId") long userID);
 }

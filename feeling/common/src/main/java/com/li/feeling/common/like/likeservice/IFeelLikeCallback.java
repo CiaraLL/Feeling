@@ -9,9 +9,12 @@ public interface IFeelLikeCallback {
 
   /**
    * 成功的回调
-   * @param isLike 区分点赞还是取消点赞
+   *
+   * @param feelId  点赞的feel
+   * @param feelLikeNum 点赞数
+   * @param isLike  区分点赞还是取消点赞
    */
-  void onSucceed(boolean isLike);
+  void onSucceed(long feelId, int feelLikeNum, boolean isLike);
 
   void onFail(@NonNull Throwable throwable, boolean isLike);
 

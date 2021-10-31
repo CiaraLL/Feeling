@@ -11,8 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import com.li.feeling.common.like.likeservice.FeelLikeResponse;
-import com.li.feeling.common.like.likeservice.IFeelLikeApiService;
 import com.li.feeling.model.notification.FeelingNotification;
 import com.li.feeling.model.notification.FeelingNotificationType;
 import com.li.feeling.model.notification.business.FeelLikeNotification;
@@ -21,16 +19,10 @@ import com.li.feeling.notification.list.viewdata.NotificationListFeelLikeItemVie
 import com.li.feeling.notification.list.viewdata.NotificationListFooterItemViewData;
 import com.li.fragment.base_page.fragment.BaseFragment;
 import com.li.framework.common_util.RxUtil;
-import com.li.framework.common_util.ToastUtil;
-import com.li.framework.network.FeelingException;
-import com.li.framework.network.FeelingResponseTransformer;
-import com.li.framework.scheduler_utility.SchedulerManager;
 import com.li.library.recycler.LiRecyclerItemViewData;
 import com.li.message.R;
 
 import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Action;
-import io.reactivex.functions.Consumer;
 
 /**
  * 通知fragment
@@ -83,29 +75,29 @@ public class NotificationFragment extends BaseFragment {
   // 刷新通知列表:网络请求
   @NonNull
   private void refreshNotificationList() {
-    mNotificationListDisposable = IFeelLikeApiService.get()
-        .like()
-        .observeOn(SchedulerManager.MAIN)
-        .map(FeelingResponseTransformer.transform())
-        .doFinally(new Action() {
-          @Override
-          public void run() throws Exception {
-            // 请求结束的时候，恢复
-            mRefreshLayout.setRefreshing(false);
-          }
-        })
-        .subscribe(
-            new Consumer<FeelLikeResponse>() {
-              @Override
-              public void accept(FeelLikeResponse response) {
-                onFeelListDataChanged(response.mNotificationList, response.mFooterTip);
-              }
-            },
-            throwable -> {
-              if (throwable instanceof FeelingException) {
-                ToastUtil.showToast(((FeelingException) throwable).mErrorMessage);
-              }
-            });
+//    mNotificationListDisposable = IFeelLikeApiService.get()
+//        .like()
+//        .observeOn(SchedulerManager.MAIN)
+//        .map(FeelingResponseTransformer.transform())
+//        .doFinally(new Action() {
+//          @Override
+//          public void run() throws Exception {
+//            // 请求结束的时候，恢复
+//            mRefreshLayout.setRefreshing(false);
+//          }
+//        })
+//        .subscribe(
+//            new Consumer<FeelLikeResponse>() {
+//              @Override
+//              public void accept(FeelLikeResponse response) {
+//
+//              }
+//            },
+//            throwable -> {
+//              if (throwable instanceof FeelingException) {
+//                ToastUtil.showToast(((FeelingException) throwable).mErrorMessage);
+//              }
+//            });
   }
 
   /**

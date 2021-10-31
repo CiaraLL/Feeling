@@ -15,6 +15,9 @@ import com.li.library.recycler.LiRecycleViewHolder;
 import com.li.library.recycler.LiRecyclerAdapter;
 import com.li.library.recycler.LiRecyclerItemViewData;
 
+/**
+ * todo 局部刷新
+ */
 public class HomeFeelListRecyclerAdapter
     extends LiRecyclerAdapter<LiRecyclerItemViewData> {
 

@@ -8,21 +8,17 @@ import androidx.annotation.NonNull;
 import com.google.gson.annotations.SerializedName;
 import com.li.feeling.model.notification.FeelingNotification;
 
+/**
+ * 点赞接口的回执
+ */
 public class FeelLikeResponse implements Serializable {
 
-  //通知列表数据
-  @SerializedName("notificationList")
-  @NonNull
-  public List<FeelingNotification> mNotificationList;
+  // 点赞的feelId
+  @SerializedName("feelId")
+  public long mFeelId;
 
-  //底部提示
-  @SerializedName("footerTip")
-  @NonNull
-  public String mFooterTip;
+  // 该feel的点赞数
+  @SerializedName("likeNum")
+  public int mLikeNum;
 
-  public FeelLikeResponse(
-      @NonNull List<FeelingNotification> notificationList, @NonNull String footerTip) {
-    mNotificationList = notificationList;
-    mFooterTip = footerTip;
-  }
 }

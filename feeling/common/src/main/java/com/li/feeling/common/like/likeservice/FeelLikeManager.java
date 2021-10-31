@@ -26,13 +26,13 @@ public class FeelLikeManager {
 
   // 点赞
   public void like(long feelId, @NonNull IFeelLikeCallback callback) {
-    IFeelLikeApiService.sHomeFeelListLikeApiService.like(CurrentUser.get().getId(), feelId)
+    IFeelLikeApiService.sHomeFeelListLikeApiService.like(feelId, CurrentUser.get().getId())
         .observeOn(SchedulerManager.MAIN)
         .map(FeelingResponseTransformer.transform())
-        .subscribe(new Consumer<Boolean>() {
+        .subscribe(new Consumer<FeelLikeResponse>() {
           @Override
-          public void accept(Boolean aBoolean) throws Exception {
-            callback.onSucceed(true);
+          public void accept(FeelLikeResponse response) throws Exception {
+            callback.onSucceed(response.mFeelId, response.mLikeNum, true);
           }
         }, throwable -> {
           callback.onFail(throwable, true);
@@ -41,13 +41,13 @@ public class FeelLikeManager {
 
   // 取消点赞
   public void cancelLike(long feelId, @NonNull IFeelLikeCallback callback) {
-    IFeelLikeApiService.sHomeFeelListLikeApiService.cancelLike(CurrentUser.get().getId(), feelId)
+    IFeelLikeApiService.sHomeFeelListLikeApiService.cancelLike(feelId, CurrentUser.get().getId())
         .observeOn(SchedulerManager.MAIN)
         .map(FeelingResponseTransformer.transform())
-        .subscribe(new Consumer<Boolean>() {
+        .subscribe(new Consumer<FeelLikeResponse>() {
           @Override
-          public void accept(Boolean aBoolean) throws Exception {
-            callback.onSucceed(false);
+          public void accept(FeelLikeResponse response) throws Exception {
+            callback.onSucceed(response.mFeelId, response.mLikeNum, false);
           }
         }, throwable -> {
           callback.onFail(throwable, false);
