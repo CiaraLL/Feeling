@@ -12,7 +12,7 @@ import com.li.message.R;
 /**
  * feel点赞的ViewHolder
  */
-public class NitificationListFeelLikeItemViewHolder
+public class NotificationListFeelLikeItemViewHolder
     extends LiRecycleViewHolder<NotificationListFeelLikeItemViewData> {
 
   // 头像
@@ -24,7 +24,7 @@ public class NitificationListFeelLikeItemViewHolder
   // 通知文案
   private TextView mContentView;
 
-  public NitificationListFeelLikeItemViewHolder(@NonNull View itemView) {
+  public NotificationListFeelLikeItemViewHolder(@NonNull View itemView) {
     super(itemView);
   }
 

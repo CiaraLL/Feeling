@@ -2,6 +2,7 @@ package com.li.feeling.notification;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import android.os.Bundle;
 import android.view.View;
@@ -29,6 +30,7 @@ import com.li.framework.scheduler_utility.SchedulerManager;
 import com.li.library.recycler.LiRecyclerItemViewData;
 import com.li.message.R;
 
+import io.reactivex.Observable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Action;
 import io.reactivex.functions.Consumer;
@@ -49,7 +51,11 @@ public class NotificationFragment extends BaseFragment {
   @Nullable
   private Disposable mNotificationListDisposable;
 
+  //轮询的
+  @NonNull
+  private Disposable mPollingDisposable;
   // 下拉刷新
+
   @NonNull
   private final SwipeRefreshLayout.OnRefreshListener mRefreshListener =
       this::refreshNotificationList;
@@ -57,6 +63,23 @@ public class NotificationFragment extends BaseFragment {
   @Override
   protected int getLayoutResId() {
     return R.layout.fragment_notification_layout;
+  }
+
+  @Override
+  public void onResume() {
+    super.onResume();
+    startPolling();
+  }
+
+  private void  startPolling(){
+    mPollingDisposable = Observable.interval(5,TimeUnit.MILLISECONDS)
+        .observeOn(SchedulerManager.MAIN)
+        .subscribe(new Consumer<Long>() {
+          @Override
+          public void accept(Long aLong) throws Exception {
+            refreshNotificationList();
+          }
+        });
   }
 
   @Override
@@ -151,6 +174,7 @@ public class NotificationFragment extends BaseFragment {
   public void onDestroy() {
     super.onDestroy();
     RxUtil.dispose(mNotificationListDisposable);
+    RxUtil.dispose(mPollingDisposable);
   }
 
 }

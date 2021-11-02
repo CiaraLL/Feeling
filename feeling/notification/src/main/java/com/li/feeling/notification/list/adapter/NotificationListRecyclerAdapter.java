@@ -12,7 +12,7 @@ import com.li.library.recycler.LiRecyclerItemViewData;
 import com.li.message.R;
 import com.li.feeling.notification.list.viewdata.type.NotificationListItemViewDataType;
 import com.li.feeling.notification.list.viewholder.NotificationListFooterItemViewHolder;
-import com.li.feeling.notification.list.viewholder.NitificationListFeelLikeItemViewHolder;
+import com.li.feeling.notification.list.viewholder.NotificationListFeelLikeItemViewHolder;
 
 /**
  * 通知列表的adapter
@@ -34,7 +34,7 @@ public class NotificationListRecyclerAdapter extends LiRecyclerAdapter<LiRecycle
       case NotificationListItemViewDataType.FEEL_LIKE:
         View itemView = LayoutInflater.from(mContext)
             .inflate(R.layout.notification_list_noti_item_layout,parent,false);
-        return new NitificationListFeelLikeItemViewHolder(itemView);
+        return new NotificationListFeelLikeItemViewHolder(itemView);
       case NotificationListItemViewDataType.FOOTER:
         View footerView = LayoutInflater.from(mContext)
             .inflate(R.layout.notification_list_footer_item_layout,parent,false);
