@@ -1,12 +1,8 @@
 package com.li.feeling.common.like.likeservice;
 
 import java.io.Serializable;
-import java.util.List;
-
-import androidx.annotation.NonNull;
 
 import com.google.gson.annotations.SerializedName;
-import com.li.feeling.model.notification.FeelingNotification;
 
 /**
  * 点赞接口的回执

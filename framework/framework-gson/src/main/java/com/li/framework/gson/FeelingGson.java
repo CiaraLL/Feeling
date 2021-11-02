@@ -1,6 +1,9 @@
 package com.li.framework.gson;
 
+import java.lang.reflect.Type;
+
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 /**
  * description: Gson的工具类
@@ -10,9 +13,18 @@ import com.google.gson.Gson;
  * 但是接口请求方希望接口返回的数据是B，那我们就可以注册一个解析A类型数据的adapter(加工成B返回)给gson，
  * 这样比如好几个业务都在用该接口，就不用自己收到A数据后在手动解析为B了(统一在gsonAdapter中做，对业务是透明的)
  */
-// TODO: 9/24/21 可以提供一些让外界注册adapter的一些操作
 public class FeelingGson {
 
-  public static final Gson GSON = new Gson();
+  public static Gson GSON = new Gson();
+  public static final GsonBuilder GSON_BUILDER = new GsonBuilder();
+
+  public static void init(){
+    GSON = GSON_BUILDER.create();
+  }
+
+  // 注册gson的适配器,注意要在init函数之前调用，否则不生效
+  public static void registerAdapter(Type type, Object adapter){
+    GSON_BUILDER.registerTypeAdapter(type, adapter);
+  }
 
 }

@@ -13,7 +13,6 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.li.feeling.model.CurrentUser;
 import com.li.feeling.model.notification.FeelingBaseNotification;
-import com.li.feeling.model.notification.FeelingNotification;
 import com.li.feeling.model.notification.FeelingNotificationType;
 import com.li.feeling.model.notification.business.FeelLikeNotification;
 import com.li.feeling.notification.list.adapter.NotificationListRecyclerAdapter;
@@ -125,7 +124,7 @@ public class NotificationFragment extends BaseFragment {
     List<LiRecyclerItemViewData> itemViewDataList = new ArrayList<>();
 
     // 把原始的业务数据转化为列表需要的UI数据
-    for (FeelingNotification notification : notificationList) {
+    for (FeelingBaseNotification notification : notificationList) {
 
       // 点赞通知
       if (notification.getType() == FeelingNotificationType.FEEL_LIKE) {
@@ -134,7 +133,7 @@ public class NotificationFragment extends BaseFragment {
             new NotificationListFeelLikeItemViewData();
         itemViewData.mAvatarResId = R.drawable.mine_head_my_photo;
         itemViewData.mName = feelLikeNotification.getUser().mNickName;
-        itemViewData.mContent = "点赞了你的feel";
+        itemViewData.mContent = feelLikeNotification.getTip();
         // TODO: 2021/10/29 时间戳格式化
         itemViewData.mTime = feelLikeNotification.getTime() + "";
 

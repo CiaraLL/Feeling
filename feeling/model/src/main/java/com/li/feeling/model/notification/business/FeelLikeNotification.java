@@ -1,5 +1,6 @@
 package com.li.feeling.model.notification.business;
 
+import com.google.gson.annotations.SerializedName;
 import com.li.feeling.model.Feel;
 import com.li.feeling.model.User;
 import com.li.feeling.model.notification.FeelingBaseNotification;
@@ -11,18 +12,19 @@ import com.li.feeling.model.notification.FeelingNotificationType;
 public class FeelLikeNotification extends FeelingBaseNotification {
 
   // feel
+  @SerializedName("feel")
   private Feel mFeel;
   // 点赞的人
+  @SerializedName("user")
   private User mUser;
+  // 显示的文案
+  @SerializedName("tip")
+  private String mTip;
 
   public FeelLikeNotification(long time) {
-    super(time);
+    super(FeelingNotificationType.FEEL_LIKE, time);
   }
 
-  @Override
-  public int getType() {
-    return FeelingNotificationType.FEEL_LIKE;
-  }
 
   public Feel getFeel() {
     return mFeel;
@@ -38,5 +40,13 @@ public class FeelLikeNotification extends FeelingBaseNotification {
 
   public void setUser(User user) {
     mUser = user;
+  }
+
+  public String getTip() {
+    return mTip;
+  }
+
+  public void setTip(String tip) {
+    mTip = tip;
   }
 }

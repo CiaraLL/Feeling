@@ -8,6 +8,7 @@ dependencies {
     implementation 'androidx.annotation:annotation:1.2.0'
     implementation project(path: ':framework:framework-sharedpreferences')
     implementation project(path: ':framework:framework-gson')
+    implementation project(path: ':feeling:model')
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'

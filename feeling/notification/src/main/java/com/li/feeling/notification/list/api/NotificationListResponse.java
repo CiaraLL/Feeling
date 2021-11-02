@@ -7,7 +7,6 @@ import androidx.annotation.NonNull;
 
 import com.google.gson.annotations.SerializedName;
 import com.li.feeling.model.notification.FeelingBaseNotification;
-import com.li.feeling.model.notification.FeelingNotification;
 
 /**
  * description: 通知列表的接口回执
