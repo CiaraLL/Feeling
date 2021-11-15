@@ -5,5 +5,5 @@ package com.li.framework.network;
  */
 public class NetworkConfig {
 
-  public static String mTempHost = "192.168.1.8";
+  public static String mTempHost = "192.168.1.9";
 }

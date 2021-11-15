@@ -32,6 +32,7 @@ public abstract class BaseFragment extends Fragment {
       mRootView = inflater.inflate(getLayoutResId(), container, false);
     }
     return mRootView;
+    
   }
 
   @Override
@@ -55,5 +56,6 @@ public abstract class BaseFragment extends Fragment {
   // fragment的布局
   @LayoutRes
   protected abstract int getLayoutResId();
+
 
 }
