@@ -31,6 +31,7 @@ import com.li.feeling.model.FeelPublishSuccessEvent;
 import com.li.feeling.publish.PublishFeelActivity;
 import com.li.fragment.base_page.fragment.BaseFragment;
 import com.li.framework.common_util.RxUtil;
+import com.li.framework.common_util.TimeUtil;
 import com.li.framework.common_util.ToastUtil;
 import com.li.framework.network.FeelingException;
 import com.li.framework.network.FeelingResponseTransformer;
@@ -192,7 +193,8 @@ public class HomeFragment extends BaseFragment {
       HomeFeelingListFeelItemViewData feelItemViewData = new HomeFeelingListFeelItemViewData();
       feelItemViewData.mAvatarResId = R.drawable.mine_head_my_photo;
       feelItemViewData.mName = feel.mUser.mNickName;
-      feelItemViewData.mTime = feel.mPublishTime + "";
+      feelItemViewData.mTime = TimeUtil
+          .getFormatTime(feel.mPublishTime, TimeUtil.TimeFormat.DATE_FORMAT_YY_MM_DD_HH_MM_SS);
       feelItemViewData.mContentText = feel.mContentText;
       feelItemViewData.mLikeNum = feel.mLikeNum;
       feelItemViewData.mIsLike = feel.mIsLike;
