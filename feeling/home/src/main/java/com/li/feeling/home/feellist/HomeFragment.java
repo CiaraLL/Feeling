@@ -54,7 +54,7 @@ public class HomeFragment extends BaseFragment {
   private Button mAddFeelView;
 
   @Nullable
-  private Disposable mFeelListDisposable;
+  private Disposable mFeelListApiDisposable;
 
   @Nullable
   private List<Feel> mFeelList;
@@ -150,7 +150,7 @@ public class HomeFragment extends BaseFragment {
   // 刷新feel列表:网络请求
   @NonNull
   private void refreshFeelList() {
-    mFeelListDisposable = IHomeFeelListApiService.get()
+    mFeelListApiDisposable = IHomeFeelListApiService.get()
         .getFeelListData(CurrentUser.get().getUser().mId)
         .observeOn(SchedulerManager.MAIN)
         .map(FeelingResponseTransformer.transform())
@@ -218,6 +218,6 @@ public class HomeFragment extends BaseFragment {
   public void onDestroy() {
     super.onDestroy();
     EventBus.getDefault().unregister(this);
-    RxUtil.dispose(mFeelListDisposable);
+    RxUtil.dispose(mFeelListApiDisposable);
   }
 }

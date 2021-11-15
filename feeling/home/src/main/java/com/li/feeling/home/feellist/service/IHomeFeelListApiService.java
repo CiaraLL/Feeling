@@ -2,7 +2,6 @@ package com.li.feeling.home.feellist.service;
 
 import androidx.annotation.NonNull;
 
-import com.li.feeling.model.User;
 import com.li.framework.network.FeelingResponse;
 import com.li.framework.network.FeelingRetrofitConfig;
 import com.li.framework.network.FeelingUrl;
@@ -21,13 +20,13 @@ public interface IHomeFeelListApiService {
 
   // 单例
   @NonNull
-  IHomeFeelListApiService sFeelListApiService = RetrofitManager.getInstance().create(
+  IHomeFeelListApiService sListApiService = RetrofitManager.getInstance().create(
       new FeelingRetrofitConfig(FeelingUrl.HOME_FEEL_LIST, SchedulerManager.NETWORKING),
       IHomeFeelListApiService.class);
 
   @NonNull
   static IHomeFeelListApiService get() {
-    return sFeelListApiService;
+    return sListApiService;
   }
 
   // 获取列表数据
