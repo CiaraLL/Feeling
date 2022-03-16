@@ -22,14 +22,6 @@ public class RetrofitManager {
     static RetrofitManager INSTANCE = new RetrofitManager();
   }
 
-  // 保证在整个app启动的时候就赋值,因此此处标记为NonNull
-  @NonNull
-  private IRetrofitInitConfig mInitConfig;
-
-  public void init(@NonNull IRetrofitInitConfig initConfig) {
-    mInitConfig = initConfig;
-  }
-
   /**
    * 创建service实例(实际上返回的是该service的proxy)
    *
