@@ -42,7 +42,6 @@
             <option value="$PROJECT_DIR$/resources/color-library" />
           </set>
         </option>
-        <option name="resolveModulePerSourceSet" value="false" />
       </GradleProjectSettings>
     </option>
   </component>
